@@ -6,14 +6,16 @@ enabled/disabled and the GPG key is imported.  In the end you will end up with
 the EPEL repos configured.
 
 The following Repos will be setup and enabled by default:
-* epel
+
+  * epel
 
 Other repositories that will setup but disabled (as per the epel-release setup)
-* epel-debuginfo
-* epel-source
-* epel-testing
-* epel-testing-debuginfo
-* epel-testing-source
+
+  * epel-debuginfo
+  * epel-source
+  * epel-testing
+  * epel-testing-debuginfo
+  * epel-testing-source
 
 # Proxy
 If you have an http proxy required to access the internet, you can use the
@@ -38,10 +40,12 @@ This does mean that if you are looking for RPM macros that are normally
 included with EPEL release, this will not have them.
 
 # Futher Information
-* [http://fedoraproject.org/wiki/EPEL EPEL Wiki]
-* [http://mirrors.servercentral.net/fedora/epel/6/i386/repoview/epel-release.html epel-release package information]
+
+* [EPEL Wiki](http://fedoraproject.org/wiki/EPEL)
+* [epel-release package information](http://mirrors.servercentral.net/fedora/epel/6/i386/repoview/epel-release.html)
 
 # Testing
+
 * This was tested using Puppet 2.7.x on Centos5/6
 * I assume it will work on any RHEL variant
 * Also, I think this should work with earlier versions of Puppet (2.6.x at least)
