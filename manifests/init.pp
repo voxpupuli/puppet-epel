@@ -88,4 +88,4 @@ class epel inherits epel::params {
       notice ("Your operating system ${::operatingsystem} will not have the EPEL repository applied")
   }
 
-  }
+}
