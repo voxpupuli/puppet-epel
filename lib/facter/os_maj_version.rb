@@ -4,8 +4,8 @@
 # much of an issue.
 
 Facter.add(:os_maj_version) do
-  v = Facter.value(:operatingsystemrelease)
   setcode do
+    v = Facter.value(:operatingsystemrelease)
     v.split('.')[0].strip
   end
 end
