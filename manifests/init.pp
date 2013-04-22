@@ -11,7 +11,7 @@
 #
 class epel inherits epel::params {
 
-  if $::osfamily == 'RedHat' and $::operatingsystem != 'Fedora' {
+  if $::osfamily == 'RedHat' and $::operatingsystem != 'Fedora' or $::osfamily == 'Linux' and $::operatingsystem == 'Amazon' {
 
     yumrepo { 'epel-testing':
       baseurl        => "http://download.fedora.redhat.com/pub/epel/testing/${::os_maj_version}/${::architecture}",
