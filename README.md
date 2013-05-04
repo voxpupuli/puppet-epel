@@ -51,6 +51,11 @@ included with EPEL release, this will not have them.
 * I assume it will work on any RHEL variant
 * Also, I think this should work with earlier versions of Puppet (2.6.x at least)
 
+## Unit tests
+
+    $ bundle install
+    $ rake spec:all
+
 # License
 Apache Software License 2.0
 
