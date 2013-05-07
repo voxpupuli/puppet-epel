@@ -1,24 +1,51 @@
 require 'spec_helper'
 
-%w{ 6.4 5.9 }.each do |os_version|
-  os_maj_version = os_version.split('.')[0]
-
-  describe 'epel::rpm_gpg_key' do
+describe 'epel::rpm_gpg_key' do
+  context 'os_maj_version => 6' do
     include_context :default_facts
 
     let :facts do
       {
-        :operatingsystemrelease => os_version,
-        :os_maj_version         => os_maj_version,
+        :operatingsystemrelease => '6.4',
+        :os_maj_version         => '6',
       }.merge(default_facts)
     end
     
     let :title do
-      "EPEL-#{os_maj_version}"
+      'EPEL-6'
     end
   
     let :params do
-      { :path => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-#{os_maj_version}" }
+      { :path => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6" }
+    end
+
+    it do
+      should contain_exec("import-#{title}").with({
+        'path'      => '/bin:/usr/bin:/sbin:/usr/sbin',
+        'command'   => "rpm --import #{params[:path]}",
+        'unless'    => "rpm -q gpg-pubkey-$(echo $(gpg --throw-keyids < #{params[:path]}) | cut --characters=11-18 | tr [A-Z] [a-z])",
+        'require'   => "File[#{params[:path]}]",
+        'logoutput' => 'on_failure',
+      })
+    end
+  end
+
+  context 'os_maj_version => 5' do
+    include_context :default_facts
+
+    let :facts do
+      {
+        :operatingsystemrelease => '5.9',
+        :os_maj_version         => '5',
+      }.merge(default_facts)
+    end
+    
+    let :title do
+      'EPEL-5'
+    end
+  
+    let :params do
+      { :path => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5" }
     end
 
     it do
