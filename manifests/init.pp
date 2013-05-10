@@ -11,7 +11,7 @@
 #
 class epel inherits epel::params {
 
-  if $::osfamily == 'RedHat' and $::operatingsystem != 'Fedora' {
+  if $::osfamily == 'RedHat' and $::operatingsystem !~ /Fedora|Amazon/ {
 
     yumrepo { 'epel-testing':
       baseurl        => "http://download.fedora.redhat.com/pub/epel/testing/${::os_maj_version}/${::architecture}",
@@ -84,6 +84,17 @@ class epel inherits epel::params {
     epel::rpm_gpg_key{ "EPEL-${::os_maj_version}":
       path => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}"
     }
+
+  } elsif $::osfamily == 'RedHat' and $::operatingsystem == 'Amazon' {
+
+    # EPEL is already installed in all AWS Linux AMI
+    # we just need to enable it
+    yumrepo { 'epel':
+      enabled  => 1,
+      gpgcheck => 1,
+
+    }
+
   } else {
       notice ("Your operating system ${::operatingsystem} will not have the EPEL repository applied")
   }
