@@ -14,7 +14,7 @@ class epel inherits epel::params {
   if $::osfamily == 'RedHat' and $::operatingsystem != 'Fedora' {
 
     yumrepo { 'epel-testing':
-      baseurl        => "http://download.fedora.redhat.com/pub/epel/testing/${::os_maj_version}/${::architecture}",
+      baseurl        => "http://download.fedoraproject.org/pub/epel/testing/${::os_maj_version}/${::architecture}",
       failovermethod => 'priority',
       proxy          => $epel::params::proxy,
       enabled        => '0',
@@ -24,7 +24,7 @@ class epel inherits epel::params {
     }
 
     yumrepo { 'epel-testing-debuginfo':
-      baseurl        => "http://download.fedora.redhat.com/pub/epel/testing/${::os_maj_version}/${::architecture}/debug",
+      baseurl        => "http://download.fedoraproject.org/pub/epel/testing/${::os_maj_version}/${::architecture}/debug",
       failovermethod => 'priority',
       proxy          => $epel::params::proxy,
       enabled        => '0',
@@ -34,7 +34,7 @@ class epel inherits epel::params {
     }
 
     yumrepo { 'epel-testing-source':
-      baseurl        => "http://download.fedora.redhat.com/pub/epel/testing/${::os_maj_version}/SRPMS",
+      baseurl        => "http://download.fedoraproject.org/pub/epel/testing/${::os_maj_version}/SRPMS",
       failovermethod => 'priority',
       proxy          => $epel::params::proxy,
       enabled        => '0',
