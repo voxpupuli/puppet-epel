@@ -55,14 +55,14 @@ included with EPEL release, this will not have them.
 Apache Software License 2.0
 
 # Author/Contributors
-    *  Chad Metcalf <metcalfc@gmail.com>
-    *  Joseph Swick <joseph.swick@meltwater.com>
-    *  Matthaus Owens <mlitteken@gmail.com>
-    *  Michael Stahnke <stahnma@puppetlabs.com>
-    *  Michael Stahnke <stahnma@websages.com>
-    *  Pro Cabales <proletaryo@gmail.com>
-    *  Proletaryo Cabales <proletaryo@gmail.com>
-    *  Stefan Goethals <stefan@zipkid.eu>
-    *  Tim Rupp <caphrim007@gmail.com>
-    *  Troy Bollinger <troy@us.ibm.com>
-    *  Vlastimil Holer <holer@ics.muni.cz>
+  *  Chad Metcalf <metcalfc@gmail.com>
+  *  Joseph Swick <joseph.swick@meltwater.com>
+  *  Matthaus Owens <mlitteken@gmail.com>
+  *  Michael Stahnke <stahnma@puppetlabs.com>
+  *  Michael Stahnke <stahnma@websages.com>
+  *  Pro Cabales <proletaryo@gmail.com>
+  *  Proletaryo Cabales <proletaryo@gmail.com>
+  *  Stefan Goethals <stefan@zipkid.eu>
+  *  Tim Rupp <caphrim007@gmail.com>
+  *  Troy Bollinger <troy@us.ibm.com>
+  *  Vlastimil Holer <holer@ics.muni.cz>
