@@ -82,7 +82,8 @@ class epel ( $proxy = $epel::params::proxy ) inherits epel::params {
     }
 
     epel::rpm_gpg_key{ "EPEL-${::os_maj_version}":
-      path => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}"
+      path   => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}",
+      before => Yumrepo['epel','epel-source','epel-debuginfo','epel-testing','epel-testing-source','epel-testing-debuginfo'],
     }
   } else {
       notice ("Your operating system ${::operatingsystem} will not have the EPEL repository applied")
