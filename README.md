@@ -47,6 +47,7 @@ included with EPEL release, this will not have them.
 # Testing
 
 * This was tested using Puppet 2.7.x on Centos5/6
+* This was tested using Puppet 3.1.1 on Amazon's AWS Linux
 * I assume it will work on any RHEL variant
 * Also, I think this should work with earlier versions of Puppet (2.6.x at least)
 
