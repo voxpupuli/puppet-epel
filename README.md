@@ -18,10 +18,9 @@ Other repositories that will setup but disabled (as per the epel-release setup)
   * epel-testing-source
 
 # Proxy
-If you have an http proxy required to access the internet, you can use the
-$proxy variable in the params.pp file. If it is set to a value other than
-'absent' a proxy will be setup with each repository.  Note that otherwise each
-of the repos will fall back to settings in the /etc/yum.conf file.
+If you have an http proxy required to access the internet, you can use either
+a class parameter in the _epel_ class, or edit the $proxy variable in the
+params.pp file. By default no proxy is assumed.
 
 # Why?
 I am a big fan of EPEL. I actually was one of the people who helped get it
@@ -46,6 +45,7 @@ included with EPEL release, this will not have them.
 
 # Testing
 
+* This is commonly used on Puppet Enterprise 2.x and 3.x
 * This was tested using Puppet 2.7.x on Centos5/6
 * This was tested using Puppet 3.1.1 on Amazon's AWS Linux
 * I assume it will work on any RHEL variant
@@ -53,3 +53,16 @@ included with EPEL release, this will not have them.
 
 # License
 Apache Software License 2.0
+
+# Author/Contributors
+    *  Chad Metcalf <metcalfc@gmail.com>
+    *  Joseph Swick <joseph.swick@meltwater.com>
+    *  Matthaus Owens <mlitteken@gmail.com>
+    *  Michael Stahnke <stahnma@puppetlabs.com>
+    *  Michael Stahnke <stahnma@websages.com>
+    *  Pro Cabales <proletaryo@gmail.com>
+    *  Proletaryo Cabales <proletaryo@gmail.com>
+    *  Stefan Goethals <stefan@zipkid.eu>
+    *  Tim Rupp <caphrim007@gmail.com>
+    *  Troy Bollinger <troy@us.ibm.com>
+    *  Vlastimil Holer <holer@ics.muni.cz>
