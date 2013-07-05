@@ -2,13 +2,11 @@ require 'spec_helper'
 
 describe 'epel::rpm_gpg_key' do
   context 'os_maj_version => 6' do
-    include_context :default_facts
-
     let :facts do
-      {
+      default_facts.merge({
         :operatingsystemrelease => '6.4',
         :os_maj_version         => '6',
-      }.merge(default_facts)
+      })
     end
     
     let :title do
@@ -23,7 +21,7 @@ describe 'epel::rpm_gpg_key' do
       should contain_exec("import-#{title}").with({
         'path'      => '/bin:/usr/bin:/sbin:/usr/sbin',
         'command'   => "rpm --import #{params[:path]}",
-        'unless'    => "rpm -q gpg-pubkey-$(echo $(gpg --throw-keyids < #{params[:path]}) | cut --characters=11-18 | tr [A-Z] [a-z])",
+        'unless'    => "rpm -q gpg-pubkey-$(echo $(gpg --throw-keyids < #{params[:path]}) | cut --characters=11-18 | tr '[A-Z]' '[a-z]')",
         'require'   => "File[#{params[:path]}]",
         'logoutput' => 'on_failure',
       })
@@ -31,13 +29,11 @@ describe 'epel::rpm_gpg_key' do
   end
 
   context 'os_maj_version => 5' do
-    include_context :default_facts
-
     let :facts do
-      {
+      default_facts.merge({
         :operatingsystemrelease => '5.9',
         :os_maj_version         => '5',
-      }.merge(default_facts)
+      })
     end
     
     let :title do
@@ -52,7 +48,7 @@ describe 'epel::rpm_gpg_key' do
       should contain_exec("import-#{title}").with({
         'path'      => '/bin:/usr/bin:/sbin:/usr/sbin',
         'command'   => "rpm --import #{params[:path]}",
-        'unless'    => "rpm -q gpg-pubkey-$(echo $(gpg --throw-keyids < #{params[:path]}) | cut --characters=11-18 | tr [A-Z] [a-z])",
+        'unless'    => "rpm -q gpg-pubkey-$(echo $(gpg --throw-keyids < #{params[:path]}) | cut --characters=11-18 | tr '[A-Z]' '[a-z]')",
         'require'   => "File[#{params[:path]}]",
         'logoutput' => 'on_failure',
       })
