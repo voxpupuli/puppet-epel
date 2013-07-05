@@ -1,16 +1,21 @@
 require 'spec_helper'
 
-describe 'os_maj_version' do
-  before  { Facter.clear }
-  after   { Facter.clear }
+describe 'os_maj_version fact' do
+  before :each do
+    Facter.clear
+  end
 
-  %w{ 6.4 5.9 }.each do |os_version|
-    context "operatingsystemrelease => #{os_version}" do
-      major = os_version.split('.')[0]
-      it "Should have a major version #{major}" do
-        Facter.fact(:operatingsystemrelease).stubs(:value).returns os_version
-        Facter.fact(:os_maj_version).value.should == major
-      end
+  context "on 5.9 operatingsystemrelease" do
+    it "should have os_maj_version => 5" do
+      Facter.fact(:operatingsystemrelease).stubs(:value).returns("5.9")
+      Facter.fact(:os_maj_version).value.should == "5"
+    end
+  end
+
+  context "on 6.4 operatingsystemrelease" do
+    it "should have os_maj_version => 6" do
+      Facter.fact(:operatingsystemrelease).stubs(:value).returns("6.4")
+      Facter.fact(:os_maj_version).value.should == "6"
     end
   end
 end
