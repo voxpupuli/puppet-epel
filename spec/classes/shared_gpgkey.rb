@@ -19,8 +19,6 @@ shared_context :gpgkey_6 do
 end
 
 shared_context :gpgkey_5 do
-  it { should contain_class('epel') }
-
   it do
     should contain_file("/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5").with({
       'ensure' => 'present',

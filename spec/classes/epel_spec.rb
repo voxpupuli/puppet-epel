@@ -8,41 +8,63 @@ require 'classes/shared_testing_source'
 require 'classes/shared_testing_debuginfo'
 
 describe 'epel' do
+  it { should create_class('epel') }
   it { should contain_class('epel::params') }
 
-  context 'os_maj_version => 6' do
-    include_context :default_facts
-    include_context :gpgkey_6
-    include_context :base_6
-    include_context :epel_source_6
-    include_context :epel_debuginfo_6
-    include_context :epel_testing_6
-    include_context :epel_testing_source_6
-    include_context :epel_testing_debuginfo_6
+  context "operatingsystem => #{default_facts[:operatingsystem]}" do
+    context 'os_maj_version => 6' do
+      include_context :base_6
+      include_context :gpgkey_6
+      include_context :epel_source_6
+      include_context :epel_debuginfo_6
+      include_context :epel_testing_6
+      include_context :epel_testing_source_6
+      include_context :epel_testing_debuginfo_6
 
-    let :facts do
-      {
-        :operatingsystemrelease => '6.4',
-        :os_maj_version         => '6',
-      }.merge(default_facts)
+      let :facts do
+        default_facts.merge({
+          :operatingsystemrelease => '6.4',
+          :os_maj_version         => '6',
+        })
+      end
+    end
+
+    context 'os_maj_version => 5' do
+      include_context :base_5
+      include_context :gpgkey_5
+      include_context :epel_source_5
+      include_context :epel_debuginfo_5
+      include_context :epel_testing_5
+      include_context :epel_testing_source_5
+      include_context :epel_testing_debuginfo_5
+
+      let :facts do
+        default_facts.merge({
+          :operatingsystemrelease => '5.9',
+          :os_maj_version         => '5',
+        })
+      end
     end
   end
 
-  context 'os_maj_version => 5' do
-    include_context :default_facts
-    include_context :gpgkey_5
-    include_context :base_5
-    include_context :epel_source_5
-    include_context :epel_debuginfo_5
-    include_context :epel_testing_5
-    include_context :epel_testing_source_5
-    include_context :epel_testing_debuginfo_5
-
+  context 'operatingsystem => Amazon' do    
     let :facts do
-      {
-        :operatingsystemrelease => '5.9',
-        :os_maj_version         => '5',
-      }.merge(default_facts)
+      default_facts.merge({
+        :operatingsystem  => 'Amazon',
+      })
+    end
+
+    it { should_not contain_yumrepo('epel-testing') }
+    it { should_not contain_yumrepo('epel-testing-debuginfo') }
+    it { should_not contain_yumrepo('epel-testing-source') }
+    it { should_not contain_yumrepo('epel-debuginfo') }
+    it { should_not contain_yumrepo('epel-source') }
+
+    it do
+      should contain_yumrepo('epel').with({
+        'enabled'   => '1',
+        'gpgcheck'  => '1',
+      })
     end
   end
 end
