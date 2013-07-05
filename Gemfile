@@ -7,5 +7,8 @@ group :development, :test do
   gem 'puppet-lint', :require => false
 end
 
-puppetversion = ENV.key?('PUPPET_VERSION') ? "= #{ENV['PUPPET_VERSION']}" : ['>= 2.7']
-gem 'puppet', puppetversion, :require => false
+if puppetversion = ENV['PUPPET_GEM_VERSION']
+  gem 'puppet', puppetversion, :require => false
+else
+  gem 'puppet', :require => false
+end
