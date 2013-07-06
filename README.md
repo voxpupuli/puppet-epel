@@ -53,8 +53,14 @@ included with EPEL release, this will not have them.
 
 ## Unit tests
 
-    $ bundle install
-    $ rake spec:all
+Install the necessary gems
+
+    bundle install
+
+Run the RSpec and puppet-lint tests
+
+    bundle exec rake ci
+
 
 # License
 Apache Software License 2.0
