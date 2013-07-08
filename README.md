@@ -60,7 +60,14 @@ Install the necessary gems
 Run the RSpec and puppet-lint tests
 
     bundle exec rake ci
+    
+## System tests
 
+If you have Vagrant >=1.1.0 you can also run system tests:
+
+    RSPEC_SET=centos-64-x64 bundle exec rake spec:system
+
+Available RSPEC_SET options are in .nodeset.yml
 
 # License
 Apache Software License 2.0
