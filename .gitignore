@@ -1,2 +1,6 @@
 Gemfile.lock
-spec/fixtures
+metadata.json
+spec/fixtures/modules/
+pkg/
+.rspec_system/
+.bundle/
