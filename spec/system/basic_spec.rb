@@ -28,9 +28,7 @@ describe 'epel class:' do
 
     # Only test for EPEL's presence if not Fedora
     if facts['operatingsystem'] !~ /Fedora/
-      context shell 'yum clean all && yum repolist enabled | grep -c epel' do
-        its(:stdout) { should_not =~ /0/ }
-        its(:stderr) { should be_empty }
+      context shell '/usr/bin/yum-config-manager epel | grep -q "\[epel\]"' do
         its(:exit_code) { should be_zero }
       end
     end
