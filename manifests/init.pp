@@ -86,7 +86,7 @@ class epel ( $proxy = $epel::params::proxy ) inherits epel::params {
       before => Yumrepo['epel','epel-source','epel-debuginfo','epel-testing','epel-testing-source','epel-testing-debuginfo'],
     }
 
-  } elsif $::osfamily == 'RedHat' and $::operatingsystem == 'Amazon' {
+  } elsif ($::osfamily == 'RedHat' or $::osfamily == 'Linux') and $::operatingsystem == 'Amazon' {
 
     # EPEL is already installed in all AWS Linux AMI
     # we just need to enable it
