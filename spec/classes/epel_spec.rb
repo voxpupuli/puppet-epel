@@ -27,6 +27,16 @@ describe 'epel' do
           :os_maj_version         => '6',
         })
       end
+
+      context 'epel_baseurl => http://example.com/epel/6/x86_64' do
+        let(:params) {{ :epel_baseurl => "http://example.com/epel/6/x86_64" }}
+        it { should contain_yumrepo('epel').with('baseurl'  => 'http://example.com/epel/6/x86_64') }
+      end
+      
+      context 'epel_mirrorlist => absent' do
+        let(:params) {{ :epel_mirrorlist => 'absent' }}
+        it { should contain_yumrepo('epel').with('mirrorlist'  => 'absent') }
+      end
     end
 
     context 'os_maj_version => 5' do
