@@ -45,11 +45,14 @@ included with EPEL release, this will not have them.
 
 # Testing
 
-* This is commonly used on Puppet Enterprise 2.x and 3.x
-* This was tested using Puppet 2.7.x on Centos5/6
+* This is commonly used on Puppet Enterprise 3.x
+* This was tested using Puppet 3.3.0 on Centos5/6
 * This was tested using Puppet 3.1.1 on Amazon's AWS Linux
 * I assume it will work on any RHEL variant
-* Also, I think this should work with earlier versions of Puppet (2.6.x at least)
+
+# Lifecycle
+* No functionality has been introduced that should break Puppet 2.6 or 2.7, but I am no longer testing these versions of Puppet as they are end-of-lifed from Puppet Labs.
+* RHEL 7 beta is out. Once EPEL 7 beta is out, I'll be testing/updating this module as well.
 
 ## Unit tests
 
@@ -60,7 +63,7 @@ Install the necessary gems
 Run the RSpec and puppet-lint tests
 
     bundle exec rake ci
-    
+
 ## System tests
 
 If you have Vagrant >=1.1.0 you can also run system tests:
@@ -82,5 +85,6 @@ Apache Software License 2.0
   *  Proletaryo Cabales <proletaryo@gmail.com>
   *  Stefan Goethals <stefan@zipkid.eu>
   *  Tim Rupp <caphrim007@gmail.com>
+  *  Trey Dockendorf <treydock@gmail.com>
   *  Troy Bollinger <troy@us.ibm.com>
   *  Vlastimil Holer <holer@ics.muni.cz>
