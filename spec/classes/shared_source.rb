@@ -16,9 +16,9 @@ shared_context :epel_source_6 do
 
   it do
     should contain_yumrepo('epel-source').with({
-      'mirrorlist'     => "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-source-6&arch=#{facts[:architecture]}",
+      'mirrorlist'     => "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-source-6&arch=$basearch",
       'gpgkey'         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6",
-      'descr'          => "Extra Packages for Enterprise Linux 6 - #{facts[:architecture]} - Source",
+      'descr'          => "Extra Packages for Enterprise Linux 6 - $basearch - Source",
     })
   end
 end
@@ -28,9 +28,9 @@ shared_context :epel_source_5 do
 
   it do
     should contain_yumrepo('epel-source').with({
-      'mirrorlist'     => "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-source-5&arch=#{facts[:architecture]}",
+      'mirrorlist'     => "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-source-5&arch=$basearch",
       'gpgkey'         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5",
-      'descr'          => "Extra Packages for Enterprise Linux 5 - #{facts[:architecture]} - Source",
+      'descr'          => "Extra Packages for Enterprise Linux 5 - $basearch - Source",
     })
   end
 end
