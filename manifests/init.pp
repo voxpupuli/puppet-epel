@@ -4,7 +4,8 @@
 #   Configure the proper repositories and import GPG keys
 #
 # Reqiures:
-#   You should probably be on an Enterprise Linux variant. (Centos, RHEL, Scientific, Oracle, Ascendos, et al)
+#   You should probably be on an Enterprise Linux variant. (Centos, RHEL,
+#   Scientific, Oracle, Ascendos, et al)
 #
 # Sample Usage:
 #  include epel
