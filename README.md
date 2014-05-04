@@ -88,3 +88,4 @@ Apache Software License 2.0
   *  Trey Dockendorf <treydock@gmail.com>
   *  Troy Bollinger <troy@us.ibm.com>
   *  Vlastimil Holer <holer@ics.muni.cz>
+  *  Ewoud Kohl van Wijngaarden <e.kohlvanwijngaarden@oxilion.nl>
