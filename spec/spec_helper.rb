@@ -4,6 +4,5 @@ def default_facts
   {
     :osfamily               => 'RedHat',
     :operatingsystem        => 'CentOS',
-    :architecture           => 'x86_64',
   }
 end
