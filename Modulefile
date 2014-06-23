@@ -1,5 +1,5 @@
 name    'stahnma-epel'
-version '0.0.6'
+version '0.1.0'
 source 'http://github.com/stahnma/puppet-module-epel'
 author 'stahnma'
 license 'Apache License, Version 2.0'
