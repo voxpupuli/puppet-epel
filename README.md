@@ -52,7 +52,6 @@ included with EPEL release, this will not have them.
 
 # Lifecycle
 * No functionality has been introduced that should break Puppet 2.6 or 2.7, but I am no longer testing these versions of Puppet as they are end-of-lifed from Puppet Labs.
-* RHEL 7 beta is out. Once EPEL 7 beta is out, I'll be testing/updating this module as well.
 
 ## Unit tests
 
