@@ -12,7 +12,7 @@ describe 'epel' do
   it { should contain_class('epel::params') }
 
   context "operatingsystem => #{default_facts[:operatingsystem]}" do
-    context 'os_maj_version => 6' do
+    context 'operatingsystemmajrelease => 6' do
       include_context :base_6
       include_context :gpgkey_6
       include_context :epel_source_6
@@ -24,7 +24,7 @@ describe 'epel' do
       let :facts do
         default_facts.merge({
           :operatingsystemrelease => '6.4',
-          :os_maj_version         => '6',
+          :operatingsystemmajrelease         => '6',
         })
       end
 
@@ -39,7 +39,7 @@ describe 'epel' do
       end
     end
 
-    context 'os_maj_version => 5' do
+    context 'operatingsystemmajrelease => 5' do
       include_context :base_5
       include_context :gpgkey_5
       include_context :epel_source_5
@@ -51,13 +51,13 @@ describe 'epel' do
       let :facts do
         default_facts.merge({
           :operatingsystemrelease => '5.9',
-          :os_maj_version         => '5',
+          :operatingsystemmajrelease         => '5',
         })
       end
     end
   end
 
-  context 'operatingsystem => Amazon' do    
+  context 'operatingsystem => Amazon' do
     let :facts do
       default_facts.merge({
         :operatingsystem  => 'Amazon',

@@ -3,10 +3,10 @@ require 'spec_helper_system'
 describe 'standage usage tests:' do
   context 'test epel baseurl and mirrorlist' do
     facts = node.facts
-    os_maj_version = facts['operatingsystemrelease'].split('.')[0]
+    operatingsystemmajrelease = facts['operatingsystemrelease'].split('.')[0]
     pp = <<-EOS
       class { 'epel':
-        epel_baseurl    => 'http://dl.fedoraproject.org/pub/epel/#{os_maj_version}/x86_64/',
+        epel_baseurl    => 'http://dl.fedoraproject.org/pub/epel/#{operatingsystemmajrelease}/x86_64/',
         epel_mirrorlist => 'absent',
       }
     EOS
@@ -28,7 +28,7 @@ describe 'standage usage tests:' do
 
       # Test the yum config to ensure baseurl was defined
       context shell '/usr/bin/yum-config-manager epel | egrep "^baseurl ="' do
-        its(:stdout) { should =~ /baseurl = http:\/\/dl.fedoraproject.org\/pub\/epel\/#{os_maj_version}\/x86_64\// }
+        its(:stdout) { should =~ /baseurl = http:\/\/dl.fedoraproject.org\/pub\/epel\/#{operatingsystemmajrelease}\/x86_64\// }
       end
     end
   end
