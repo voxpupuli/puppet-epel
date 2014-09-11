@@ -53,8 +53,8 @@ class epel (
       proxy          => $epel_testing_proxy,
       enabled        => $epel_testing_enabled,
       gpgcheck       => $epel_testing_gpgcheck,
-      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}",
-      descr          => "Extra Packages for Enterprise Linux ${::os_maj_version} - Testing - \$basearch ",
+      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
+      descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - Testing - \$basearch ",
     }
 
     yumrepo { 'epel-testing-debuginfo':
@@ -63,8 +63,8 @@ class epel (
       proxy          => $epel_testing_debuginfo_proxy,
       enabled        => $epel_testing_debuginfo_enabled,
       gpgcheck       => $epel_testing_debuginfo_gpgcheck,
-      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}",
-      descr          => "Extra Packages for Enterprise Linux ${::os_maj_version} - Testing - \$basearch - Debug",
+      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
+      descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - Testing - \$basearch - Debug",
     }
 
     yumrepo { 'epel-testing-source':
@@ -73,8 +73,8 @@ class epel (
       proxy          => $epel_testing_source_proxy,
       enabled        => $epel_testing_source_enabled,
       gpgcheck       => $epel_testing_source_gpgcheck,
-      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}",
-      descr          => "Extra Packages for Enterprise Linux ${::os_maj_version} - Testing - \$basearch - Source",
+      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
+      descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - Testing - \$basearch - Source",
     }
 
     yumrepo { 'epel':
@@ -84,8 +84,8 @@ class epel (
       proxy          => $epel_proxy,
       enabled        => $epel_enabled,
       gpgcheck       => $epel_gpgcheck,
-      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}",
-      descr          => "Extra Packages for Enterprise Linux ${::os_maj_version} - \$basearch",
+      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
+      descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch",
     }
 
     yumrepo { 'epel-debuginfo':
@@ -95,8 +95,8 @@ class epel (
       proxy          => $epel_debuginfo_proxy,
       enabled        => $epel_debuginfo_enabled,
       gpgcheck       => $epel_debuginfo_gpgcheck,
-      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}",
-      descr          => "Extra Packages for Enterprise Linux ${::os_maj_version} - \$basearch - Debug",
+      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
+      descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch - Debug",
     }
 
     yumrepo { 'epel-source':
@@ -106,20 +106,20 @@ class epel (
       proxy          => $epel_source_proxy,
       enabled        => $epel_source_enabled,
       gpgcheck       => $epel_source_gpgcheck,
-      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}",
-      descr          => "Extra Packages for Enterprise Linux ${::os_maj_version} - \$basearch - Source",
+      gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
+      descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch - Source",
     }
 
-    file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}":
+    file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}":
       ensure => present,
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
-      source => "puppet:///modules/epel/RPM-GPG-KEY-EPEL-${::os_maj_version}",
+      source => "puppet:///modules/epel/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
     }
 
-    epel::rpm_gpg_key{ "EPEL-${::os_maj_version}":
-      path    => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::os_maj_version}",
+    epel::rpm_gpg_key{ "EPEL-${::operatingsystemmajrelease}":
+      path    => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
       before  => Yumrepo['epel','epel-source','epel-debuginfo','epel-testing','epel-testing-source','epel-testing-debuginfo'],
     }
 
