@@ -6,8 +6,8 @@ describe 'epel class:' do
     its(:exit_code) { should_not == 1 }
   end
 
-  # Verify the os_maj_version fact is working
-  context shell 'facter --puppet os_maj_version' do
+  # Verify the operatingsystemmajrelease fact is working
+  context shell 'facter --puppet operatingsystemmajrelease' do
     its(:stdout) { should_not be_empty }
     its(:stderr) { should be_empty }
     its(:exit_code) { should be_zero }

@@ -119,14 +119,14 @@ class epel (
     }
 
     epel::rpm_gpg_key{ "EPEL-${::operatingsystemmajrelease}":
-      path    => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
-      before  => Yumrepo['epel','epel-source','epel-debuginfo','epel-testing','epel-testing-source','epel-testing-debuginfo'],
+      path   => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
+      before => Yumrepo['epel','epel-source','epel-debuginfo','epel-testing','epel-testing-source','epel-testing-debuginfo'],
     }
 
   } elsif $::osfamily == 'RedHat' and $::operatingsystem == 'Amazon' {
     yumrepo { 'epel':
-      enabled   => $epel_enabled,
-      gpgcheck  => $epel_gpgcheck,
+      enabled  => $epel_enabled,
+      gpgcheck => $epel_gpgcheck,
     }
   } else {
     notice ("Your operating system ${::operatingsystem} will not have the EPEL repository applied")
