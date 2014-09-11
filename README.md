@@ -43,15 +43,24 @@ included with EPEL release, this will not have them.
 * [EPEL Wiki](http://fedoraproject.org/wiki/EPEL)
 * [epel-release package information](http://mirrors.servercentral.net/fedora/epel/6/i386/repoview/epel-release.html)
 
+# ChangeLog
+
+  * Ready for 1.0 - replace Modulefile with metadata.json
+  * Replace os_maj_version custom fact with operatingsystemmajrelease
+  * Works for EPEL7 now as well.
+
 # Testing
 
-* This is commonly used on Puppet Enterprise 3.x
-* This was tested using Puppet 3.3.0 on Centos5/6
-* This was tested using Puppet 3.1.1 on Amazon's AWS Linux
-* I assume it will work on any RHEL variant (Amazon Linux is debatable as a variant)
+  * This is commonly used on Puppet Enterprise 3.x
+  * This was tested using Puppet 3.3.0 on Centos5/6
+  * This was tested using Puppet 3.1.1 on Amazon's AWS Linux
+  * I assume it will work on any RHEL variant (Amazon Linux is debatable as a variant)
+  * Amazon Linux compatability not promised, as EPEL doesn't always work with it.
 
 # Lifecycle
-* No functionality has been introduced that should break Puppet 2.6 or 2.7, but I am no longer testing these versions of Puppet as they are end-of-lifed from Puppet Labs.
+
+  * No functionality has been introduced that should break Puppet 2.6 or 2.7, but I am no longer testing these versions of Puppet as they are end-of-lifed from Puppet Labs.
+  * This also assumes a facter of greater than 1.7.0 -- at least from a testing perspective.
 
 ## Unit tests
 
@@ -75,7 +84,9 @@ Available RSPEC_SET options are in .nodeset.yml
 Apache Software License 2.0
 
 # Author/Contributors
+  *  Aaron <slapula@users.noreply.github.com>
   *  Chad Metcalf <metcalfc@gmail.com>
+  *  Ewoud Kohl van Wijngaarden <e.kohlvanwijngaarden@oxilion.nl>
   *  Joseph Swick <joseph.swick@meltwater.com>
   *  Matthaus Owens <mlitteken@gmail.com>
   *  Michael Stahnke <stahnma@puppetlabs.com>
@@ -87,4 +98,3 @@ Apache Software License 2.0
   *  Trey Dockendorf <treydock@gmail.com>
   *  Troy Bollinger <troy@us.ibm.com>
   *  Vlastimil Holer <holer@ics.muni.cz>
-  *  Ewoud Kohl van Wijngaarden <e.kohlvanwijngaarden@oxilion.nl>
