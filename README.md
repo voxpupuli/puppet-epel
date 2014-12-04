@@ -45,6 +45,7 @@ included with EPEL release, this will not have them.
 
 # ChangeLog
 
+  * Fix regression when os_maj_version fact was required
   * Ready for 1.0 - replace Modulefile with metadata.json
   * Replace os_maj_version custom fact with operatingsystemmajrelease
   * Works for EPEL7 now as well.
