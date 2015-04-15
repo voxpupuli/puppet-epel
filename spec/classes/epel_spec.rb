@@ -32,7 +32,7 @@ describe 'epel' do
         let(:params) {{ :epel_baseurl => "http://example.com/epel/7/x87_74" }}
         it { should contain_yumrepo('epel').with('baseurl'  => 'http://example.com/epel/7/x87_74') }
       end
-      
+
       context 'epel_mirrorlist => absent' do
         let(:params) {{ :epel_mirrorlist => 'absent' }}
         it { should contain_yumrepo('epel').with('mirrorlist'  => 'absent') }
@@ -75,7 +75,7 @@ describe 'epel' do
         let(:params) {{ :epel_baseurl => "http://example.com/epel/6/x86_64" }}
         it { should contain_yumrepo('epel').with('baseurl'  => 'http://example.com/epel/6/x86_64') }
       end
-      
+
       context 'epel_mirrorlist => absent' do
         let(:params) {{ :epel_mirrorlist => 'absent' }}
         it { should contain_yumrepo('epel').with('mirrorlist'  => 'absent') }
