@@ -56,6 +56,11 @@ included with EPEL release, this will not have them.
 
 # ChangeLog
 
+  1.1.0
+  * Default URLs to be https
+  * Add ability to include/exclude packages
+
+  1.0.2
   * Update README with usage section.
   * Fix regression when os_maj_version fact was required
   * Ready for 1.0 - replace Modulefile with metadata.json
@@ -101,6 +106,7 @@ Apache Software License 2.0
   *  Chad Metcalf <metcalfc@gmail.com>
   *  Ewoud Kohl van Wijngaarden <e.kohlvanwijngaarden@oxilion.nl>
   *  Joseph Swick <joseph.swick@meltwater.com>
+  *  Mickaël Canévet <mickael.canevet@camptocamp.com>
   *  Matthaus Owens <mlitteken@gmail.com>
   *  Michael Stahnke <stahnma@puppetlabs.com>
   *  Michael Stahnke <stahnma@websages.com>
@@ -111,3 +117,6 @@ Apache Software License 2.0
   *  Trey Dockendorf <treydock@gmail.com>
   *  Troy Bollinger <troy@us.ibm.com>
   *  Vlastimil Holer <holer@ics.muni.cz>
+
+# Alternatives
+If you're on CentOS 7, you can just `yum install epel-release` as it's in centos-extras.
