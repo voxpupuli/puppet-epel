@@ -28,9 +28,9 @@ describe 'epel' do
       it_behaves_like :epel_testing_source_7
       it_behaves_like :epel_testing_debuginfo_7
 
-      context 'epel_baseurl => http://example.com/epel/7/x87_74' do
-        let(:params) {{ :epel_baseurl => "http://example.com/epel/7/x87_74" }}
-        it { should contain_yumrepo('epel').with('baseurl'  => 'http://example.com/epel/7/x87_74') }
+      context 'epel_baseurl => https://example.com/epel/7/x87_74' do
+        let(:params) {{ :epel_baseurl => "https://example.com/epel/7/x87_74" }}
+        it { should contain_yumrepo('epel').with('baseurl'  => 'https://example.com/epel/7/x87_74') }
       end
 
       context 'epel_mirrorlist => absent' do
@@ -71,9 +71,9 @@ describe 'epel' do
       it_behaves_like :epel_testing_source_6
       it_behaves_like :epel_testing_debuginfo_6
 
-      context 'epel_baseurl => http://example.com/epel/6/x86_64' do
-        let(:params) {{ :epel_baseurl => "http://example.com/epel/6/x86_64" }}
-        it { should contain_yumrepo('epel').with('baseurl'  => 'http://example.com/epel/6/x86_64') }
+      context 'epel_baseurl => https://example.com/epel/6/x86_64' do
+        let(:params) {{ :epel_baseurl => "https://example.com/epel/6/x86_64" }}
+        it { should contain_yumrepo('epel').with('baseurl'  => 'https://example.com/epel/6/x86_64') }
       end
 
       context 'epel_mirrorlist => absent' do
