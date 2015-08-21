@@ -1,6 +1,6 @@
 {
   "name": "stahnma-epel",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "stahnma",
   "summary": "Setup the EPEL package repo",
   "license": "Apache License, Version 2.0",
