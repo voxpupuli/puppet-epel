@@ -97,7 +97,10 @@ class epel (
     }
 
     yumrepo { 'epel':
-      mirrorlist     => $epel_mirrorlist,
+      mirrorlist     => $epel_baseurl ? {
+        'absent' => $epel_mirrorlist,
+        default  => 'absent',
+      },
       baseurl        => $epel_baseurl,
       failovermethod => $epel_failovermethod,
       proxy          => $epel_proxy,
@@ -110,7 +113,10 @@ class epel (
     }
 
     yumrepo { 'epel-debuginfo':
-      mirrorlist     => $epel_debuginfo_mirrorlist,
+      mirrorlist     => $epel_debuginfo_baseurl ? {
+        'absent' => $epel_debuginfo_mirrorlist,
+        default  => 'absent',
+      },
       baseurl        => $epel_debuginfo_baseurl,
       failovermethod => $epel_debuginfo_failovermethod,
       proxy          => $epel_debuginfo_proxy,
@@ -123,7 +129,10 @@ class epel (
     }
 
     yumrepo { 'epel-source':
-      mirrorlist     => $epel_source_mirrorlist,
+      mirrorlist     => $epel_source_baseurl ? {
+        'absent' => $epel_source_mirrorlist,
+        default  => 'absent',
+      },
       baseurl        => $epel_source_baseurl,
       failovermethod => $epel_source_failovermethod,
       proxy          => $epel_source_proxy,
