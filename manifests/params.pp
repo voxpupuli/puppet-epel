@@ -11,7 +11,7 @@ class epel::params {
   if $::operatingsystemmajrelease {
     $os_maj_release = $::operatingsystemmajrelease
   } else {
-    $os_versions    = split($::operatingsystemrelease, '[.]')
+    $os_versions    = split("$::operatingsystemrelease", '[.]')
     $os_maj_release = $os_versions[0]
   }
 
