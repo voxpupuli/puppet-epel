@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "author": "stahnma",
   "summary": "Setup the EPEL package repo",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "source": "http://github.com/stahnma/puppet-module-epel",
   "project_page": "http://github.com/stahnma/puppet-module-epel",
   "issues_url": "https://github.com/stahnma/puppet-module-epel/issues",
