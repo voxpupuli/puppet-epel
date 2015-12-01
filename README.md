@@ -39,11 +39,11 @@ going. I am also the owner of the epel-release package, so in general this
 module should stay fairly up to date with the official upstream package.
 
 I just got sick of coding Puppet modules and basically having an assumption
-that EPEL was setup or installed.  I can now depend on this module instead.
+that EPEL was setup or installed. I can now depend on this module instead.
 
 I realize it is fairly trivial to get EPEL setup. Every now-and-then however
 the path to epel-release changes because something changes in the package (mass
-rebuild, rpm build macros updates, etc).  This  module will bypass the changing
+rebuild, rpm build macros updates, etc). This module will bypass the changing
 URL and just setup the package mirrors.
 
 This does mean that if you are looking for RPM macros that are normally
