@@ -56,6 +56,9 @@ included with EPEL release, this will not have them.
 
 # ChangeLog
 
+  1.1.1
+  * Ensure that GPG keys are using short IDs (issue #33)
+
   1.1.0
   * Default URLs to be https
   * Add ability to include/exclude packages
