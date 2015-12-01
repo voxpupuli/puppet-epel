@@ -56,6 +56,11 @@ included with EPEL release, this will not have them.
 
 # ChangeLog
 
+=======
+  1.2.0
+  * Rework testing to use TravisCI
+  * If you specify a baseurl, disable mirrorlist
+
   1.1.1
   * Ensure that GPG keys are using short IDs (issue #33)
 
@@ -75,6 +80,8 @@ included with EPEL release, this will not have them.
   * This is commonly used on Puppet Enterprise 3.x
   * This was tested using Puppet 3.3.0 on Centos5/6
   * This was tested using Puppet 3.1.1 on Amazon's AWS Linux
+  * This was tested using Puppet 3.8 and Puppet 4 now as well!
+  * Note Ruby 2.2 and Puppet 3.8 are not yet friends.
   * I assume it will work on any RHEL variant (Amazon Linux is debatable as a variant)
   * Amazon Linux compatability not promised, as EPEL doesn't always work with it.
 
@@ -82,16 +89,17 @@ included with EPEL release, this will not have them.
 
   * No functionality has been introduced that should break Puppet 2.6 or 2.7, but I am no longer testing these versions of Puppet as they are end-of-lifed from Puppet Labs.
   * This also assumes a facter of greater than 1.7.0 -- at least from a testing perspective.
+  * I'm not actively fixing bugs for anything in facter < 2 or puppet < 3.8
 
 ## Unit tests
 
 Install the necessary gems
 
-    bundle install
+    bundle install --path vendor --without system_tests
 
 Run the RSpec and puppet-lint tests
 
-    bundle exec rake ci
+    bundle exec rake test
 
 ## System tests
 
@@ -113,8 +121,10 @@ Apache Software License 2.0
   *  Matthaus Owens <mlitteken@gmail.com>
   *  Michael Stahnke <stahnma@puppetlabs.com>
   *  Michael Stahnke <stahnma@websages.com>
+  *  Nick Le Mouton <nick@noodles.net.nz>
   *  Pro Cabales <proletaryo@gmail.com>
   *  Proletaryo Cabales <proletaryo@gmail.com>
+  *  Rob Nelson <rnelson0@gmail.com>
   *  Stefan Goethals <stefan@zipkid.eu>
   *  Tim Rupp <caphrim007@gmail.com>
   *  Trey Dockendorf <treydock@gmail.com>
