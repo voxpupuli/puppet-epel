@@ -1,6 +1,6 @@
 {
   "name": "stahnma-epel",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "stahnma",
   "summary": "Setup the EPEL package repo",
   "license": "Apache-2.0",
@@ -40,5 +40,5 @@
     }
   ],
   "description": "Setup the EPEL package repo on Centos/RHEL et al",
-  "dependencies": [ ]
+  "dependencies": [ { "name": "puppetlabs/stdlib", "version_requirement": ">= 3.0.0" } ]
 }

@@ -58,6 +58,10 @@ included with EPEL release, this will not have them.
 
 =======
 
+
+ 1.2.2
+ * Add dep on stdlib for getvar function call
+
  1.2.1
  * Minor fix that lets facter 1.6 still work
  * Enforce strict variables
