@@ -57,6 +57,11 @@ included with EPEL release, this will not have them.
 # ChangeLog
 
 =======
+
+ 1.2.1
+ * Minor fix that lets facter 1.6 still work
+ * Enforce strict variables
+
   1.2.0
   * Rework testing to use TravisCI
   * If you specify a baseurl, disable mirrorlist
@@ -125,6 +130,7 @@ Apache Software License 2.0
   *  Pro Cabales <proletaryo@gmail.com>
   *  Proletaryo Cabales <proletaryo@gmail.com>
   *  Rob Nelson <rnelson0@gmail.com>
+  *  Robert Story <rstory@localhost>
   *  Stefan Goethals <stefan@zipkid.eu>
   *  Tim Rupp <caphrim007@gmail.com>
   *  Trey Dockendorf <treydock@gmail.com>
