@@ -8,7 +8,7 @@ class epel::params {
   #   the most specific declaration of proxy.
   $proxy = 'absent'
 
-  if $::operatingsystemmajrelease {
+  if getvar('::operatingsystemmajrelease') {
     $os_maj_release = $::operatingsystemmajrelease
   } else {
     $os_versions    = split("${::operatingsystemrelease}", '[.]') # lint:ignore:only_variable_string
