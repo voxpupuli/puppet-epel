@@ -59,7 +59,7 @@ class epel (
   $os_maj_release                         = $epel::params::os_maj_release,
 ) inherits epel::params {
 
-  if $::osfamily == 'RedHat' and $::operatingsystem !~ /Fedora|Amazon/ {
+  if "${::osfamily}" == 'RedHat' and "${::operatingsystem}" !~ /Fedora|Amazon/ { # lint:ignore:only_variable_string
     yumrepo { 'epel-testing':
       baseurl        => $epel_testing_baseurl,
       failovermethod => $epel_testing_failovermethod,
@@ -163,7 +163,7 @@ class epel (
       before => Yumrepo['epel','epel-source','epel-debuginfo','epel-testing','epel-testing-source','epel-testing-debuginfo'],
     }
 
-  } elsif $::osfamily == 'RedHat' and $::operatingsystem == 'Amazon' {
+  } elsif "${::osfamily}" == 'RedHat' and "${::operatingsystem}" == 'Amazon' { # lint:ignore:only_variable_string
     yumrepo { 'epel':
       enabled  => $epel_enabled,
       gpgcheck => $epel_gpgcheck,
@@ -171,5 +171,4 @@ class epel (
   } else {
     notice ("Your operating system ${::operatingsystem} will not have the EPEL repository applied")
   }
-
 }
