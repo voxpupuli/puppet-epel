@@ -29,9 +29,9 @@ You can also use a puppet one-liner to get epel onto a system.
     puppet apply -e 'include epel'
 
 # Proxy
-If you have an http proxy required to access the internet, you can use either
-a class parameter in the _epel_ class, or edit the $proxy variable in the
-params.pp file. By default no proxy is assumed.
+If you have a http proxy required to access the internet, you can use either
+a class parameter in the _epel_ class (epel_proxy), or edit the $proxy variable
+in the params.pp file. By default no proxy is assumed.
 
 # Why?
 I am a big fan of EPEL. I actually was one of the people who helped get it
