@@ -21,32 +21,38 @@ class epel::params {
   $epel_proxy                             = $proxy
   $epel_enabled                           = '1'
   $epel_gpgcheck                          = '1'
+  $epel_managed                           = true
   $epel_testing_baseurl                   = "https://download.fedoraproject.org/pub/epel/testing/${os_maj_release}/\$basearch"
   $epel_testing_failovermethod            = 'priority'
   $epel_testing_proxy                     = $proxy
   $epel_testing_enabled                   = '0'
   $epel_testing_gpgcheck                  = '1'
+  $epel_testing_managed                   = true
   $epel_source_mirrorlist                 = "https://mirrors.fedoraproject.org/mirrorlist?repo=epel-source-${os_maj_release}&arch=\$basearch"
   $epel_source_baseurl                    = 'absent'
   $epel_source_failovermethod             = 'priority'
   $epel_source_proxy                      = $proxy
   $epel_source_enabled                    = '0'
   $epel_source_gpgcheck                   = '1'
+  $epel_source_managed                    = true
   $epel_debuginfo_mirrorlist              = "https://mirrors.fedoraproject.org/mirrorlist?repo=epel-debug-${os_maj_release}&arch=\$basearch"
   $epel_debuginfo_baseurl                 = 'absent'
   $epel_debuginfo_failovermethod          = 'priority'
   $epel_debuginfo_proxy                   = $proxy
   $epel_debuginfo_enabled                 = '0'
   $epel_debuginfo_gpgcheck                = '1'
+  $epel_debuginfo_managed                 = true
   $epel_testing_source_baseurl            = "https://download.fedoraproject.org/pub/epel/testing/${os_maj_release}/SRPMS"
   $epel_testing_source_failovermethod     = 'priority'
   $epel_testing_source_proxy              = $proxy
   $epel_testing_source_enabled            = '0'
   $epel_testing_source_gpgcheck           = '1'
+  $epel_testing_source_managed            = true
   $epel_testing_debuginfo_baseurl         = "https://download.fedoraproject.org/pub/epel/testing/${os_maj_release}/\$basearch/debug"
   $epel_testing_debuginfo_failovermethod  = 'priority'
   $epel_testing_debuginfo_proxy           = $proxy
   $epel_testing_debuginfo_enabled         = '0'
   $epel_testing_debuginfo_gpgcheck        = '1'
-
+  $epel_testing_debuginfo_managed         = true
+  $epel_gpg_managed                       = true
 }
