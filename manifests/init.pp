@@ -3,7 +3,7 @@
 # Actions:
 #   Configure the proper repositories and import GPG keys
 #
-# Reqiures:
+# Requires:
 #   You should probably be on an Enterprise Linux variant. (Centos, RHEL,
 #   Scientific, Oracle, Ascendos, et al)
 #
