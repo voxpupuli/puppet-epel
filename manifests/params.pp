@@ -27,7 +27,8 @@ class epel::params {
   $epel_proxy                             = $proxy
   $epel_enabled                           = '1'
   $epel_gpgcheck                          = '1'
-  $epel_testing_baseurl                   = "https://download.fedoraproject.org/pub/epel/testing/${os_maj_release}/\$basearch"
+  $epel_testing_mirrorlist                = "https://mirrors.fedoraproject.org/${url_path}?repo=testing-epel${os_maj_release}&arch=\$basearch"
+  $epel_testing_baseurl                   = 'absent'
   $epel_testing_failovermethod            = 'priority'
   $epel_testing_proxy                     = $proxy
   $epel_testing_enabled                   = '0'
@@ -44,12 +45,14 @@ class epel::params {
   $epel_debuginfo_proxy                   = $proxy
   $epel_debuginfo_enabled                 = '0'
   $epel_debuginfo_gpgcheck                = '1'
-  $epel_testing_source_baseurl            = "https://download.fedoraproject.org/pub/epel/testing/${os_maj_release}/SRPMS"
+  $epel_testing_source_mirrorlist         = "https://mirrors.fedoraproject.org/${url_path}?repo=testing-source-epel${os_maj_release}&arch=\$basearch"
+  $epel_testing_source_baseurl            = 'absent'
   $epel_testing_source_failovermethod     = 'priority'
   $epel_testing_source_proxy              = $proxy
   $epel_testing_source_enabled            = '0'
   $epel_testing_source_gpgcheck           = '1'
-  $epel_testing_debuginfo_baseurl         = "https://download.fedoraproject.org/pub/epel/testing/${os_maj_release}/\$basearch/debug"
+  $epel_testing_debuginfo_mirrorlist      = "https://mirrors.fedoraproject.org/${url_path}?repo=testing-debug-epel${os_maj_release}&arch=\$basearch"
+  $epel_testing_debuginfo_baseurl         = 'absent'
   $epel_testing_debuginfo_failovermethod  = 'priority'
   $epel_testing_debuginfo_proxy           = $proxy
   $epel_testing_debuginfo_enabled         = '0'

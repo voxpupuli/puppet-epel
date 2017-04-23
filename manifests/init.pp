@@ -19,6 +19,7 @@ class epel (
   $epel_gpgcheck                          = $epel::params::epel_gpgcheck,
   $epel_exclude                           = undef,
   $epel_includepkgs                       = undef,
+  $epel_testing_mirrorlist                = $epel::params::epel_testing_mirrorlist,
   $epel_testing_baseurl                   = $epel::params::epel_testing_baseurl,
   $epel_testing_failovermethod            = $epel::params::epel_testing_failovermethod,
   $epel_testing_proxy                     = $epel::params::epel_testing_proxy,
@@ -42,6 +43,7 @@ class epel (
   $epel_debuginfo_gpgcheck                = $epel::params::epel_debuginfo_gpgcheck,
   $epel_debuginfo_exclude                 = undef,
   $epel_debuginfo_includepkgs             = undef,
+  $epel_testing_source_mirrorlist         = $epel::params::epel_testing_source_mirrorlist,
   $epel_testing_source_baseurl            = $epel::params::epel_testing_source_baseurl,
   $epel_testing_source_failovermethod     = $epel::params::epel_testing_source_failovermethod,
   $epel_testing_source_proxy              = $epel::params::epel_testing_source_proxy,
@@ -49,6 +51,7 @@ class epel (
   $epel_testing_source_gpgcheck           = $epel::params::epel_testing_source_gpgcheck,
   $epel_testing_source_exclude            = undef,
   $epel_testing_source_includepkgs        = undef,
+  $epel_testing_debuginfo_mirrorlist      = $epel::params::epel_testing_debuginfo_mirrorlist,
   $epel_testing_debuginfo_baseurl         = $epel::params::epel_testing_debuginfo_baseurl,
   $epel_testing_debuginfo_failovermethod  = $epel::params::epel_testing_debuginfo_failovermethod,
   $epel_testing_debuginfo_proxy           = $epel::params::epel_testing_debuginfo_proxy,
@@ -61,6 +64,12 @@ class epel (
 
   if "${::osfamily}" == 'RedHat' and "${::operatingsystem}" !~ /Fedora|Amazon/ { # lint:ignore:only_variable_string
     yumrepo { 'epel-testing':
+      # lint:ignore:selector_inside_resource
+      mirrorlist     => $epel_testing_baseurl ? {
+        'absent' => $epel_testing_mirrorlist,
+        default  => 'absent',
+      },
+      # lint:endignore
       baseurl        => $epel_testing_baseurl,
       failovermethod => $epel_testing_failovermethod,
       proxy          => $epel_testing_proxy,
@@ -73,6 +82,12 @@ class epel (
     }
 
     yumrepo { 'epel-testing-debuginfo':
+      # lint:ignore:selector_inside_resource
+      mirrorlist     => $epel_testing_debuginfo_baseurl ? {
+        'absent' => $epel_testing_debuginfo_mirrorlist,
+        default  => 'absent',
+      },
+      # lint:endignore
       baseurl        => $epel_testing_debuginfo_baseurl,
       failovermethod => $epel_testing_debuginfo_failovermethod,
       proxy          => $epel_testing_debuginfo_proxy,
@@ -85,6 +100,12 @@ class epel (
     }
 
     yumrepo { 'epel-testing-source':
+      # lint:ignore:selector_inside_resource
+      mirrorlist     => $epel_testing_source_baseurl ? {
+        'absent' => $epel_testing_source_mirrorlist,
+        default  => 'absent',
+      },
+      # lint:endignore
       baseurl        => $epel_testing_source_baseurl,
       failovermethod => $epel_testing_source_failovermethod,
       proxy          => $epel_testing_source_proxy,
