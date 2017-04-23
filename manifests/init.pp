@@ -76,7 +76,7 @@ class epel (
       enabled        => $epel_testing_enabled,
       gpgcheck       => $epel_testing_gpgcheck,
       gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
-      descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - Testing - \$basearch ",
+      descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - Testing - \$basearch",
       exclude        => $epel_testing_exclude,
       includepkgs    => $epel_testing_includepkgs,
     }
