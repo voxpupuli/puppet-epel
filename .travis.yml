@@ -1,7 +1,7 @@
 sudo: false
 cache: bundler
 language: ruby
-bundler_args: --without development
+bundler_args: --without system_tests development
 script: "bundle exec rake spec"
 rvm:
   - 1.9.3
