@@ -6,9 +6,10 @@ shared_examples_for :gpgkey_7 do
       ensure: 'present',
       owner:  'root',
       group:  'root',
-      mode:   '0644',
-      source: 'puppet:///modules/epel/RPM-GPG-KEY-EPEL-7'
+      mode:   '0644'
     )
+    is_expected.to contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7').
+      with_content(/BEGIN PGP PUBLIC KEY BLOCK/)
   end
 
   it do
@@ -24,9 +25,10 @@ shared_examples_for :gpgkey_6 do
       ensure: 'present',
       owner:  'root',
       group:  'root',
-      mode:   '0644',
-      source: 'puppet:///modules/epel/RPM-GPG-KEY-EPEL-6'
+      mode:   '0644'
     )
+    is_expected.to contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6').
+      with_content(/BEGIN PGP PUBLIC KEY BLOCK/)
   end
 
   it do
@@ -42,9 +44,10 @@ shared_examples_for :gpgkey_5 do
       ensure: 'present',
       owner:  'root',
       group:  'root',
-      mode:   '0644',
-      source: 'puppet:///modules/epel/RPM-GPG-KEY-EPEL-5'
+      mode:   '0644'
     )
+    is_expected.to contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5').
+      with_content(/BEGIN PGP PUBLIC KEY BLOCK/)
   end
 
   it do
