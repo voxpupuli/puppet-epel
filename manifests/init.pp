@@ -171,12 +171,15 @@ class epel (
       includepkgs    => $epel_source_includepkgs,
     }
 
+    # ERB template used here to avoid a dependency on a Puppet Master;
+    # nothing is interpolated in these templates.
+
     file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}":
-      ensure => present,
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0644',
-      source => "puppet:///modules/epel/RPM-GPG-KEY-EPEL-${os_maj_release}",
+      ensure  => present,
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+      content => template("epel/RPM-GPG-KEY-EPEL-${os_maj_release}.erb"),
     }
 
     epel::rpm_gpg_key{ "EPEL-${os_maj_release}":
