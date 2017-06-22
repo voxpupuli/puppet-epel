@@ -171,7 +171,7 @@ class epel (
       includepkgs    => $epel_source_includepkgs,
     }
 
-    # ERB template used here to avoid a dependency on a Puppet Master;
+    # ERB template used here to ensure file content is in the Puppet catalog;
     # nothing is interpolated in these templates.
 
     file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}":
