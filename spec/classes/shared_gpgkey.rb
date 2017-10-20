@@ -9,7 +9,7 @@ shared_examples_for :gpgkey_7 do
       mode:   '0644'
     )
     is_expected.to contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7').
-      with_content(/BEGIN PGP PUBLIC KEY BLOCK/)
+      with_content(%r{BEGIN PGP PUBLIC KEY BLOCK})
   end
 
   it do
@@ -28,7 +28,7 @@ shared_examples_for :gpgkey_6 do
       mode:   '0644'
     )
     is_expected.to contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6').
-      with_content(/BEGIN PGP PUBLIC KEY BLOCK/)
+      with_content(%r{BEGIN PGP PUBLIC KEY BLOCK})
   end
 
   it do
@@ -47,7 +47,7 @@ shared_examples_for :gpgkey_5 do
       mode:   '0644'
     )
     is_expected.to contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5').
-      with_content(/BEGIN PGP PUBLIC KEY BLOCK/)
+      with_content(%r{BEGIN PGP PUBLIC KEY BLOCK})
   end
 
   it do
