@@ -21,6 +21,7 @@ class epel (
   $epel_includepkgs                       = undef,
   $epel_sslclientkey                      = undef,
   $epel_sslclientcert                     = undef,
+  $epel_testing_mirrorlist                = $epel::params::epel_testing_mirrorlist,
   $epel_testing_baseurl                   = $epel::params::epel_testing_baseurl,
   $epel_testing_failovermethod            = $epel::params::epel_testing_failovermethod,
   $epel_testing_proxy                     = $epel::params::epel_testing_proxy,
@@ -50,6 +51,7 @@ class epel (
   $epel_debuginfo_includepkgs             = undef,
   $epel_debuginfo_sslclientkey            = undef,
   $epel_debuginfo_sslclientcert           = undef,
+  $epel_testing_source_mirrorlist         = $epel::params::epel_testing_source_mirrorlist,
   $epel_testing_source_baseurl            = $epel::params::epel_testing_source_baseurl,
   $epel_testing_source_failovermethod     = $epel::params::epel_testing_source_failovermethod,
   $epel_testing_source_proxy              = $epel::params::epel_testing_source_proxy,
@@ -59,6 +61,7 @@ class epel (
   $epel_testing_source_includepkgs        = undef,
   $epel_testing_source_sslclientkey       = undef,
   $epel_testing_source_sslclientcert      = undef,
+  $epel_testing_debuginfo_mirrorlist      = $epel::params::epel_testing_debuginfo_mirrorlist,
   $epel_testing_debuginfo_baseurl         = $epel::params::epel_testing_debuginfo_baseurl,
   $epel_testing_debuginfo_failovermethod  = $epel::params::epel_testing_debuginfo_failovermethod,
   $epel_testing_debuginfo_proxy           = $epel::params::epel_testing_debuginfo_proxy,
@@ -73,13 +76,19 @@ class epel (
 
   if "${::osfamily}" == 'RedHat' and "${::operatingsystem}" !~ /Fedora|Amazon/ { # lint:ignore:only_variable_string
     yumrepo { 'epel-testing':
+      # lint:ignore:selector_inside_resource
+      mirrorlist     => $epel_testing_baseurl ? {
+        'absent' => $epel_testing_mirrorlist,
+        default  => 'absent',
+      },
+      # lint:endignore
       baseurl        => $epel_testing_baseurl,
       failovermethod => $epel_testing_failovermethod,
       proxy          => $epel_testing_proxy,
       enabled        => $epel_testing_enabled,
       gpgcheck       => $epel_testing_gpgcheck,
       gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
-      descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - Testing - \$basearch ",
+      descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - Testing - \$basearch",
       exclude        => $epel_testing_exclude,
       includepkgs    => $epel_testing_includepkgs,
       sslclientkey   => $epel_testing_sslclientkey,
@@ -87,6 +96,12 @@ class epel (
     }
 
     yumrepo { 'epel-testing-debuginfo':
+      # lint:ignore:selector_inside_resource
+      mirrorlist     => $epel_testing_debuginfo_baseurl ? {
+        'absent' => $epel_testing_debuginfo_mirrorlist,
+        default  => 'absent',
+      },
+      # lint:endignore
       baseurl        => $epel_testing_debuginfo_baseurl,
       failovermethod => $epel_testing_debuginfo_failovermethod,
       proxy          => $epel_testing_debuginfo_proxy,
@@ -101,6 +116,12 @@ class epel (
     }
 
     yumrepo { 'epel-testing-source':
+      # lint:ignore:selector_inside_resource
+      mirrorlist     => $epel_testing_source_baseurl ? {
+        'absent' => $epel_testing_source_mirrorlist,
+        default  => 'absent',
+      },
+      # lint:endignore
       baseurl        => $epel_testing_source_baseurl,
       failovermethod => $epel_testing_source_failovermethod,
       proxy          => $epel_testing_source_proxy,
@@ -174,12 +195,15 @@ class epel (
       sslclientcert  => $epel_source_sslclientcert,
     }
 
+    # ERB template used here to ensure file content is in the Puppet catalog;
+    # nothing is interpolated in these templates.
+
     file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}":
-      ensure => present,
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0644',
-      source => "puppet:///modules/epel/RPM-GPG-KEY-EPEL-${os_maj_release}",
+      ensure  => present,
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+      content => template("epel/RPM-GPG-KEY-EPEL-${os_maj_release}.erb"),
     }
 
     epel::rpm_gpg_key{ "EPEL-${os_maj_release}":
