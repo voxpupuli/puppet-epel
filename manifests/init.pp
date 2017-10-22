@@ -3,7 +3,7 @@
 # Actions:
 #   Configure the proper repositories and import GPG keys
 #
-# Reqiures:
+# Requires:
 #   You should probably be on an Enterprise Linux variant. (Centos, RHEL,
 #   Scientific, Oracle, Ascendos, et al)
 #
@@ -19,6 +19,8 @@ class epel (
   $epel_gpgcheck                          = $epel::params::epel_gpgcheck,
   $epel_exclude                           = undef,
   $epel_includepkgs                       = undef,
+  $epel_sslclientkey                      = undef,
+  $epel_sslclientcert                     = undef,
   $epel_testing_mirrorlist                = $epel::params::epel_testing_mirrorlist,
   $epel_testing_baseurl                   = $epel::params::epel_testing_baseurl,
   $epel_testing_failovermethod            = $epel::params::epel_testing_failovermethod,
@@ -27,6 +29,8 @@ class epel (
   $epel_testing_gpgcheck                  = $epel::params::epel_testing_gpgcheck,
   $epel_testing_exclude                   = undef,
   $epel_testing_includepkgs               = undef,
+  $epel_testing_sslclientkey              = undef,
+  $epel_testing_sslclientcert             = undef,
   $epel_source_mirrorlist                 = $epel::params::epel_source_mirrorlist,
   $epel_source_baseurl                    = $epel::params::epel_source_baseurl,
   $epel_source_failovermethod             = $epel::params::epel_source_failovermethod,
@@ -35,6 +39,8 @@ class epel (
   $epel_source_gpgcheck                   = $epel::params::epel_source_gpgcheck,
   $epel_source_exclude                    = undef,
   $epel_source_includepkgs                = undef,
+  $epel_source_sslclientkey               = undef,
+  $epel_source_sslclientcert              = undef,
   $epel_debuginfo_mirrorlist              = $epel::params::epel_debuginfo_mirrorlist,
   $epel_debuginfo_baseurl                 = $epel::params::epel_debuginfo_baseurl,
   $epel_debuginfo_failovermethod          = $epel::params::epel_debuginfo_failovermethod,
@@ -43,6 +49,8 @@ class epel (
   $epel_debuginfo_gpgcheck                = $epel::params::epel_debuginfo_gpgcheck,
   $epel_debuginfo_exclude                 = undef,
   $epel_debuginfo_includepkgs             = undef,
+  $epel_debuginfo_sslclientkey            = undef,
+  $epel_debuginfo_sslclientcert           = undef,
   $epel_testing_source_mirrorlist         = $epel::params::epel_testing_source_mirrorlist,
   $epel_testing_source_baseurl            = $epel::params::epel_testing_source_baseurl,
   $epel_testing_source_failovermethod     = $epel::params::epel_testing_source_failovermethod,
@@ -51,6 +59,8 @@ class epel (
   $epel_testing_source_gpgcheck           = $epel::params::epel_testing_source_gpgcheck,
   $epel_testing_source_exclude            = undef,
   $epel_testing_source_includepkgs        = undef,
+  $epel_testing_source_sslclientkey       = undef,
+  $epel_testing_source_sslclientcert      = undef,
   $epel_testing_debuginfo_mirrorlist      = $epel::params::epel_testing_debuginfo_mirrorlist,
   $epel_testing_debuginfo_baseurl         = $epel::params::epel_testing_debuginfo_baseurl,
   $epel_testing_debuginfo_failovermethod  = $epel::params::epel_testing_debuginfo_failovermethod,
@@ -59,6 +69,8 @@ class epel (
   $epel_testing_debuginfo_gpgcheck        = $epel::params::epel_testing_debuginfo_gpgcheck,
   $epel_testing_debuginfo_exclude         = undef,
   $epel_testing_debuginfo_includepkgs     = undef,
+  $epel_testing_debuginfo_sslclientkey    = undef,
+  $epel_testing_debuginfo_sslclientcert   = undef,
   $os_maj_release                         = $epel::params::os_maj_release,
 ) inherits epel::params {
 
@@ -79,6 +91,8 @@ class epel (
       descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - Testing - \$basearch",
       exclude        => $epel_testing_exclude,
       includepkgs    => $epel_testing_includepkgs,
+      sslclientkey   => $epel_testing_sslclientkey,
+      sslclientcert  => $epel_testing_sslclientcert,
     }
 
     yumrepo { 'epel-testing-debuginfo':
@@ -97,6 +111,8 @@ class epel (
       descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - Testing - \$basearch - Debug",
       exclude        => $epel_testing_debuginfo_exclude,
       includepkgs    => $epel_testing_debuginfo_includepkgs,
+      sslclientkey   => $epel_testing_debuginfo_sslclientkey,
+      sslclientcert  => $epel_testing_debuginfo_sslclientcert,
     }
 
     yumrepo { 'epel-testing-source':
@@ -115,6 +131,8 @@ class epel (
       descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - Testing - \$basearch - Source",
       exclude        => $epel_testing_source_exclude,
       includepkgs    => $epel_testing_source_includepkgs,
+      sslclientkey   => $epel_testing_source_sslclientkey,
+      sslclientcert  => $epel_testing_source_sslclientcert,
     }
 
     yumrepo { 'epel':
@@ -133,6 +151,8 @@ class epel (
       descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - \$basearch",
       exclude        => $epel_exclude,
       includepkgs    => $epel_includepkgs,
+      sslclientkey   => $epel_sslclientkey,
+      sslclientcert  => $epel_sslclientcert,
     }
 
     yumrepo { 'epel-debuginfo':
@@ -151,6 +171,8 @@ class epel (
       descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - \$basearch - Debug",
       exclude        => $epel_debuginfo_exclude,
       includepkgs    => $epel_debuginfo_includepkgs,
+      sslclientkey   => $epel_debuginfo_sslclientkey,
+      sslclientcert  => $epel_debuginfo_sslclientcert,
     }
 
     yumrepo { 'epel-source':
@@ -169,6 +191,8 @@ class epel (
       descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - \$basearch - Source",
       exclude        => $epel_source_exclude,
       includepkgs    => $epel_source_includepkgs,
+      sslclientkey   => $epel_source_sslclientkey,
+      sslclientcert  => $epel_source_sslclientcert,
     }
 
     # ERB template used here to ensure file content is in the Puppet catalog;

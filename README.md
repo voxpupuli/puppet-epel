@@ -20,7 +20,7 @@ Other repositories that will setup but disabled (as per the epel-release setup)
 # Usage
 
 In nearly all cases, you can simply _include epel_ or classify your nodes with
-the epel class. There are quite a few paramters available if you need to modify
+the epel class. There are quite a few parameters available if you need to modify
 the default settings for the epel repository such having your own mirror, an
 http proxy, disable gpg checking.
 
@@ -49,7 +49,7 @@ URL and just setup the package mirrors.
 This does mean that if you are looking for RPM macros that are normally
 included with EPEL release, this will not have them.
 
-# Futher Information
+# Further Information
 
 * [EPEL Wiki](http://fedoraproject.org/wiki/EPEL)
 * [epel-release package information](http://mirrors.servercentral.net/fedora/epel/6/i386/repoview/epel-release.html)
