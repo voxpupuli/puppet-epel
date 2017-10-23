@@ -21,8 +21,8 @@ Other repositories that will setup but disabled (as per the epel-release setup)
 
 In nearly all cases, you can simply _include epel_ or classify your nodes with
 the epel class. There are quite a few parameters available if you need to modify
-the default settings for the epel repository such having your own mirror, an
-http proxy, disable gpg checking.
+the default settings for the epel repository such as having your own mirror, an
+http proxy, or disable gpg checking.
 
 You can also use a puppet one-liner to get epel onto a system.
 
