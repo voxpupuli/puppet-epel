@@ -13,7 +13,7 @@ group :test do
   gem 'puppet-lint-unquoted_string-check'
   gem 'metadata-json-lint'
   gem 'puppet-blacksmith'
-  gem 'rubocop', '0.48.0'
+  gem 'rubocop', '0.49.0'
   gem 'rubocop-rspec', '~> 1.15.0'
   gem 'simplecov-console'
 
