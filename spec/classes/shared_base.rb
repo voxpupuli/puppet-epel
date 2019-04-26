@@ -7,7 +7,7 @@ shared_examples :base do
       proxy:          'absent',
       enabled:        '1',
       gpgcheck:       '1',
-      repo_gpgcheck:  '1'
+      repo_gpgcheck:  '0'
     )
   end
 end

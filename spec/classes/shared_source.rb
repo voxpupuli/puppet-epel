@@ -7,7 +7,7 @@ shared_examples :epel_source do
       failovermethod: 'priority',
       enabled:        '0',
       gpgcheck:       '1',
-      repo_gpgcheck:  '1'
+      repo_gpgcheck:  '0'
     )
   end
 end

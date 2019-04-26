@@ -7,7 +7,7 @@ shared_examples :epel_testing_debuginfo do
       proxy:          'absent',
       enabled:        '0',
       gpgcheck:       '1',
-      repo_gpgcheck:  '1'
+      repo_gpgcheck:  '0'
     )
   end
 end
