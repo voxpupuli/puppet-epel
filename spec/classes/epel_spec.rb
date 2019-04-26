@@ -161,8 +161,9 @@ describe 'epel' do
 
     it do
       is_expected.to contain_yumrepo('epel').with(
-        enabled:  '1',
-        gpgcheck: '1'
+        enabled:       '1',
+        gpgcheck:      '1',
+        repo_gpgcheck: '1'
       )
     end
   end

@@ -6,7 +6,8 @@ shared_examples :base do
       failovermethod: 'priority',
       proxy:          'absent',
       enabled:        '1',
-      gpgcheck:       '1'
+      gpgcheck:       '1',
+      repo_gpgcheck:  '1'
     )
   end
 end
