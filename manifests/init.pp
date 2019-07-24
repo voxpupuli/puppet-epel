@@ -101,6 +101,10 @@ class epel (
       sslclientkey   => $epel_testing_sslclientkey,
       sslclientcert  => $epel_testing_sslclientcert,
     }
+
+    if $epel_gpg_managed {
+      Epel::Rpm_gpg_key["EPEL-${os_maj_release}"] -> Yumrepo['epel-testing']
+    }
   }
 
   if $epel_testing_debuginfo_managed {
@@ -122,6 +126,10 @@ class epel (
       includepkgs    => $epel_testing_debuginfo_includepkgs,
       sslclientkey   => $epel_testing_debuginfo_sslclientkey,
       sslclientcert  => $epel_testing_debuginfo_sslclientcert,
+    }
+
+    if $epel_gpg_managed {
+      Epel::Rpm_gpg_key["EPEL-${os_maj_release}"] -> Yumrepo['epel-testing-debuginfo']
     }
   }
 
@@ -145,6 +153,10 @@ class epel (
       sslclientkey   => $epel_testing_source_sslclientkey,
       sslclientcert  => $epel_testing_source_sslclientcert,
     }
+
+    if $epel_gpg_managed {
+      Epel::Rpm_gpg_key["EPEL-${os_maj_release}"] -> Yumrepo['epel-testing-source']
+    }
   }
 
   if $epel_managed {
@@ -166,6 +178,10 @@ class epel (
       includepkgs    => $epel_includepkgs,
       sslclientkey   => $epel_sslclientkey,
       sslclientcert  => $epel_sslclientcert,
+    }
+
+    if $epel_gpg_managed {
+      Epel::Rpm_gpg_key["EPEL-${os_maj_release}"] -> Yumrepo['epel']
     }
   }
 
@@ -189,6 +205,10 @@ class epel (
       sslclientkey   => $epel_debuginfo_sslclientkey,
       sslclientcert  => $epel_debuginfo_sslclientcert,
     }
+
+    if $epel_gpg_managed {
+      Epel::Rpm_gpg_key["EPEL-${os_maj_release}"] -> Yumrepo['epel-debuginfo']
+    }
   }
 
   if $epel_source_managed {
@@ -210,6 +230,10 @@ class epel (
       includepkgs    => $epel_source_includepkgs,
       sslclientkey   => $epel_source_sslclientkey,
       sslclientcert  => $epel_source_sslclientcert,
+    }
+
+    if $epel_gpg_managed {
+      Epel::Rpm_gpg_key["EPEL-${os_maj_release}"] -> Yumrepo['epel-source']
     }
   }
 
