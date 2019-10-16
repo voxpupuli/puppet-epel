@@ -14,7 +14,7 @@ define epel::rpm_gpg_key($path) {
   exec {  "import-${name}":
     path      => '/bin:/usr/bin:/sbin:/usr/sbin',
     command   => "rpm --import ${path}",
-    unless    => "rpm -q gpg-pubkey-$(echo $(gpg -q --throw-keyids --keyid-format short < ${path}) | grep pub | cut -f2 -d/ | cut -f1 -d' ' | tr '[A-Z]' '[a-z]')",
+    unless    => "rpm -q gpg-pubkey-$(echo $(gpg -q --batch --with-colons --throw-keyids --keyid-format short < ${path}) | grep pub | cut -d ':' -f 5 | cut --characters=9- | tr '[A-Z]' '[a-z]')",
     require   => File[$path],
     logoutput => 'on_failure',
   }
