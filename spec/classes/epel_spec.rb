@@ -207,17 +207,33 @@ describe 'epel' do
       )
     end
 
-    it { is_expected.not_to contain_yumrepo('epel-testing') }
-    it { is_expected.not_to contain_yumrepo('epel-testing-debuginfo') }
-    it { is_expected.not_to contain_yumrepo('epel-testing-source') }
-    it { is_expected.not_to contain_yumrepo('epel-debuginfo') }
-    it { is_expected.not_to contain_yumrepo('epel-source') }
+    it_behaves_like :base_7
+    it_behaves_like :gpgkey_7
+    it_behaves_like :epel_source_7
+    it_behaves_like :epel_debuginfo_7
+    it_behaves_like :epel_testing_7
+    it_behaves_like :epel_testing_source_7
+    it_behaves_like :epel_testing_debuginfo_7
 
-    it do
-      is_expected.to contain_yumrepo('epel').with(
-        enabled:  '1',
-        gpgcheck: '1'
-      )
+    context 'epel_baseurl => https://example.com/epel/7/x86_64' do
+      let(:params) do
+        {
+          epel_baseurl: 'https://example.com/epel/7/x86_64'
+        }
+      end
+
+      it { is_expected.to contain_yumrepo('epel').with(baseurl: 'https://example.com/epel/7/x86_64') }
+      it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
+    end
+
+    context 'epel_mirrorlist => absent' do
+      let(:params) do
+        {
+          epel_mirrorlist: 'absent'
+        }
+      end
+
+      it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
     end
   end
 end
