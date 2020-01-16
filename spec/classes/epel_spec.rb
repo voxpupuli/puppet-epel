@@ -202,8 +202,9 @@ describe 'epel' do
   context 'operatingsystem => Amazon' do
     let :facts do
       default_facts.merge(
-        operatingsystem:        'Amazon',
-        operatingsystemrelease: 'Amazon'
+        operatingsystem:            'Amazon',
+        operatingsystemrelease:     'Amazon',
+        operatingsystemmajrelease:  '2'
       )
     end
 
