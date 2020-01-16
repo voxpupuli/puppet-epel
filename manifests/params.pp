@@ -8,7 +8,7 @@ class epel::params {
   #   the most specific declaration of proxy.
   $proxy = 'absent'
 
-  if "${::osfamily}" == 'RedHat' and "${::operatingsystem}" == 'Amazon' {
+  if "${::operatingsystem}" == 'Amazon' {
     # Amazon Linux 2 is equivalent of Enterprise Linux 7 so we use that version for epel
     # https://aws.amazon.com/premiumsupport/knowledge-center/ec2-enable-epel/
     $os_maj_release = '7'
