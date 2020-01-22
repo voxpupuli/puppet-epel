@@ -6,7 +6,8 @@ shared_examples :epel_testing_source do
       failovermethod: 'priority',
       proxy:          'absent',
       enabled:        '0',
-      gpgcheck:       '1'
+      gpgcheck:       '1',
+      repo_gpgcheck:  '0'
     )
   end
 end
