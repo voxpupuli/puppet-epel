@@ -100,6 +100,7 @@ included with EPEL release, this will not have them.
 
   * This is commonly used on Puppet Enterprise 3.x
   * This was tested using Puppet 3.3.0 on Centos5/6
+  * This was tested using Puppet 6.10.1 on CentOS 8
   * This was tested using Puppet 3.1.1 on Amazon's AWS Linux
   * This was tested using Puppet 3.8 and Puppet 4 now as well!
   * Note Ruby 2.2 and Puppet 3.8 are not yet friends.
@@ -153,6 +154,7 @@ Apache Software License 2.0
  * Riccardo Calixte <rcalixte@broadinstitute.org>
  * Robert Story <rstory@localhost>
  * Rob Nelson <rnelson0@gmail.com>
+ * Siebrand Mazeland <siebrand@kitano.nl>
  * Stefan Goethals <stefan@zipkid.eu>
  * Tim Rupp <caphrim007@gmail.com>
  * Toni Schmidbauer <toni@stderr.at>
@@ -161,4 +163,4 @@ Apache Software License 2.0
  * Vlastimil Holer <holer@ics.muni.cz>
 
 # Alternatives
-If you're on CentOS 7, you can just `yum install epel-release` as it's in centos-extras.
+If you're on CentOS 7 or CentOS 8, you can just `yum install epel-release` as it's in centos-extras.

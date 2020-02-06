@@ -12,6 +12,18 @@ shared_examples :epel_testing do
   end
 end
 
+shared_examples_for :epel_testing_8 do
+  include_context :epel_testing
+
+  it do
+    is_expected.to contain_yumrepo('epel-testing').with(
+      mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=testing-epel8&arch=$basearch',
+      gpgkey:     'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8',
+      descr:      'Extra Packages for Enterprise Linux 8 - Testing - $basearch'
+    )
+  end
+end
+
 shared_examples_for :epel_testing_7 do
   include_context :epel_testing
 
