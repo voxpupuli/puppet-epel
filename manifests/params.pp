@@ -8,11 +8,17 @@ class epel::params {
   #   the most specific declaration of proxy.
   $proxy = 'absent'
 
-  if getvar('::operatingsystemmajrelease') {
-    $os_maj_release = $::operatingsystemmajrelease
+  if "${::operatingsystem}" == 'Amazon' and "${::operatingsystemmajrelease}" == '2'  {
+    # Amazon Linux 2 is equivalent of Enterprise Linux 7 so we use that version for epel
+    # https://aws.amazon.com/premiumsupport/knowledge-center/ec2-enable-epel/
+    $os_maj_release = '7'
   } else {
-    $os_versions    = split("${::operatingsystemrelease}", '[.]') # lint:ignore:only_variable_string
-    $os_maj_release = $os_versions[0]
+    if getvar('::operatingsystemmajrelease') {
+      $os_maj_release = $::operatingsystemmajrelease
+    } else {
+      $os_versions    = split("${::operatingsystemrelease}", '[.]') # lint:ignore:only_variable_string
+      $os_maj_release = $os_versions[0]
+    }
   }
 
   if versioncmp($os_maj_release, '5') > 0 {
