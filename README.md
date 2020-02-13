@@ -62,6 +62,12 @@ included with EPEL release, this will not have them.
 
 =======
 
+2.0.0
+ * Allow this module to work on systems when global repo_gpgcheck = 1 [#82](https://github.com/stahnma/puppet-module-epel/pull/82)
+ * Amazon Linux 2 - bugfix - use enterprise linux 7 [#95](https://github.com/stahnma/puppet-module-epel/pull/95)
+ * Add support for RHEL 8 and CentOS 8 [#92](https://github.com/stahnma/puppet-module-epel/pull/92/files)
+ * Adjust gpg args to account for slightly different display. [#84](https://github.com/stahnma/puppet-module-epel/pull/84)
+ 
 1.3.1
  * Remove an Epel::Rpm_gpg_key collector that could cause circular dependencies
 
