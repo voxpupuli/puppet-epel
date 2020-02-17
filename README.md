@@ -1,5 +1,12 @@
 # Configure EPEL (Extra Repository for Enterprise Linux)
 
+[![License](https://img.shields.io/github/license/voxpupuli/puppet-epel.svg)](https://github.com/voxpupuli/puppet-epel/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/voxpupuli/puppet-epel.png?branch=master)](https://travis-ci.org/voxpupuli/puppet-epel)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/puppet/epel.svg)](https://forge.puppetlabs.com/puppet/epel)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/puppet/epel.svg)](https://forge.puppetlabs.com/puppet/epel)
+[![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/puppet/epel.svg)](https://forge.puppetlabs.com/puppet/epel)
+[![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/epel.svg)](https://forge.puppetlabs.com/puppet/epel)
+
 # Note
 
 This is the last release that will support anything before Puppet 4.
