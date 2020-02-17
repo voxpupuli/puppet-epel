@@ -1,0 +1,17 @@
+---
+.travis.yml:
+  secure: "jGcmDV/wc+rzmh6WXAZcW75Cj6ZaIsKcLTZRi6FIi8qXHod2CIHCWYlbzqkGHuStz2H+LnNQHUzFjatLzbFiLKv7AG/TH4Sp5/ReAqj9PlJ//Z4afh/eTaN+8EZm0A8bHPthw1ZY7ui0imqyxC3XL5z7rvOx0QLEpTviyQcjN0o="
+spec/acceptance/nodesets/ec2/amazonlinux-2016091.yml:
+  delete: true
+spec/acceptance/nodesets/ec2/image_templates.yaml:
+  delete: true
+spec/acceptance/nodesets/ec2/rhel-73-x64.yml:
+  delete: true
+spec/acceptance/nodesets/ec2/sles-12sp2-x64.yml:
+  delete: true
+spec/acceptance/nodesets/ec2/ubuntu-1604-x64.yml:
+  delete: true
+spec/acceptance/nodesets/ec2/windows-2016-base-x64.yml:
+  delete: true
+spec/acceptance/nodesets/archlinux-2-x64.yml:
+  delete: true
