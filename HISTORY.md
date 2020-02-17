@@ -4,7 +4,7 @@
 - Amazon Linux 2 - bugfix - use enterprise linux 7 [#95](https://github.com/voxpupuli/puppet-epel/pull/95)
 - Add support for RHEL 8 and CentOS 8 [#92](https://github.com/voxpupuli/puppet-epel/pull/92)
 - Adjust gpg args to account for slightly different display. [#84](https://github.com/voxpupuli/puppet-epel/pull/84)
- 
+
 ## 1.3.1 (2018-07-16)
 
 - Remove an `Epel::Rpm_gpg_key` collector that could cause circular dependencies
