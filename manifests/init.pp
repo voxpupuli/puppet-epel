@@ -92,7 +92,7 @@ class epel (
   $epel_gpg_managed                       = $epel::params::epel_gpg_managed,
   $os_maj_release                         = $epel::params::os_maj_release,
 ) inherits epel::params {
-  if "${::osfamily}" == 'RedHat' { # lint:ignore:only_variable_string
+  if $facts['os']['family'] == 'RedHat' {
   if $epel_testing_managed {
     yumrepo { 'epel-testing':
       # lint:ignore:selector_inside_resource
@@ -254,6 +254,6 @@ class epel (
   }
 
   } else {
-    notice ("Your operating system ${::operatingsystem} will not have the EPEL repository applied")
+    notice ("Your operating system ${facts['os']['name']} will not have the EPEL repository applied")
   }
 }
