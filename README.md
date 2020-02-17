@@ -138,7 +138,9 @@ If you have Vagrant >=1.1.0 you can also run system tests:
 Available RSPEC_SET options are in .nodeset.yml
 
 # License
-Apache Software License 2.0
+
+This module is distributed under the [Apache License 2.0](LICENSE).
+Since version 3, it is maintained by [Vox Pupuli](https://voxpupuli.org/).
 
 # Author/Contributors
  * Aaron <slapula@users.noreply.github.com>
