@@ -13,12 +13,7 @@ class epel::params {
     # https://aws.amazon.com/premiumsupport/knowledge-center/ec2-enable-epel/
     $os_maj_release = '7'
   } else {
-    if getvar('::operatingsystemmajrelease') {
-      $os_maj_release = $facts['os']['release']['major']
-    } else {
-      $os_versions    = split("${facts['os']['release']['full']}", '[.]') # lint:ignore:only_variable_string
-      $os_maj_release = $os_versions[0]
-    }
+    $os_maj_release = $facts['os']['release']['major']
   }
 
   if versioncmp($os_maj_release, '5') > 0 {

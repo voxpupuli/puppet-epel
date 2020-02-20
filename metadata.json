@@ -52,9 +52,5 @@
   ],
   "description": "Setup the EPEL package repo on Centos/RHEL et al",
   "dependencies": [
-    {
-      "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 3.0.0"
-    }
   ]
 }
