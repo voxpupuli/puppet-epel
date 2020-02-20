@@ -270,15 +270,13 @@ class epel (
     }
   }
 
-  # ERB template used here to ensure file content is in the Puppet catalog;
-  # nothing is interpolated in these templates.
   if $epel_gpg_managed {
     file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}":
       ensure  => present,
       owner   => 'root',
       group   => 'root',
       mode    => '0644',
-      content => template("epel/RPM-GPG-KEY-EPEL-${os_maj_release}.erb"),
+      content => file("epel/RPM-GPG-KEY-EPEL-${os_maj_release}"),
     }
 
     epel::rpm_gpg_key{ "EPEL-${os_maj_release}":
