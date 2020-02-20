@@ -12,6 +12,9 @@ class epel::params {
     # Amazon Linux 2 is equivalent of Enterprise Linux 7 so we use that version for epel
     # https://aws.amazon.com/premiumsupport/knowledge-center/ec2-enable-epel/
     $os_maj_release = '7'
+  } elsif $facts['os']['name'] == 'Amazon' and $facts['os']['release']['major'] in ['2016','2018'] {
+    # Older versions are based on EL6
+    $os_maj_release = '6'
   } else {
     $os_maj_release = $facts['os']['release']['major']
   }
