@@ -7,10 +7,6 @@
 [![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/puppet/epel.svg)](https://forge.puppetlabs.com/puppet/epel)
 [![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/epel.svg)](https://forge.puppetlabs.com/puppet/epel)
 
-# Note
-
-This is the last release that will support anything before Puppet 4.
-
 # About
 This module basically just mimics the epel-release rpm. The same repos are
 enabled/disabled and the GPG key is imported.  In the end you will end up with
@@ -34,6 +30,8 @@ In nearly all cases, you can simply _include epel_ or classify your nodes with
 the epel class. There are quite a few parameters available if you need to modify
 the default settings for the epel repository such as having your own mirror, an
 http proxy, or disable gpg checking.
+
+A list of all parameters is available in [REFERENCE.md](REFERENCE.md).
 
 You can also use a puppet one-liner to get epel onto a system.
 
@@ -65,22 +63,12 @@ included with EPEL release, this will not have them.
 * [EPEL Wiki](http://fedoraproject.org/wiki/EPEL)
 * [epel-release package information](http://mirrors.servercentral.net/fedora/epel/6/i386/repoview/epel-release.html)
 
-# Testing
+# Testing and Compatibility
 
-  * This is commonly used on Puppet Enterprise 3.x
-  * This was tested using Puppet 3.3.0 on Centos5/6
-  * This was tested using Puppet 6.10.1 on CentOS 8
-  * This was tested using Puppet 3.1.1 on Amazon's AWS Linux
-  * This was tested using Puppet 3.8 and Puppet 4 now as well!
-  * Note Ruby 2.2 and Puppet 3.8 are not yet friends.
-  * I assume it will work on any RHEL variant (Amazon Linux is debatable as a variant)
-  * Amazon Linux compatability not promised, as EPEL doesn't always work with it.
-
-# Lifecycle
-
-  * No functionality has been introduced that should break Puppet 2.6 or 2.7, but I am no longer testing these versions of Puppet as they are end-of-lifed from Puppet Labs.
-  * This also assumes a facter of greater than 1.7.0 -- at least from a testing perspective.
-  * I'm not actively fixing bugs for anything in facter < 2 or puppet < 3.8
+* This module is tested on CentOS 6, 7 and 8 with Puppet 5 and Puppet 6.
+* It should work on any RHEL variant such as RedHat, OracleLinux, Scientific Linux etc.
+* Amazon Linux compatability is not promised, as EPEL doesn't always work with it.
+* Support for EL5 is deprecated. It *may* still work but we have no acceptance tests.  CentOS 5 is EOL and RHEL5 and OracleLinux 5 extended support for most customers is due to end in 2020.
 
 ## Unit tests
 

@@ -1,15 +1,24 @@
-# Class epel
+# @summary Configure the proper EPEL repositories and import GPG keys
 #
-# Actions:
-#   Configure the proper repositories and import GPG keys
+# @param epel_managed
+#   Determines if the main EPEL repository is managed.
+# @param epel_source_managed
+#   Determines if the `epel-source` repository is managed.
+# @param epel_debuginfo_managed
+#   Determines if the `epel-debuginfo` repository is managed.
+# @param epel_testing_managed
+#   Determines if the `epel-testing` repository is managed.
+# @param epel_testing_source_managed
+#   Determines if the `epel-testing-source` repository is managed.
+# @param epel_testing_debuginfo_managed
+#   Determines if the `epel-testing-debuginfo` repository is managed.
+# @param epel_gpg_managed
+#   Detemines if the module manages the rpm-gpg key for EPEL.
 #
-# Requires:
-#   You should probably be on an Enterprise Linux variant. (Centos, RHEL,
-#   Scientific, Oracle, Ascendos, et al)
+# @example Basic Usage
+#   include epel
 #
-# Sample Usage:
-#  include epel
-#
+# @see https://fedoraproject.org/wiki/EPEL
 class epel (
   $epel_mirrorlist                        = $epel::params::epel_mirrorlist,
   $epel_baseurl                           = $epel::params::epel_baseurl,
@@ -19,7 +28,7 @@ class epel (
   $epel_gpgcheck                          = $epel::params::epel_gpgcheck,
   $epel_repo_gpgcheck                     = $epel::params::epel_repo_gpgcheck,
   $epel_metalink                          = $epel::params::epel_metalink,
-  $epel_managed                           = $epel::params::epel_managed,
+  Boolean $epel_managed                   = true,
   $epel_exclude                           = undef,
   $epel_includepkgs                       = undef,
   $epel_sslclientkey                      = undef,
@@ -32,7 +41,7 @@ class epel (
   $epel_testing_gpgcheck                  = $epel::params::epel_testing_gpgcheck,
   $epel_testing_repo_gpgcheck             = $epel::params::epel_testing_repo_gpgcheck,
   $epel_testing_metalink                  = $epel::params::epel_testing_metalink,
-  $epel_testing_managed                   = $epel::params::epel_testing_managed,
+  Boolean $epel_testing_managed           = true,
   $epel_testing_exclude                   = undef,
   $epel_testing_includepkgs               = undef,
   $epel_testing_sslclientkey              = undef,
@@ -45,7 +54,7 @@ class epel (
   $epel_source_gpgcheck                   = $epel::params::epel_source_gpgcheck,
   $epel_source_repo_gpgcheck              = $epel::params::epel_source_repo_gpgcheck,
   $epel_source_metalink                   = $epel::params::epel_source_metalink,
-  $epel_source_managed                    = $epel::params::epel_source_managed,
+  Boolean $epel_source_managed            = true,
   $epel_source_exclude                    = undef,
   $epel_source_includepkgs                = undef,
   $epel_source_sslclientkey               = undef,
@@ -58,7 +67,7 @@ class epel (
   $epel_debuginfo_gpgcheck                = $epel::params::epel_debuginfo_gpgcheck,
   $epel_debuginfo_repo_gpgcheck           = $epel::params::epel_debuginfo_repo_gpgcheck,
   $epel_debuginfo_metalink                = $epel::params::epel_debuginfo_metalink,
-  $epel_debuginfo_managed                 = $epel::params::epel_debuginfo_managed,
+  Boolean $epel_debuginfo_managed         = true,
   $epel_debuginfo_exclude                 = undef,
   $epel_debuginfo_includepkgs             = undef,
   $epel_debuginfo_sslclientkey            = undef,
@@ -71,7 +80,7 @@ class epel (
   $epel_testing_source_gpgcheck           = $epel::params::epel_testing_source_gpgcheck,
   $epel_testing_source_repo_gpgcheck      = $epel::params::epel_testing_source_repo_gpgcheck,
   $epel_testing_source_metalink           = $epel::params::epel_testing_source_metalink,
-  $epel_testing_source_managed            = $epel::params::epel_testing_source_managed,
+  Boolean $epel_testing_source_managed    = true,
   $epel_testing_source_exclude            = undef,
   $epel_testing_source_includepkgs        = undef,
   $epel_testing_source_sslclientkey       = undef,
@@ -84,12 +93,12 @@ class epel (
   $epel_testing_debuginfo_gpgcheck        = $epel::params::epel_testing_debuginfo_gpgcheck,
   $epel_testing_debuginfo_repo_gpgcheck   = $epel::params::epel_testing_debuginfo_repo_gpgcheck,
   $epel_testing_debuginfo_metalink        = $epel::params::epel_testing_debuginfo_metalink,
-  $epel_testing_debuginfo_managed         = $epel::params::epel_testing_debuginfo_managed,
+  Boolean $epel_testing_debuginfo_managed = true,
   $epel_testing_debuginfo_exclude         = undef,
   $epel_testing_debuginfo_includepkgs     = undef,
   $epel_testing_debuginfo_sslclientkey    = undef,
   $epel_testing_debuginfo_sslclientcert   = undef,
-  $epel_gpg_managed                       = $epel::params::epel_gpg_managed,
+  Boolean $epel_gpg_managed               = true,
   $os_maj_release                         = $epel::params::os_maj_release,
 ) inherits epel::params {
   if $facts['os']['family'] == 'RedHat' {

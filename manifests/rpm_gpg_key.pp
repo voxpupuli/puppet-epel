@@ -1,21 +1,14 @@
-# Define epel::rpm_gpg_key
+# @summary Import an RPM gpg key
 #
-# Actions:
-#   Import a RPM gpg key
+# @api private
 #
-# Parameters:
-#
-# [*path*]
+# @param path
 #   Path of the RPM GPG key to import
 #
-# Reqiures:
-#   You should probably be on an Enterprise Linux variant. (Centos, RHEL, Scientific, Oracle, Ascendos, et al)
-#
-# Sample Usage:
-#  epel::rpm_gpg_key{ "EPEL-6":
-#    path => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6"
-#  }
-#
+# @example Sample Usage
+#   epel::rpm_gpg_key{ 'EPEL-6':
+#     path => '/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6',
+#   }
 define epel::rpm_gpg_key($path) {
   # Given the path to a key, see if it is imported, if not, import it
   exec {  "import-${name}":
