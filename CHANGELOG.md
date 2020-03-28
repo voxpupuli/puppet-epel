@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.0.1](https://github.com/voxpupuli/puppet-epel/tree/v3.0.1) (2020-03-28)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v3.0.0...v3.0.1)
+
+**Fixed bugs:**
+
+- Fix compilation on Fedora [\#116](https://github.com/voxpupuli/puppet-epel/pull/116) ([alexjfisher](https://github.com/alexjfisher))
+
 ## [v3.0.0](https://github.com/voxpupuli/puppet-epel/tree/v3.0.0) (2020-02-20)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/2.0.0...v3.0.0)
@@ -23,7 +31,7 @@ In line with Vox Pupuli [policy](https://voxpupuli.org/blog/2019/01/03/dropping-
 
 **Fixed bugs:**
 
-- module does not allow the management on Amazon Linux [\#77](https://github.com/voxpupuli/puppet-epel/issues/77)
+- Module does not allow the management on Amazon Linux [\#77](https://github.com/voxpupuli/puppet-epel/issues/77)
 - Make sure the GPG key is imported before Yum repositories are created [\#86](https://github.com/voxpupuli/puppet-epel/pull/86) ([hlaf](https://github.com/hlaf))
 
 **Closed issues:**
