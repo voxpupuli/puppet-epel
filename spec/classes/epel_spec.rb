@@ -121,4 +121,31 @@ describe 'epel' do
       end
     end
   end
+  context 'on unsupported OSes' do
+    # On Fedora and other non RedHat systems, including `epel` is a no-op, but should still compile.
+    test_on = {
+      supported_os: [ # Unfortunate misnomer
+        {
+          'operatingsystem'        => 'Fedora',
+          'operatingsystemrelease' => %w[28 29 30]
+        },
+        {
+          'operatingsystem'        => 'Debian',
+          'operatingsystemrelease' => %w[8 9 10]
+        },
+        {
+          'operatingsystem'        => 'Ubuntu',
+          'operatingsystemrelease' => %w[16.04 18.04]
+        }
+      ]
+    }
+    on_supported_os(test_on).each do |os, os_facts|
+      context "on #{os}" do
+        let(:facts) { os_facts }
+
+        it { is_expected.to contain_class('epel') }
+        it { is_expected.to have_resource_count(0) }
+      end
+    end
+  end
 end
