@@ -101,7 +101,7 @@ class epel (
   Boolean $epel_gpg_managed               = true,
   $os_maj_release                         = $epel::params::os_maj_release,
 ) inherits epel::params {
-  if $facts['os']['family'] == 'RedHat' {
+  if $facts['os']['family'] == 'RedHat' and $facts['os']['name'] != 'Fedora' {
   if $epel_testing_managed {
     yumrepo { 'epel-testing':
       # lint:ignore:selector_inside_resource
