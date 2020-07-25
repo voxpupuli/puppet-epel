@@ -3,7 +3,7 @@ require 'spec_helper'
 shared_examples_for :gpgkey_8 do
   it do
     is_expected.to contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8').with(
-      ensure: 'present',
+      ensure: 'file',
       owner:  'root',
       group:  'root',
       mode:   '0644'
@@ -22,7 +22,7 @@ end
 shared_examples_for :gpgkey_7 do
   it do
     is_expected.to contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7').with(
-      ensure: 'present',
+      ensure: 'file',
       owner:  'root',
       group:  'root',
       mode:   '0644'
@@ -41,7 +41,7 @@ end
 shared_examples_for :gpgkey_6 do
   it do
     is_expected.to contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6').with(
-      ensure: 'present',
+      ensure: 'file',
       owner:  'root',
       group:  'root',
       mode:   '0644'
