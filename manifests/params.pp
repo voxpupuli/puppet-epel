@@ -73,4 +73,27 @@ class epel::params {
   $epel_testing_debuginfo_gpgcheck        = '1'
   $epel_testing_debuginfo_repo_gpgcheck   = '0'
   $epel_testing_debuginfo_metalink        = "https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel${os_maj_release}&arch=\$basearch"
+  $epel_playground_mirrorlist             = "https://mirrors.fedoraproject.org/metalink?repo=playground-epel8&arch=\$basearch"
+  $epel_playground_baseurl                = 'absent'
+  $epel_playground_failovermethod         = 'priority'
+  $epel_playground_proxy                  = $proxy
+  $epel_playground_enabled                = '0'
+  $epel_playground_gpgcheck               = '1'
+  $epel_playground_repo_gpgcheck          = '0'
+  $epel_playground_metalink               = "https://mirrors.fedoraproject.org/metalink?repo=playground-debug-epel8&arch=\$basearch"
+  $epel_playground_debug_mirrorlist       = "https://mirrors.fedoraproject.org/metalink?repo=playground-debug-epel8&arch=\$basearch"
+  $epel_playground_debug_baseurl          = 'absent'
+  $epel_playground_debug_failovermethod   = 'priority'
+  $epel_playground_debug_proxy            = $proxy
+  $epel_playground_debug_enabled          = '0'
+  $epel_playground_debug_gpgcheck         = '1'
+  $epel_playground_debug_repo_gpgcheck    = '0'
+  $epel_playground_debug_metalink         = "https://mirrors.fedoraproject.org/metalink?repo=playground-debug-epel8&arch=\$basearch"
+  if versioncmp($os_maj_release, '8') >= 0 {
+    $epel_playground_debug_managed = true
+    $epel_playground_managed = true
+  } else {
+    $epel_playground_debug_managed = false
+    $epel_playground_managed = false
+  }
 }
