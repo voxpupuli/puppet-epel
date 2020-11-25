@@ -12,7 +12,7 @@ describe 'epel' do
     supported_os: [
       {
         'operatingsystem'        => 'RedHat',
-        'operatingsystemrelease' => %w[5 6 7 8]
+        'operatingsystemrelease' => %w[6 7 8]
       }
     ]
   }
@@ -24,14 +24,6 @@ describe 'epel' do
       it { is_expected.to contain_class('epel::params') }
 
       case os_facts[:operatingsystemmajrelease]
-      when '5'
-        it_behaves_like :base_5
-        it_behaves_like :gpgkey_5
-        it_behaves_like :epel_source_5
-        it_behaves_like :epel_debuginfo_5
-        it_behaves_like :epel_testing_5
-        it_behaves_like :epel_testing_source_5
-        it_behaves_like :epel_testing_debuginfo_5
       when '6'
         it_behaves_like :base_6
         it_behaves_like :gpgkey_6

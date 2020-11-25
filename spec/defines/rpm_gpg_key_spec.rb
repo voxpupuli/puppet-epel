@@ -5,7 +5,7 @@ describe 'epel::rpm_gpg_key' do
     supported_os: [
       {
         'operatingsystem'        => 'RedHat',
-        'operatingsystemrelease' => %w[5 6 7 8]
+        'operatingsystemrelease' => %w[6 7 8]
       }
     ]
   }
@@ -14,17 +14,6 @@ describe 'epel::rpm_gpg_key' do
       let(:facts) { os_facts }
 
       case os_facts[:operatingsystemmajrelease]
-      when '5'
-        let :title do
-          'EPEL-5'
-        end
-        let :pre_condition do
-          'file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5": }'
-        end
-        let :params do
-          { path: '/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5' }
-        end
-
       when '6'
         let :title do
           'EPEL-6'

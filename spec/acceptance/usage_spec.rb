@@ -19,15 +19,10 @@ describe 'usage tests' do
               else
                 '/usr/bin/yum-config-manager epel'
               end
-    expected_baseurl_regex = if fact('os.release.major') == '8'
-                               %r{^baseurl = \[http://dl\.fedoraproject\.org/pub/epel/#{fact('os.release.major')}/x86_64/\]}
-                             else
-                               %r{^baseurl = http://dl\.fedoraproject\.org/pub/epel/#{fact('os.release.major')}/x86_64/}
-                             end
 
     describe command(command) do
       its(:exit_status) { is_expected.to eq 0 }
-      its(:stdout) { is_expected.to match expected_baseurl_regex }
+      its(:stdout) { is_expected.to match %r{^baseurl = http://dl\.fedoraproject\.org/pub/epel/#{fact('os.release.major')}/x86_64/} }
     end
 
     if fact('os.release.major') == '8'
