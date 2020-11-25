@@ -47,15 +47,3 @@ shared_examples_for :epel_source_6 do
     )
   end
 end
-
-shared_examples_for :epel_source_5 do
-  include_context :epel_source
-
-  it do
-    is_expected.to contain_yumrepo('epel-source').with(
-      mirrorlist: 'https://mirrors.fedoraproject.org/mirrorlist?repo=epel-source-5&arch=$basearch',
-      gpgkey:     'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5',
-      descr:      'Extra Packages for Enterprise Linux 5 - $basearch - Source'
-    )
-  end
-end

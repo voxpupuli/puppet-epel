@@ -47,15 +47,3 @@ shared_examples_for :epel_testing_debuginfo_6 do
     )
   end
 end
-
-shared_examples_for :epel_testing_debuginfo_5 do
-  include_context :epel_testing_debuginfo
-
-  it do
-    is_expected.to contain_yumrepo('epel-testing-debuginfo').with(
-      mirrorlist: 'https://mirrors.fedoraproject.org/mirrorlist?repo=testing-debug-epel5&arch=$basearch',
-      gpgkey:     'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5',
-      descr:      'Extra Packages for Enterprise Linux 5 - Testing - $basearch - Debug'
-    )
-  end
-end
