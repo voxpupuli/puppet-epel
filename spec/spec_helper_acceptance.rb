@@ -1,21 +1,7 @@
-require 'beaker-rspec'
-require 'beaker-puppet'
-require 'beaker/puppet_install_helper'
-require 'beaker/module_install_helper'
+require 'voxpupuli/acceptance/spec_helper_acceptance'
 
-run_puppet_install_helper unless ENV['BEAKER_provision'] == 'no'
-
-RSpec.configure do |c|
-  c.formatter = :documentation
-
-  c.before :suite do
-    install_module
-    install_module_dependencies
-
-    hosts.each do |host|
-      host.install_package('yum-utils')
-    end
-  end
+configure_beaker do |host|
+  host.install_package('yum-utils')
 end
 
 shared_examples 'an idempotent manifest' do
