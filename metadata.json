@@ -39,7 +39,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.5.8 < 7.0.0"
+      "version_requirement": ">= 5.5.8 < 8.0.0"
     }
   ],
   "description": "Setup the EPEL package repo on Centos/RHEL et al",
