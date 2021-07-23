@@ -53,7 +53,7 @@ describe 'epel' do
 
           it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
         end
-        
+
         context 'epel_username/password' do
           let(:params) do
             {
@@ -94,7 +94,7 @@ describe 'epel' do
 
           it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
         end
-        
+
         context 'epel_username/password' do
           let(:params) do
             {
@@ -134,7 +134,7 @@ describe 'epel' do
 
           it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
         end
-        
+
         context 'epel_username/password' do
           let(:params) do
             {
@@ -145,7 +145,7 @@ describe 'epel' do
 
           it { is_expected.to contain_yumrepo('epel').with(username: 'user') }
           it { is_expected.to contain_yumrepo('epel').with(password: 'password') }
-        end        
+        end
       end
     end
   end
