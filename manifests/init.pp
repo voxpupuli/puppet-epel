@@ -167,7 +167,6 @@ class epel (
         sslclientcert  => $epel_testing_debuginfo_sslclientcert,
         username       => $epel_testing_debuginfo_username,
         password       => $epel_testing_debuginfo_password,
-
       }
 
       if $epel_gpg_managed {
