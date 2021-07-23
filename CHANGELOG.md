@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.1.0](https://github.com/voxpupuli/puppet-epel/tree/v3.1.0) (2021-07-23)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v3.0.1...v3.1.0)
+
+**Implemented enhancements:**
+
+- Enable Puppet 7 support [\#125](https://github.com/voxpupuli/puppet-epel/pull/125) ([bastelfreak](https://github.com/bastelfreak))
+- Add username/password params for each yumrepo [\#123](https://github.com/voxpupuli/puppet-epel/pull/123) ([cdenneen](https://github.com/cdenneen))
+
+**Merged pull requests:**
+
+- update README.md badges [\#127](https://github.com/voxpupuli/puppet-epel/pull/127) ([bastelfreak](https://github.com/bastelfreak))
+- Drop EL5 support [\#122](https://github.com/voxpupuli/puppet-epel/pull/122) ([ekohl](https://github.com/ekohl))
+
 ## [v3.0.1](https://github.com/voxpupuli/puppet-epel/tree/v3.0.1) (2020-03-28)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v3.0.0...v3.0.1)
