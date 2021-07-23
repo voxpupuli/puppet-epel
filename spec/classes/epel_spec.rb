@@ -53,6 +53,18 @@ describe 'epel' do
 
           it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
         end
+        
+        context 'epel_username/password' do
+          let(:params) do
+            {
+              epel_username: 'user',
+              epel_password: 'password',
+            }
+          end
+
+          it { is_expected.to contain_yumrepo('epel').with(username: 'user') }
+          it { is_expected.to contain_yumrepo('epel').with(password: 'password') }
+        end
       when '7'
         it_behaves_like :base_7
         it_behaves_like :gpgkey_7
@@ -82,6 +94,18 @@ describe 'epel' do
 
           it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
         end
+        
+        context 'epel_username/password' do
+          let(:params) do
+            {
+              epel_username: 'user',
+              epel_password: 'password',
+            }
+          end
+
+          it { is_expected.to contain_yumrepo('epel').with(username: 'user') }
+          it { is_expected.to contain_yumrepo('epel').with(password: 'password') }
+        end
       when '8'
         it_behaves_like :base_8
         it_behaves_like :gpgkey_8
@@ -110,6 +134,18 @@ describe 'epel' do
 
           it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
         end
+        
+        context 'epel_username/password' do
+          let(:params) do
+            {
+              epel_username: 'user',
+              epel_password: 'password',
+            }
+          end
+
+          it { is_expected.to contain_yumrepo('epel').with(username: 'user') }
+          it { is_expected.to contain_yumrepo('epel').with(password: 'password') }
+        end        
       end
     end
   end
