@@ -3,3 +3,6 @@ fixtures:
     yumrepo_core:
       repo: 'https://github.com/puppetlabs/puppetlabs-yumrepo_core'
       puppet_version: '>= 6.0.0'
+    stdlib:
+      repo: 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
+      puppet_version: '>= 8.0.0'
