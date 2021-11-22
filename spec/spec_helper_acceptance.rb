@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'voxpupuli/acceptance/spec_helper_acceptance'
 
 configure_beaker do |host|
@@ -24,9 +26,11 @@ shared_examples 'EPEL is available' do
     its(:exit_status) { is_expected.to eq 0 }
     its(:stdout) { is_expected.to match %r{epel} }
   end
+
   describe command('yum clean all') do
     its(:exit_status) { is_expected.to eq 0 }
   end
+
   describe command('yum --disablerepo="*" --enablerepo="epel" list available') do
     its(:exit_status) { is_expected.to eq 0 }
     its(:stdout) { is_expected.to match %r{epel-release} }

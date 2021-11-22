@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'epel::rpm_gpg_key' do
   test_on = {
     supported_os: [
       {
-        'operatingsystem'        => 'RedHat',
+        'operatingsystem' => 'RedHat',
         'operatingsystemrelease' => %w[6 7 8]
       }
     ]
@@ -49,11 +51,11 @@ describe 'epel::rpm_gpg_key' do
 
       end
       it do
-        is_expected.to contain_exec("import-#{title}").with(
-          path:      '/bin:/usr/bin:/sbin:/usr/sbin',
-          command:   "rpm --import #{params[:path]}",
-          unless:    "rpm -q gpg-pubkey-$(echo $(gpg -q --batch --with-colons --throw-keyids --keyid-format short < #{params[:path]}) | grep pub | cut -d ':' -f 5 | cut --characters=9- | tr '[A-Z]' '[a-z]')",
-          require:   "File[#{params[:path]}]",
+        expect(subject).to contain_exec("import-#{title}").with(
+          path: '/bin:/usr/bin:/sbin:/usr/sbin',
+          command: "rpm --import #{params[:path]}",
+          unless: "rpm -q gpg-pubkey-$(echo $(gpg -q --batch --with-colons --throw-keyids --keyid-format short < #{params[:path]}) | grep pub | cut -d ':' -f 5 | cut --characters=9- | tr '[A-Z]' '[a-z]')",
+          require: "File[#{params[:path]}]",
           logoutput: 'on_failure'
         )
       end
