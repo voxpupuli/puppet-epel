@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v4.0.0](https://github.com/voxpupuli/puppet-epel/tree/v4.0.0) (2021-11-27)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v3.1.0...v4.0.0)
+
+**Breaking changes:**
+
+- Drop EoL Puppet 5 support [\#126](https://github.com/voxpupuli/puppet-epel/pull/126) ([bastelfreak](https://github.com/bastelfreak))
+
+**Fixed bugs:**
+
+- Remove failovermethod for 8 as option has been removed in DNF [\#130](https://github.com/voxpupuli/puppet-epel/pull/130) ([msalway](https://github.com/msalway))
+
 ## [v3.1.0](https://github.com/voxpupuli/puppet-epel/tree/v3.1.0) (2021-07-23)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v3.0.1...v3.1.0)
