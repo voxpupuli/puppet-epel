@@ -7,9 +7,10 @@
 [![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/puppet/epel.svg)](https://forge.puppetlabs.com/puppet/epel)
 [![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/epel.svg)](https://forge.puppetlabs.com/puppet/epel)
 [![puppetmodule.info docs](http://www.puppetmodule.info/images/badge.png)](http://www.puppetmodule.info/m/puppet-epel)
-[![AGPL v3 License](https://img.shields.io/github/license/voxpupuli/puppet-epel.svg)](LICENSE)
+[![License](https://img.shields.io/github/license/voxpupuli/puppet-epel.svg)](LICENSE)
 
 # About
+
 This module basically just mimics the epel-release rpm. The same repos are
 enabled/disabled and the GPG key is imported.  In the end you will end up with
 the EPEL repos configured.
@@ -40,11 +41,13 @@ You can also use a puppet one-liner to get epel onto a system.
     puppet apply -e 'include epel'
 
 # Proxy
+
 If you have a http proxy required to access the internet, you can use either
 a class parameter in the _epel_ class (epel_proxy), or edit the $proxy variable
 in the params.pp file. By default no proxy is assumed.
 
 # Why?
+
 I am a big fan of EPEL. I actually was one of the people who helped get it
 going. I am also the owner of the epel-release package, so in general this
 module should stay fairly up to date with the official upstream package.
@@ -67,10 +70,10 @@ included with EPEL release, this will not have them.
 
 # Testing and Compatibility
 
-* This module is tested on CentOS 6, 7 and 8 with Puppet 5 and Puppet 6.
+* This module is tested on CentOS 7 and 8 with Puppet 6 and Puppet 7.
 * It should work on any RHEL variant such as RedHat, OracleLinux, Scientific Linux etc.
 * Amazon Linux compatability is not promised, as EPEL doesn't always work with it.
-* Support for EL5 is deprecated. It *may* still work but we have no acceptance tests.  CentOS 5 is EOL and RHEL5 and OracleLinux 5 extended support for most customers is due to end in 2020.
+* Support for EL5 and EL6 is deprecated. It *may* still work but we have no acceptance tests.
 
 ## Unit tests
 
@@ -124,4 +127,5 @@ Since version 3, it is maintained by [Vox Pupuli](https://voxpupuli.org/).
  * Vlastimil Holer <holer@ics.muni.cz>
 
 # Alternatives
+
 If you're on CentOS 7 or CentOS 8, you can just `yum install epel-release` as it's in centos-extras.
