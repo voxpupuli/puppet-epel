@@ -5,7 +5,7 @@ require 'spec_helper'
 shared_examples 'epel playground' do
   it do
     is_expected.to contain_yumrepo('epel-playground').with(
-      failovermethod: 'priority',
+      failovermethod: 'absent',
       proxy: 'absent',
       enabled: '0',
       gpgcheck: '1',
