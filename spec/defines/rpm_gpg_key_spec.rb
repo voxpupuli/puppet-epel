@@ -7,7 +7,7 @@ describe 'epel::rpm_gpg_key' do
     supported_os: [
       {
         'operatingsystem' => 'RedHat',
-        'operatingsystemrelease' => %w[7 8]
+        'operatingsystemrelease' => %w[7 8 9]
       }
     ]
   }
@@ -36,6 +36,17 @@ describe 'epel::rpm_gpg_key' do
         end
         let :params do
           { path: '/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8' }
+        end
+
+      when '9'
+        let :title do
+          'EPEL-9'
+        end
+        let :pre_condition do
+          'file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-9": }'
+        end
+        let :params do
+          { path: '/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-9' }
         end
 
       end

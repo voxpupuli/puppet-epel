@@ -16,7 +16,7 @@ describe 'usage tests' do
     it_behaves_like 'an idempotent manifest'
     it_behaves_like 'EPEL is available'
 
-    command = if fact('os.release.major') == '8'
+    command = if fact('os.release.major').to_i >= 8
                 '/usr/bin/yum-config-manager --dump epel'
               else
                 '/usr/bin/yum-config-manager epel'
@@ -27,7 +27,7 @@ describe 'usage tests' do
       its(:stdout) { is_expected.to match %r{^baseurl = http://dl\.fedoraproject\.org/pub/epel/#{fact('os.release.major')}/x86_64/} }
     end
 
-    if fact('os.release.major') == '8'
+    if fact('os.release.major').to_i >= 8
       describe command(command) do
         its(:exit_status) { is_expected.to eq 0 }
         its(:stdout) { is_expected.not_to include('mirrorlist') }
@@ -52,7 +52,7 @@ describe 'usage tests' do
     it_behaves_like 'an idempotent manifest'
     it_behaves_like 'EPEL is available'
 
-    command = if fact('os.release.major') == '8'
+    command = if fact('os.release.major').to_i >= 8
                 '/usr/bin/yum-config-manager --dump epel'
               else
                 '/usr/bin/yum-config-manager epel'
