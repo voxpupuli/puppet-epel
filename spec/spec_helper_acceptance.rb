@@ -17,7 +17,7 @@ shared_examples 'an idempotent manifest' do
 end
 
 shared_examples 'EPEL is available' do
-  command = if fact('os.release.major') == '8'
+  command = if fact('os.release.major').to_i >= 8
               '/usr/bin/yum-config-manager --dump epel'
             else
               '/usr/bin/yum-config-manager epel'
