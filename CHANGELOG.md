@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v4.1.0](https://github.com/voxpupuli/puppet-epel/tree/v4.1.0) (2022-03-26)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v4.0.0...v4.1.0)
+
+**Implemented enhancements:**
+
+- Add initial support for CentOS 9 [\#134](https://github.com/voxpupuli/puppet-epel/pull/134) ([kajinamit](https://github.com/kajinamit))
+
+**Merged pull requests:**
+
+- Drop EL6 code [\#135](https://github.com/voxpupuli/puppet-epel/pull/135) ([ekohl](https://github.com/ekohl))
+- Update README `compatibility` section [\#132](https://github.com/voxpupuli/puppet-epel/pull/132) ([alexjfisher](https://github.com/alexjfisher))
+
 ## [v4.0.0](https://github.com/voxpupuli/puppet-epel/tree/v4.0.0) (2021-11-27)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v3.1.0...v4.0.0)
