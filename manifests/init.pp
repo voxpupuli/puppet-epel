@@ -28,6 +28,7 @@ class epel (
   $epel_gpgcheck                                       = $epel::params::epel_gpgcheck,
   $epel_repo_gpgcheck                                  = $epel::params::epel_repo_gpgcheck,
   $epel_metalink                                       = $epel::params::epel_metalink,
+  Boolean $epel_metalink_enabled                       = true,
   Boolean $epel_managed                                = true,
   $epel_exclude                                        = undef,
   $epel_includepkgs                                    = undef,
@@ -43,6 +44,7 @@ class epel (
   $epel_testing_gpgcheck                               = $epel::params::epel_testing_gpgcheck,
   $epel_testing_repo_gpgcheck                          = $epel::params::epel_testing_repo_gpgcheck,
   $epel_testing_metalink                               = $epel::params::epel_testing_metalink,
+  Boolean $epel_testing_metalink_enabled               = true,
   Boolean $epel_testing_managed                        = true,
   $epel_testing_exclude                                = undef,
   $epel_testing_includepkgs                            = undef,
@@ -58,6 +60,7 @@ class epel (
   $epel_source_gpgcheck                                = $epel::params::epel_source_gpgcheck,
   $epel_source_repo_gpgcheck                           = $epel::params::epel_source_repo_gpgcheck,
   $epel_source_metalink                                = $epel::params::epel_source_metalink,
+  Boolean $epel_source_metalink_enabled                = true,
   Boolean $epel_source_managed                         = true,
   $epel_source_exclude                                 = undef,
   $epel_source_includepkgs                             = undef,
@@ -73,6 +76,7 @@ class epel (
   $epel_debuginfo_gpgcheck                             = $epel::params::epel_debuginfo_gpgcheck,
   $epel_debuginfo_repo_gpgcheck                        = $epel::params::epel_debuginfo_repo_gpgcheck,
   $epel_debuginfo_metalink                             = $epel::params::epel_debuginfo_metalink,
+  Boolean $epel_debuginfo_metalink_enabled             = true,
   Boolean $epel_debuginfo_managed                      = true,
   $epel_debuginfo_exclude                              = undef,
   $epel_debuginfo_includepkgs                          = undef,
@@ -88,6 +92,7 @@ class epel (
   $epel_testing_source_gpgcheck                        = $epel::params::epel_testing_source_gpgcheck,
   $epel_testing_source_repo_gpgcheck                   = $epel::params::epel_testing_source_repo_gpgcheck,
   $epel_testing_source_metalink                        = $epel::params::epel_testing_source_metalink,
+  Boolean $epel_testing_source_metalink_enabled        = true,
   Boolean $epel_testing_source_managed                 = true,
   $epel_testing_source_exclude                         = undef,
   $epel_testing_source_includepkgs                     = undef,
@@ -103,6 +108,7 @@ class epel (
   $epel_testing_debuginfo_gpgcheck                     = $epel::params::epel_testing_debuginfo_gpgcheck,
   $epel_testing_debuginfo_repo_gpgcheck                = $epel::params::epel_testing_debuginfo_repo_gpgcheck,
   $epel_testing_debuginfo_metalink                     = $epel::params::epel_testing_debuginfo_metalink,
+  Boolean $epel_testing_debuginfo_metalink_enabled     = true,
   Boolean $epel_testing_debuginfo_managed              = true,
   $epel_testing_debuginfo_exclude                      = undef,
   $epel_testing_debuginfo_includepkgs                  = undef,
@@ -113,6 +119,30 @@ class epel (
   Boolean $epel_gpg_managed                            = true,
   $os_maj_release                                      = $epel::params::os_maj_release,
 ) inherits epel::params {
+  $_epel_metalink = $epel_metalink_enabled ? {
+    true    => $epel_metalink,
+    default => undef,
+  }
+  $_epel_testing_metalink = $epel_testing_metalink_enabled ? {
+    true    => $epel_testing_metalink,
+    default => undef,
+  }
+  $_epel_source_metalink = $epel_source_metalink_enabled ? {
+    true    => $epel_source_metalink,
+    default => undef,
+  }
+  $_epel_debuginfo_metalink = $epel_debuginfo_metalink_enabled ? {
+    true    => $epel_debuginfo_metalink,
+    default => undef,
+  }
+  $_epel_testing_source_metalink = $epel_testing_source_metalink_enabled ? {
+    true    => $epel_testing_source_metalink,
+    default => undef,
+  }
+  $_epel_testing_debuginfo_metalink = $epel_testing_debuginfo_metalink_enabled ? {
+    true    => $epel_testing_debuginfo_metalink,
+    default => undef,
+  }
   if $facts['os']['family'] == 'RedHat' and $facts['os']['name'] != 'Fedora' {
     if $epel_testing_managed {
       yumrepo { 'epel-testing':
@@ -129,7 +159,7 @@ class epel (
         gpgcheck       => $epel_testing_gpgcheck,
         repo_gpgcheck  => $epel_testing_repo_gpgcheck,
         gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
-        metalink       => $epel_testing_metalink,
+        metalink       => $_epel_testing_metalink,
         descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - Testing - \$basearch",
         exclude        => $epel_testing_exclude,
         includepkgs    => $epel_testing_includepkgs,
@@ -159,7 +189,7 @@ class epel (
         gpgcheck       => $epel_testing_debuginfo_gpgcheck,
         repo_gpgcheck  => $epel_testing_debuginfo_repo_gpgcheck,
         gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
-        metalink       => $epel_testing_debuginfo_metalink,
+        metalink       => $_epel_testing_debuginfo_metalink,
         descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - Testing - \$basearch - Debug",
         exclude        => $epel_testing_debuginfo_exclude,
         includepkgs    => $epel_testing_debuginfo_includepkgs,
@@ -189,7 +219,7 @@ class epel (
         gpgcheck       => $epel_testing_source_gpgcheck,
         repo_gpgcheck  => $epel_testing_source_repo_gpgcheck,
         gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
-        metalink       => $epel_testing_source_metalink,
+        metalink       => $_epel_testing_source_metalink,
         descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - Testing - \$basearch - Source",
         exclude        => $epel_testing_source_exclude,
         includepkgs    => $epel_testing_source_includepkgs,
@@ -219,7 +249,7 @@ class epel (
         gpgcheck       => $epel_gpgcheck,
         repo_gpgcheck  => $epel_repo_gpgcheck,
         gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
-        metalink       => $epel_metalink,
+        metalink       => $_epel_metalink,
         descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - \$basearch",
         exclude        => $epel_exclude,
         includepkgs    => $epel_includepkgs,
@@ -250,7 +280,7 @@ class epel (
         repo_gpgcheck  => $epel_debuginfo_repo_gpgcheck,
         gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
         descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - \$basearch - Debug",
-        metalink       => $epel_debuginfo_metalink,
+        metalink       => $_epel_debuginfo_metalink,
         exclude        => $epel_debuginfo_exclude,
         includepkgs    => $epel_debuginfo_includepkgs,
         sslclientkey   => $epel_debuginfo_sslclientkey,
@@ -280,7 +310,7 @@ class epel (
         repo_gpgcheck  => $epel_source_repo_gpgcheck,
         gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
         descr          => "Extra Packages for Enterprise Linux ${os_maj_release} - \$basearch - Source",
-        metalink       => $epel_source_metalink,
+        metalink       => $_epel_source_metalink,
         exclude        => $epel_source_exclude,
         includepkgs    => $epel_source_includepkgs,
         sslclientkey   => $epel_source_sslclientkey,
