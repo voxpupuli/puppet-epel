@@ -18,7 +18,7 @@ end
 
 shared_examples 'EPEL is available' do
   command = if fact('os.release.major').to_i >= 8
-              '/usr/bin/yum-config-manager --dump epel'
+              '/usr/bin/dnf config-manager --dump epel'
             else
               '/usr/bin/yum-config-manager epel'
             end
@@ -27,11 +27,12 @@ shared_examples 'EPEL is available' do
     its(:stdout) { is_expected.to match %r{epel} }
   end
 
-  describe command('yum clean all') do
+  yum_command = fact('os.release.major').to_i >= 8 ? 'dnf' : 'yum'
+  describe command("#{yum_command} clean all") do
     its(:exit_status) { is_expected.to eq 0 }
   end
 
-  describe command('yum --disablerepo="*" --enablerepo="epel" list available') do
+  describe command("#{yum_command} --disablerepo=\"*\" --enablerepo=\"epel\" list available") do
     its(:exit_status) { is_expected.to eq 0 }
     its(:stdout) { is_expected.to match %r{epel-release} }
   end
