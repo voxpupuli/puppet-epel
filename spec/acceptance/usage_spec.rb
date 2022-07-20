@@ -17,7 +17,7 @@ describe 'usage tests' do
     it_behaves_like 'EPEL is available'
 
     command = if fact('os.release.major').to_i >= 8
-                '/usr/bin/yum-config-manager --dump epel'
+                '/usr/bin/dnf config-manager --dump epel'
               else
                 '/usr/bin/yum-config-manager epel'
               end
@@ -53,7 +53,7 @@ describe 'usage tests' do
     it_behaves_like 'EPEL is available'
 
     command = if fact('os.release.major').to_i >= 8
-                '/usr/bin/yum-config-manager --dump epel'
+                '/usr/bin/dnf config-manager --dump epel'
               else
                 '/usr/bin/yum-config-manager epel'
               end
