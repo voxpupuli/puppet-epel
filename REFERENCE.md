@@ -16,9 +16,6 @@
 
 ### Defined types
 
-#### Public Defined types
-
-
 #### Private Defined types
 
 * `epel::rpm_gpg_key`: Import an RPM gpg key
@@ -44,156 +41,156 @@ include epel
 
 The following parameters are available in the `epel` class:
 
-* [`epel_managed`](#epel_managed)
-* [`epel_source_managed`](#epel_source_managed)
-* [`epel_debuginfo_managed`](#epel_debuginfo_managed)
-* [`epel_testing_managed`](#epel_testing_managed)
-* [`epel_testing_source_managed`](#epel_testing_source_managed)
-* [`epel_testing_debuginfo_managed`](#epel_testing_debuginfo_managed)
-* [`epel_gpg_managed`](#epel_gpg_managed)
-* [`epel_mirrorlist`](#epel_mirrorlist)
-* [`epel_baseurl`](#epel_baseurl)
-* [`epel_failovermethod`](#epel_failovermethod)
-* [`epel_proxy`](#epel_proxy)
-* [`epel_enabled`](#epel_enabled)
-* [`epel_gpgcheck`](#epel_gpgcheck)
-* [`epel_repo_gpgcheck`](#epel_repo_gpgcheck)
-* [`epel_metalink`](#epel_metalink)
-* [`epel_exclude`](#epel_exclude)
-* [`epel_includepkgs`](#epel_includepkgs)
-* [`epel_sslclientkey`](#epel_sslclientkey)
-* [`epel_sslclientcert`](#epel_sslclientcert)
-* [`epel_username`](#epel_username)
-* [`epel_password`](#epel_password)
-* [`epel_testing_mirrorlist`](#epel_testing_mirrorlist)
-* [`epel_testing_baseurl`](#epel_testing_baseurl)
-* [`epel_testing_failovermethod`](#epel_testing_failovermethod)
-* [`epel_testing_proxy`](#epel_testing_proxy)
-* [`epel_testing_enabled`](#epel_testing_enabled)
-* [`epel_testing_gpgcheck`](#epel_testing_gpgcheck)
-* [`epel_testing_repo_gpgcheck`](#epel_testing_repo_gpgcheck)
-* [`epel_testing_metalink`](#epel_testing_metalink)
-* [`epel_testing_exclude`](#epel_testing_exclude)
-* [`epel_testing_includepkgs`](#epel_testing_includepkgs)
-* [`epel_testing_sslclientkey`](#epel_testing_sslclientkey)
-* [`epel_testing_sslclientcert`](#epel_testing_sslclientcert)
-* [`epel_testing_username`](#epel_testing_username)
-* [`epel_testing_password`](#epel_testing_password)
-* [`epel_source_mirrorlist`](#epel_source_mirrorlist)
-* [`epel_source_baseurl`](#epel_source_baseurl)
-* [`epel_source_failovermethod`](#epel_source_failovermethod)
-* [`epel_source_proxy`](#epel_source_proxy)
-* [`epel_source_enabled`](#epel_source_enabled)
-* [`epel_source_gpgcheck`](#epel_source_gpgcheck)
-* [`epel_source_repo_gpgcheck`](#epel_source_repo_gpgcheck)
-* [`epel_source_metalink`](#epel_source_metalink)
-* [`epel_source_exclude`](#epel_source_exclude)
-* [`epel_source_includepkgs`](#epel_source_includepkgs)
-* [`epel_source_sslclientkey`](#epel_source_sslclientkey)
-* [`epel_source_sslclientcert`](#epel_source_sslclientcert)
-* [`epel_source_username`](#epel_source_username)
-* [`epel_source_password`](#epel_source_password)
-* [`epel_debuginfo_mirrorlist`](#epel_debuginfo_mirrorlist)
-* [`epel_debuginfo_baseurl`](#epel_debuginfo_baseurl)
-* [`epel_debuginfo_failovermethod`](#epel_debuginfo_failovermethod)
-* [`epel_debuginfo_proxy`](#epel_debuginfo_proxy)
-* [`epel_debuginfo_enabled`](#epel_debuginfo_enabled)
-* [`epel_debuginfo_gpgcheck`](#epel_debuginfo_gpgcheck)
-* [`epel_debuginfo_repo_gpgcheck`](#epel_debuginfo_repo_gpgcheck)
-* [`epel_debuginfo_metalink`](#epel_debuginfo_metalink)
-* [`epel_debuginfo_exclude`](#epel_debuginfo_exclude)
-* [`epel_debuginfo_includepkgs`](#epel_debuginfo_includepkgs)
-* [`epel_debuginfo_sslclientkey`](#epel_debuginfo_sslclientkey)
-* [`epel_debuginfo_sslclientcert`](#epel_debuginfo_sslclientcert)
-* [`epel_debuginfo_username`](#epel_debuginfo_username)
-* [`epel_debuginfo_password`](#epel_debuginfo_password)
-* [`epel_testing_source_mirrorlist`](#epel_testing_source_mirrorlist)
-* [`epel_testing_source_baseurl`](#epel_testing_source_baseurl)
-* [`epel_testing_source_failovermethod`](#epel_testing_source_failovermethod)
-* [`epel_testing_source_proxy`](#epel_testing_source_proxy)
-* [`epel_testing_source_enabled`](#epel_testing_source_enabled)
-* [`epel_testing_source_gpgcheck`](#epel_testing_source_gpgcheck)
-* [`epel_testing_source_repo_gpgcheck`](#epel_testing_source_repo_gpgcheck)
-* [`epel_testing_source_metalink`](#epel_testing_source_metalink)
-* [`epel_testing_source_exclude`](#epel_testing_source_exclude)
-* [`epel_testing_source_includepkgs`](#epel_testing_source_includepkgs)
-* [`epel_testing_source_sslclientkey`](#epel_testing_source_sslclientkey)
-* [`epel_testing_source_sslclientcert`](#epel_testing_source_sslclientcert)
-* [`epel_testing_source_username`](#epel_testing_source_username)
-* [`epel_testing_source_password`](#epel_testing_source_password)
-* [`epel_testing_debuginfo_mirrorlist`](#epel_testing_debuginfo_mirrorlist)
-* [`epel_testing_debuginfo_baseurl`](#epel_testing_debuginfo_baseurl)
-* [`epel_testing_debuginfo_failovermethod`](#epel_testing_debuginfo_failovermethod)
-* [`epel_testing_debuginfo_proxy`](#epel_testing_debuginfo_proxy)
-* [`epel_testing_debuginfo_enabled`](#epel_testing_debuginfo_enabled)
-* [`epel_testing_debuginfo_gpgcheck`](#epel_testing_debuginfo_gpgcheck)
-* [`epel_testing_debuginfo_repo_gpgcheck`](#epel_testing_debuginfo_repo_gpgcheck)
-* [`epel_testing_debuginfo_metalink`](#epel_testing_debuginfo_metalink)
-* [`epel_testing_debuginfo_exclude`](#epel_testing_debuginfo_exclude)
-* [`epel_testing_debuginfo_includepkgs`](#epel_testing_debuginfo_includepkgs)
-* [`epel_testing_debuginfo_sslclientkey`](#epel_testing_debuginfo_sslclientkey)
-* [`epel_testing_debuginfo_sslclientcert`](#epel_testing_debuginfo_sslclientcert)
-* [`epel_testing_debuginfo_username`](#epel_testing_debuginfo_username)
-* [`epel_testing_debuginfo_password`](#epel_testing_debuginfo_password)
-* [`os_maj_release`](#os_maj_release)
+* [`epel_managed`](#-epel--epel_managed)
+* [`epel_source_managed`](#-epel--epel_source_managed)
+* [`epel_debuginfo_managed`](#-epel--epel_debuginfo_managed)
+* [`epel_testing_managed`](#-epel--epel_testing_managed)
+* [`epel_testing_source_managed`](#-epel--epel_testing_source_managed)
+* [`epel_testing_debuginfo_managed`](#-epel--epel_testing_debuginfo_managed)
+* [`epel_gpg_managed`](#-epel--epel_gpg_managed)
+* [`epel_mirrorlist`](#-epel--epel_mirrorlist)
+* [`epel_baseurl`](#-epel--epel_baseurl)
+* [`epel_failovermethod`](#-epel--epel_failovermethod)
+* [`epel_proxy`](#-epel--epel_proxy)
+* [`epel_enabled`](#-epel--epel_enabled)
+* [`epel_gpgcheck`](#-epel--epel_gpgcheck)
+* [`epel_repo_gpgcheck`](#-epel--epel_repo_gpgcheck)
+* [`epel_metalink`](#-epel--epel_metalink)
+* [`epel_exclude`](#-epel--epel_exclude)
+* [`epel_includepkgs`](#-epel--epel_includepkgs)
+* [`epel_sslclientkey`](#-epel--epel_sslclientkey)
+* [`epel_sslclientcert`](#-epel--epel_sslclientcert)
+* [`epel_username`](#-epel--epel_username)
+* [`epel_password`](#-epel--epel_password)
+* [`epel_testing_mirrorlist`](#-epel--epel_testing_mirrorlist)
+* [`epel_testing_baseurl`](#-epel--epel_testing_baseurl)
+* [`epel_testing_failovermethod`](#-epel--epel_testing_failovermethod)
+* [`epel_testing_proxy`](#-epel--epel_testing_proxy)
+* [`epel_testing_enabled`](#-epel--epel_testing_enabled)
+* [`epel_testing_gpgcheck`](#-epel--epel_testing_gpgcheck)
+* [`epel_testing_repo_gpgcheck`](#-epel--epel_testing_repo_gpgcheck)
+* [`epel_testing_metalink`](#-epel--epel_testing_metalink)
+* [`epel_testing_exclude`](#-epel--epel_testing_exclude)
+* [`epel_testing_includepkgs`](#-epel--epel_testing_includepkgs)
+* [`epel_testing_sslclientkey`](#-epel--epel_testing_sslclientkey)
+* [`epel_testing_sslclientcert`](#-epel--epel_testing_sslclientcert)
+* [`epel_testing_username`](#-epel--epel_testing_username)
+* [`epel_testing_password`](#-epel--epel_testing_password)
+* [`epel_source_mirrorlist`](#-epel--epel_source_mirrorlist)
+* [`epel_source_baseurl`](#-epel--epel_source_baseurl)
+* [`epel_source_failovermethod`](#-epel--epel_source_failovermethod)
+* [`epel_source_proxy`](#-epel--epel_source_proxy)
+* [`epel_source_enabled`](#-epel--epel_source_enabled)
+* [`epel_source_gpgcheck`](#-epel--epel_source_gpgcheck)
+* [`epel_source_repo_gpgcheck`](#-epel--epel_source_repo_gpgcheck)
+* [`epel_source_metalink`](#-epel--epel_source_metalink)
+* [`epel_source_exclude`](#-epel--epel_source_exclude)
+* [`epel_source_includepkgs`](#-epel--epel_source_includepkgs)
+* [`epel_source_sslclientkey`](#-epel--epel_source_sslclientkey)
+* [`epel_source_sslclientcert`](#-epel--epel_source_sslclientcert)
+* [`epel_source_username`](#-epel--epel_source_username)
+* [`epel_source_password`](#-epel--epel_source_password)
+* [`epel_debuginfo_mirrorlist`](#-epel--epel_debuginfo_mirrorlist)
+* [`epel_debuginfo_baseurl`](#-epel--epel_debuginfo_baseurl)
+* [`epel_debuginfo_failovermethod`](#-epel--epel_debuginfo_failovermethod)
+* [`epel_debuginfo_proxy`](#-epel--epel_debuginfo_proxy)
+* [`epel_debuginfo_enabled`](#-epel--epel_debuginfo_enabled)
+* [`epel_debuginfo_gpgcheck`](#-epel--epel_debuginfo_gpgcheck)
+* [`epel_debuginfo_repo_gpgcheck`](#-epel--epel_debuginfo_repo_gpgcheck)
+* [`epel_debuginfo_metalink`](#-epel--epel_debuginfo_metalink)
+* [`epel_debuginfo_exclude`](#-epel--epel_debuginfo_exclude)
+* [`epel_debuginfo_includepkgs`](#-epel--epel_debuginfo_includepkgs)
+* [`epel_debuginfo_sslclientkey`](#-epel--epel_debuginfo_sslclientkey)
+* [`epel_debuginfo_sslclientcert`](#-epel--epel_debuginfo_sslclientcert)
+* [`epel_debuginfo_username`](#-epel--epel_debuginfo_username)
+* [`epel_debuginfo_password`](#-epel--epel_debuginfo_password)
+* [`epel_testing_source_mirrorlist`](#-epel--epel_testing_source_mirrorlist)
+* [`epel_testing_source_baseurl`](#-epel--epel_testing_source_baseurl)
+* [`epel_testing_source_failovermethod`](#-epel--epel_testing_source_failovermethod)
+* [`epel_testing_source_proxy`](#-epel--epel_testing_source_proxy)
+* [`epel_testing_source_enabled`](#-epel--epel_testing_source_enabled)
+* [`epel_testing_source_gpgcheck`](#-epel--epel_testing_source_gpgcheck)
+* [`epel_testing_source_repo_gpgcheck`](#-epel--epel_testing_source_repo_gpgcheck)
+* [`epel_testing_source_metalink`](#-epel--epel_testing_source_metalink)
+* [`epel_testing_source_exclude`](#-epel--epel_testing_source_exclude)
+* [`epel_testing_source_includepkgs`](#-epel--epel_testing_source_includepkgs)
+* [`epel_testing_source_sslclientkey`](#-epel--epel_testing_source_sslclientkey)
+* [`epel_testing_source_sslclientcert`](#-epel--epel_testing_source_sslclientcert)
+* [`epel_testing_source_username`](#-epel--epel_testing_source_username)
+* [`epel_testing_source_password`](#-epel--epel_testing_source_password)
+* [`epel_testing_debuginfo_mirrorlist`](#-epel--epel_testing_debuginfo_mirrorlist)
+* [`epel_testing_debuginfo_baseurl`](#-epel--epel_testing_debuginfo_baseurl)
+* [`epel_testing_debuginfo_failovermethod`](#-epel--epel_testing_debuginfo_failovermethod)
+* [`epel_testing_debuginfo_proxy`](#-epel--epel_testing_debuginfo_proxy)
+* [`epel_testing_debuginfo_enabled`](#-epel--epel_testing_debuginfo_enabled)
+* [`epel_testing_debuginfo_gpgcheck`](#-epel--epel_testing_debuginfo_gpgcheck)
+* [`epel_testing_debuginfo_repo_gpgcheck`](#-epel--epel_testing_debuginfo_repo_gpgcheck)
+* [`epel_testing_debuginfo_metalink`](#-epel--epel_testing_debuginfo_metalink)
+* [`epel_testing_debuginfo_exclude`](#-epel--epel_testing_debuginfo_exclude)
+* [`epel_testing_debuginfo_includepkgs`](#-epel--epel_testing_debuginfo_includepkgs)
+* [`epel_testing_debuginfo_sslclientkey`](#-epel--epel_testing_debuginfo_sslclientkey)
+* [`epel_testing_debuginfo_sslclientcert`](#-epel--epel_testing_debuginfo_sslclientcert)
+* [`epel_testing_debuginfo_username`](#-epel--epel_testing_debuginfo_username)
+* [`epel_testing_debuginfo_password`](#-epel--epel_testing_debuginfo_password)
+* [`os_maj_release`](#-epel--os_maj_release)
 
-##### <a name="epel_managed"></a>`epel_managed`
+##### <a name="-epel--epel_managed"></a>`epel_managed`
 
 Data type: `Boolean`
 
 Determines if the main EPEL repository is managed.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="epel_source_managed"></a>`epel_source_managed`
+##### <a name="-epel--epel_source_managed"></a>`epel_source_managed`
 
 Data type: `Boolean`
 
 Determines if the `epel-source` repository is managed.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="epel_debuginfo_managed"></a>`epel_debuginfo_managed`
+##### <a name="-epel--epel_debuginfo_managed"></a>`epel_debuginfo_managed`
 
 Data type: `Boolean`
 
 Determines if the `epel-debuginfo` repository is managed.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="epel_testing_managed"></a>`epel_testing_managed`
+##### <a name="-epel--epel_testing_managed"></a>`epel_testing_managed`
 
 Data type: `Boolean`
 
 Determines if the `epel-testing` repository is managed.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="epel_testing_source_managed"></a>`epel_testing_source_managed`
+##### <a name="-epel--epel_testing_source_managed"></a>`epel_testing_source_managed`
 
 Data type: `Boolean`
 
 Determines if the `epel-testing-source` repository is managed.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="epel_testing_debuginfo_managed"></a>`epel_testing_debuginfo_managed`
+##### <a name="-epel--epel_testing_debuginfo_managed"></a>`epel_testing_debuginfo_managed`
 
 Data type: `Boolean`
 
 Determines if the `epel-testing-debuginfo` repository is managed.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="epel_gpg_managed"></a>`epel_gpg_managed`
+##### <a name="-epel--epel_gpg_managed"></a>`epel_gpg_managed`
 
 Data type: `Boolean`
 
 Detemines if the module manages the rpm-gpg key for EPEL.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="epel_mirrorlist"></a>`epel_mirrorlist`
+##### <a name="-epel--epel_mirrorlist"></a>`epel_mirrorlist`
 
 Data type: `Any`
 
@@ -201,7 +198,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_mirrorlist`
 
-##### <a name="epel_baseurl"></a>`epel_baseurl`
+##### <a name="-epel--epel_baseurl"></a>`epel_baseurl`
 
 Data type: `Any`
 
@@ -209,7 +206,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_baseurl`
 
-##### <a name="epel_failovermethod"></a>`epel_failovermethod`
+##### <a name="-epel--epel_failovermethod"></a>`epel_failovermethod`
 
 Data type: `Any`
 
@@ -217,7 +214,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_failovermethod`
 
-##### <a name="epel_proxy"></a>`epel_proxy`
+##### <a name="-epel--epel_proxy"></a>`epel_proxy`
 
 Data type: `Any`
 
@@ -225,7 +222,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_proxy`
 
-##### <a name="epel_enabled"></a>`epel_enabled`
+##### <a name="-epel--epel_enabled"></a>`epel_enabled`
 
 Data type: `Any`
 
@@ -233,7 +230,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_enabled`
 
-##### <a name="epel_gpgcheck"></a>`epel_gpgcheck`
+##### <a name="-epel--epel_gpgcheck"></a>`epel_gpgcheck`
 
 Data type: `Any`
 
@@ -241,7 +238,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_gpgcheck`
 
-##### <a name="epel_repo_gpgcheck"></a>`epel_repo_gpgcheck`
+##### <a name="-epel--epel_repo_gpgcheck"></a>`epel_repo_gpgcheck`
 
 Data type: `Any`
 
@@ -249,7 +246,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_repo_gpgcheck`
 
-##### <a name="epel_metalink"></a>`epel_metalink`
+##### <a name="-epel--epel_metalink"></a>`epel_metalink`
 
 Data type: `Any`
 
@@ -257,55 +254,55 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_metalink`
 
-##### <a name="epel_exclude"></a>`epel_exclude`
+##### <a name="-epel--epel_exclude"></a>`epel_exclude`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_includepkgs"></a>`epel_includepkgs`
-
-Data type: `Any`
-
-
-
-Default value: ``undef``
-
-##### <a name="epel_sslclientkey"></a>`epel_sslclientkey`
+##### <a name="-epel--epel_includepkgs"></a>`epel_includepkgs`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_sslclientcert"></a>`epel_sslclientcert`
+##### <a name="-epel--epel_sslclientkey"></a>`epel_sslclientkey`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_username"></a>`epel_username`
+##### <a name="-epel--epel_sslclientcert"></a>`epel_sslclientcert`
+
+Data type: `Any`
+
+
+
+Default value: `undef`
+
+##### <a name="-epel--epel_username"></a>`epel_username`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_password"></a>`epel_password`
+##### <a name="-epel--epel_password"></a>`epel_password`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_mirrorlist"></a>`epel_testing_mirrorlist`
+##### <a name="-epel--epel_testing_mirrorlist"></a>`epel_testing_mirrorlist`
 
 Data type: `Any`
 
@@ -313,7 +310,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_mirrorlist`
 
-##### <a name="epel_testing_baseurl"></a>`epel_testing_baseurl`
+##### <a name="-epel--epel_testing_baseurl"></a>`epel_testing_baseurl`
 
 Data type: `Any`
 
@@ -321,7 +318,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_baseurl`
 
-##### <a name="epel_testing_failovermethod"></a>`epel_testing_failovermethod`
+##### <a name="-epel--epel_testing_failovermethod"></a>`epel_testing_failovermethod`
 
 Data type: `Any`
 
@@ -329,7 +326,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_failovermethod`
 
-##### <a name="epel_testing_proxy"></a>`epel_testing_proxy`
+##### <a name="-epel--epel_testing_proxy"></a>`epel_testing_proxy`
 
 Data type: `Any`
 
@@ -337,7 +334,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_proxy`
 
-##### <a name="epel_testing_enabled"></a>`epel_testing_enabled`
+##### <a name="-epel--epel_testing_enabled"></a>`epel_testing_enabled`
 
 Data type: `Any`
 
@@ -345,7 +342,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_enabled`
 
-##### <a name="epel_testing_gpgcheck"></a>`epel_testing_gpgcheck`
+##### <a name="-epel--epel_testing_gpgcheck"></a>`epel_testing_gpgcheck`
 
 Data type: `Any`
 
@@ -353,7 +350,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_gpgcheck`
 
-##### <a name="epel_testing_repo_gpgcheck"></a>`epel_testing_repo_gpgcheck`
+##### <a name="-epel--epel_testing_repo_gpgcheck"></a>`epel_testing_repo_gpgcheck`
 
 Data type: `Any`
 
@@ -361,7 +358,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_repo_gpgcheck`
 
-##### <a name="epel_testing_metalink"></a>`epel_testing_metalink`
+##### <a name="-epel--epel_testing_metalink"></a>`epel_testing_metalink`
 
 Data type: `Any`
 
@@ -369,55 +366,55 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_metalink`
 
-##### <a name="epel_testing_exclude"></a>`epel_testing_exclude`
+##### <a name="-epel--epel_testing_exclude"></a>`epel_testing_exclude`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_includepkgs"></a>`epel_testing_includepkgs`
-
-Data type: `Any`
-
-
-
-Default value: ``undef``
-
-##### <a name="epel_testing_sslclientkey"></a>`epel_testing_sslclientkey`
+##### <a name="-epel--epel_testing_includepkgs"></a>`epel_testing_includepkgs`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_sslclientcert"></a>`epel_testing_sslclientcert`
+##### <a name="-epel--epel_testing_sslclientkey"></a>`epel_testing_sslclientkey`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_username"></a>`epel_testing_username`
+##### <a name="-epel--epel_testing_sslclientcert"></a>`epel_testing_sslclientcert`
+
+Data type: `Any`
+
+
+
+Default value: `undef`
+
+##### <a name="-epel--epel_testing_username"></a>`epel_testing_username`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_password"></a>`epel_testing_password`
+##### <a name="-epel--epel_testing_password"></a>`epel_testing_password`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_source_mirrorlist"></a>`epel_source_mirrorlist`
+##### <a name="-epel--epel_source_mirrorlist"></a>`epel_source_mirrorlist`
 
 Data type: `Any`
 
@@ -425,7 +422,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_source_mirrorlist`
 
-##### <a name="epel_source_baseurl"></a>`epel_source_baseurl`
+##### <a name="-epel--epel_source_baseurl"></a>`epel_source_baseurl`
 
 Data type: `Any`
 
@@ -433,7 +430,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_source_baseurl`
 
-##### <a name="epel_source_failovermethod"></a>`epel_source_failovermethod`
+##### <a name="-epel--epel_source_failovermethod"></a>`epel_source_failovermethod`
 
 Data type: `Any`
 
@@ -441,7 +438,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_source_failovermethod`
 
-##### <a name="epel_source_proxy"></a>`epel_source_proxy`
+##### <a name="-epel--epel_source_proxy"></a>`epel_source_proxy`
 
 Data type: `Any`
 
@@ -449,7 +446,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_source_proxy`
 
-##### <a name="epel_source_enabled"></a>`epel_source_enabled`
+##### <a name="-epel--epel_source_enabled"></a>`epel_source_enabled`
 
 Data type: `Any`
 
@@ -457,7 +454,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_source_enabled`
 
-##### <a name="epel_source_gpgcheck"></a>`epel_source_gpgcheck`
+##### <a name="-epel--epel_source_gpgcheck"></a>`epel_source_gpgcheck`
 
 Data type: `Any`
 
@@ -465,7 +462,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_source_gpgcheck`
 
-##### <a name="epel_source_repo_gpgcheck"></a>`epel_source_repo_gpgcheck`
+##### <a name="-epel--epel_source_repo_gpgcheck"></a>`epel_source_repo_gpgcheck`
 
 Data type: `Any`
 
@@ -473,7 +470,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_source_repo_gpgcheck`
 
-##### <a name="epel_source_metalink"></a>`epel_source_metalink`
+##### <a name="-epel--epel_source_metalink"></a>`epel_source_metalink`
 
 Data type: `Any`
 
@@ -481,55 +478,55 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_source_metalink`
 
-##### <a name="epel_source_exclude"></a>`epel_source_exclude`
+##### <a name="-epel--epel_source_exclude"></a>`epel_source_exclude`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_source_includepkgs"></a>`epel_source_includepkgs`
-
-Data type: `Any`
-
-
-
-Default value: ``undef``
-
-##### <a name="epel_source_sslclientkey"></a>`epel_source_sslclientkey`
+##### <a name="-epel--epel_source_includepkgs"></a>`epel_source_includepkgs`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_source_sslclientcert"></a>`epel_source_sslclientcert`
+##### <a name="-epel--epel_source_sslclientkey"></a>`epel_source_sslclientkey`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_source_username"></a>`epel_source_username`
+##### <a name="-epel--epel_source_sslclientcert"></a>`epel_source_sslclientcert`
+
+Data type: `Any`
+
+
+
+Default value: `undef`
+
+##### <a name="-epel--epel_source_username"></a>`epel_source_username`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_source_password"></a>`epel_source_password`
+##### <a name="-epel--epel_source_password"></a>`epel_source_password`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_debuginfo_mirrorlist"></a>`epel_debuginfo_mirrorlist`
+##### <a name="-epel--epel_debuginfo_mirrorlist"></a>`epel_debuginfo_mirrorlist`
 
 Data type: `Any`
 
@@ -537,7 +534,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_debuginfo_mirrorlist`
 
-##### <a name="epel_debuginfo_baseurl"></a>`epel_debuginfo_baseurl`
+##### <a name="-epel--epel_debuginfo_baseurl"></a>`epel_debuginfo_baseurl`
 
 Data type: `Any`
 
@@ -545,7 +542,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_debuginfo_baseurl`
 
-##### <a name="epel_debuginfo_failovermethod"></a>`epel_debuginfo_failovermethod`
+##### <a name="-epel--epel_debuginfo_failovermethod"></a>`epel_debuginfo_failovermethod`
 
 Data type: `Any`
 
@@ -553,7 +550,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_debuginfo_failovermethod`
 
-##### <a name="epel_debuginfo_proxy"></a>`epel_debuginfo_proxy`
+##### <a name="-epel--epel_debuginfo_proxy"></a>`epel_debuginfo_proxy`
 
 Data type: `Any`
 
@@ -561,7 +558,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_debuginfo_proxy`
 
-##### <a name="epel_debuginfo_enabled"></a>`epel_debuginfo_enabled`
+##### <a name="-epel--epel_debuginfo_enabled"></a>`epel_debuginfo_enabled`
 
 Data type: `Any`
 
@@ -569,7 +566,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_debuginfo_enabled`
 
-##### <a name="epel_debuginfo_gpgcheck"></a>`epel_debuginfo_gpgcheck`
+##### <a name="-epel--epel_debuginfo_gpgcheck"></a>`epel_debuginfo_gpgcheck`
 
 Data type: `Any`
 
@@ -577,7 +574,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_debuginfo_gpgcheck`
 
-##### <a name="epel_debuginfo_repo_gpgcheck"></a>`epel_debuginfo_repo_gpgcheck`
+##### <a name="-epel--epel_debuginfo_repo_gpgcheck"></a>`epel_debuginfo_repo_gpgcheck`
 
 Data type: `Any`
 
@@ -585,7 +582,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_debuginfo_repo_gpgcheck`
 
-##### <a name="epel_debuginfo_metalink"></a>`epel_debuginfo_metalink`
+##### <a name="-epel--epel_debuginfo_metalink"></a>`epel_debuginfo_metalink`
 
 Data type: `Any`
 
@@ -593,55 +590,55 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_debuginfo_metalink`
 
-##### <a name="epel_debuginfo_exclude"></a>`epel_debuginfo_exclude`
+##### <a name="-epel--epel_debuginfo_exclude"></a>`epel_debuginfo_exclude`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_debuginfo_includepkgs"></a>`epel_debuginfo_includepkgs`
-
-Data type: `Any`
-
-
-
-Default value: ``undef``
-
-##### <a name="epel_debuginfo_sslclientkey"></a>`epel_debuginfo_sslclientkey`
+##### <a name="-epel--epel_debuginfo_includepkgs"></a>`epel_debuginfo_includepkgs`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_debuginfo_sslclientcert"></a>`epel_debuginfo_sslclientcert`
+##### <a name="-epel--epel_debuginfo_sslclientkey"></a>`epel_debuginfo_sslclientkey`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_debuginfo_username"></a>`epel_debuginfo_username`
+##### <a name="-epel--epel_debuginfo_sslclientcert"></a>`epel_debuginfo_sslclientcert`
+
+Data type: `Any`
+
+
+
+Default value: `undef`
+
+##### <a name="-epel--epel_debuginfo_username"></a>`epel_debuginfo_username`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_debuginfo_password"></a>`epel_debuginfo_password`
+##### <a name="-epel--epel_debuginfo_password"></a>`epel_debuginfo_password`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_source_mirrorlist"></a>`epel_testing_source_mirrorlist`
+##### <a name="-epel--epel_testing_source_mirrorlist"></a>`epel_testing_source_mirrorlist`
 
 Data type: `Any`
 
@@ -649,7 +646,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_source_mirrorlist`
 
-##### <a name="epel_testing_source_baseurl"></a>`epel_testing_source_baseurl`
+##### <a name="-epel--epel_testing_source_baseurl"></a>`epel_testing_source_baseurl`
 
 Data type: `Any`
 
@@ -657,7 +654,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_source_baseurl`
 
-##### <a name="epel_testing_source_failovermethod"></a>`epel_testing_source_failovermethod`
+##### <a name="-epel--epel_testing_source_failovermethod"></a>`epel_testing_source_failovermethod`
 
 Data type: `Any`
 
@@ -665,7 +662,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_source_failovermethod`
 
-##### <a name="epel_testing_source_proxy"></a>`epel_testing_source_proxy`
+##### <a name="-epel--epel_testing_source_proxy"></a>`epel_testing_source_proxy`
 
 Data type: `Any`
 
@@ -673,7 +670,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_source_proxy`
 
-##### <a name="epel_testing_source_enabled"></a>`epel_testing_source_enabled`
+##### <a name="-epel--epel_testing_source_enabled"></a>`epel_testing_source_enabled`
 
 Data type: `Any`
 
@@ -681,7 +678,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_source_enabled`
 
-##### <a name="epel_testing_source_gpgcheck"></a>`epel_testing_source_gpgcheck`
+##### <a name="-epel--epel_testing_source_gpgcheck"></a>`epel_testing_source_gpgcheck`
 
 Data type: `Any`
 
@@ -689,7 +686,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_source_gpgcheck`
 
-##### <a name="epel_testing_source_repo_gpgcheck"></a>`epel_testing_source_repo_gpgcheck`
+##### <a name="-epel--epel_testing_source_repo_gpgcheck"></a>`epel_testing_source_repo_gpgcheck`
 
 Data type: `Any`
 
@@ -697,7 +694,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_source_repo_gpgcheck`
 
-##### <a name="epel_testing_source_metalink"></a>`epel_testing_source_metalink`
+##### <a name="-epel--epel_testing_source_metalink"></a>`epel_testing_source_metalink`
 
 Data type: `Any`
 
@@ -705,55 +702,55 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_source_metalink`
 
-##### <a name="epel_testing_source_exclude"></a>`epel_testing_source_exclude`
+##### <a name="-epel--epel_testing_source_exclude"></a>`epel_testing_source_exclude`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_source_includepkgs"></a>`epel_testing_source_includepkgs`
-
-Data type: `Any`
-
-
-
-Default value: ``undef``
-
-##### <a name="epel_testing_source_sslclientkey"></a>`epel_testing_source_sslclientkey`
+##### <a name="-epel--epel_testing_source_includepkgs"></a>`epel_testing_source_includepkgs`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_source_sslclientcert"></a>`epel_testing_source_sslclientcert`
+##### <a name="-epel--epel_testing_source_sslclientkey"></a>`epel_testing_source_sslclientkey`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_source_username"></a>`epel_testing_source_username`
+##### <a name="-epel--epel_testing_source_sslclientcert"></a>`epel_testing_source_sslclientcert`
+
+Data type: `Any`
+
+
+
+Default value: `undef`
+
+##### <a name="-epel--epel_testing_source_username"></a>`epel_testing_source_username`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_source_password"></a>`epel_testing_source_password`
+##### <a name="-epel--epel_testing_source_password"></a>`epel_testing_source_password`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_debuginfo_mirrorlist"></a>`epel_testing_debuginfo_mirrorlist`
+##### <a name="-epel--epel_testing_debuginfo_mirrorlist"></a>`epel_testing_debuginfo_mirrorlist`
 
 Data type: `Any`
 
@@ -761,7 +758,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_debuginfo_mirrorlist`
 
-##### <a name="epel_testing_debuginfo_baseurl"></a>`epel_testing_debuginfo_baseurl`
+##### <a name="-epel--epel_testing_debuginfo_baseurl"></a>`epel_testing_debuginfo_baseurl`
 
 Data type: `Any`
 
@@ -769,7 +766,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_debuginfo_baseurl`
 
-##### <a name="epel_testing_debuginfo_failovermethod"></a>`epel_testing_debuginfo_failovermethod`
+##### <a name="-epel--epel_testing_debuginfo_failovermethod"></a>`epel_testing_debuginfo_failovermethod`
 
 Data type: `Any`
 
@@ -777,7 +774,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_debuginfo_failovermethod`
 
-##### <a name="epel_testing_debuginfo_proxy"></a>`epel_testing_debuginfo_proxy`
+##### <a name="-epel--epel_testing_debuginfo_proxy"></a>`epel_testing_debuginfo_proxy`
 
 Data type: `Any`
 
@@ -785,7 +782,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_debuginfo_proxy`
 
-##### <a name="epel_testing_debuginfo_enabled"></a>`epel_testing_debuginfo_enabled`
+##### <a name="-epel--epel_testing_debuginfo_enabled"></a>`epel_testing_debuginfo_enabled`
 
 Data type: `Any`
 
@@ -793,7 +790,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_debuginfo_enabled`
 
-##### <a name="epel_testing_debuginfo_gpgcheck"></a>`epel_testing_debuginfo_gpgcheck`
+##### <a name="-epel--epel_testing_debuginfo_gpgcheck"></a>`epel_testing_debuginfo_gpgcheck`
 
 Data type: `Any`
 
@@ -801,7 +798,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_debuginfo_gpgcheck`
 
-##### <a name="epel_testing_debuginfo_repo_gpgcheck"></a>`epel_testing_debuginfo_repo_gpgcheck`
+##### <a name="-epel--epel_testing_debuginfo_repo_gpgcheck"></a>`epel_testing_debuginfo_repo_gpgcheck`
 
 Data type: `Any`
 
@@ -809,7 +806,7 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_debuginfo_repo_gpgcheck`
 
-##### <a name="epel_testing_debuginfo_metalink"></a>`epel_testing_debuginfo_metalink`
+##### <a name="-epel--epel_testing_debuginfo_metalink"></a>`epel_testing_debuginfo_metalink`
 
 Data type: `Any`
 
@@ -817,61 +814,59 @@ Data type: `Any`
 
 Default value: `$epel::params::epel_testing_debuginfo_metalink`
 
-##### <a name="epel_testing_debuginfo_exclude"></a>`epel_testing_debuginfo_exclude`
+##### <a name="-epel--epel_testing_debuginfo_exclude"></a>`epel_testing_debuginfo_exclude`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_debuginfo_includepkgs"></a>`epel_testing_debuginfo_includepkgs`
-
-Data type: `Any`
-
-
-
-Default value: ``undef``
-
-##### <a name="epel_testing_debuginfo_sslclientkey"></a>`epel_testing_debuginfo_sslclientkey`
+##### <a name="-epel--epel_testing_debuginfo_includepkgs"></a>`epel_testing_debuginfo_includepkgs`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_debuginfo_sslclientcert"></a>`epel_testing_debuginfo_sslclientcert`
+##### <a name="-epel--epel_testing_debuginfo_sslclientkey"></a>`epel_testing_debuginfo_sslclientkey`
 
 Data type: `Any`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_debuginfo_username"></a>`epel_testing_debuginfo_username`
+##### <a name="-epel--epel_testing_debuginfo_sslclientcert"></a>`epel_testing_debuginfo_sslclientcert`
+
+Data type: `Any`
+
+
+
+Default value: `undef`
+
+##### <a name="-epel--epel_testing_debuginfo_username"></a>`epel_testing_debuginfo_username`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="epel_testing_debuginfo_password"></a>`epel_testing_debuginfo_password`
+##### <a name="-epel--epel_testing_debuginfo_password"></a>`epel_testing_debuginfo_password`
 
 Data type: `Optional[String[1]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="os_maj_release"></a>`os_maj_release`
+##### <a name="-epel--os_maj_release"></a>`os_maj_release`
 
 Data type: `Any`
 
 
 
 Default value: `$epel::params::os_maj_release`
-
-## Defined types
 
