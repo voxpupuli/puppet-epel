@@ -1,6 +1,6 @@
 {
   "name": "puppet-epel",
-  "version": "5.0.0",
+  "version": "5.0.1-rc0",
   "author": "Vox Pupuli",
   "summary": "Setup the EPEL package repo",
   "license": "Apache-2.0",
@@ -60,5 +60,7 @@
     }
   ],
   "description": "Setup the EPEL package repo on Centos/RHEL et al",
-  "dependencies": []
+  "dependencies": [
+
+  ]
 }
