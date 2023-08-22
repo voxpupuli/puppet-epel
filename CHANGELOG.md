@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v5.0.0](https://github.com/voxpupuli/puppet-epel/tree/v5.0.0) (2023-08-22)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v4.1.0...v5.0.0)
+
+**Breaking changes:**
+
+- Drop Puppet 6 support [\#145](https://github.com/voxpupuli/puppet-epel/pull/145) ([bastelfreak](https://github.com/bastelfreak))
+
+**Implemented enhancements:**
+
+- Add EL9/Rocky/AlmaLinux support [\#151](https://github.com/voxpupuli/puppet-epel/pull/151) ([bastelfreak](https://github.com/bastelfreak))
+- Add Puppet 8 support [\#148](https://github.com/voxpupuli/puppet-epel/pull/148) ([bastelfreak](https://github.com/bastelfreak))
+
+**Closed issues:**
+
+- \[4.1.0\]  add support for Puppet 8 [\#147](https://github.com/voxpupuli/puppet-epel/issues/147)
+
+**Merged pull requests:**
+
+- .fixtures.yml: Cleanup URLs [\#150](https://github.com/voxpupuli/puppet-epel/pull/150) ([bastelfreak](https://github.com/bastelfreak))
+- Use dnf command in CentOS \>= 8 [\#140](https://github.com/voxpupuli/puppet-epel/pull/140) ([kajinamit](https://github.com/kajinamit))
+
 ## [v4.1.0](https://github.com/voxpupuli/puppet-epel/tree/v4.1.0) (2022-03-26)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v4.0.0...v4.1.0)
