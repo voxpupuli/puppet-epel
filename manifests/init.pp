@@ -304,7 +304,7 @@ class epel (
       }
 
       epel::rpm_gpg_key { "EPEL-${os_maj_release}":
-        path   => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
+        path => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
       }
     }
   } else {
