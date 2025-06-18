@@ -1,4 +1,4 @@
 ---
 fixtures:
   repositories:
-    yumrepo_core: 'https://github.com/puppetlabs/puppetlabs-yumrepo_core'
+    yumrepo_core: https://github.com/puppetlabs/puppetlabs-yumrepo_core
