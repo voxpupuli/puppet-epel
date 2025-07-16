@@ -57,6 +57,10 @@
     {
       "name": "puppet",
       "version_requirement": ">= 7.0.0 < 9.0.0"
+    },
+    {
+      "name": "openvox",
+      "version_requirement": ">= 7.0.0 < 9.0.0"
     }
   ],
   "description": "Setup the EPEL package repo on Centos/RHEL et al",
