@@ -23,7 +23,6 @@ describe 'epel' do
       let(:facts) { os_facts }
 
       it { is_expected.to contain_class('epel') }
-      it { is_expected.to contain_class('epel::params') }
 
       case os_facts[:operatingsystemmajrelease]
       when '7'

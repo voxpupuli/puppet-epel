@@ -6,19 +6,18 @@
 
 ### Classes
 
-#### Public Classes
-
 * [`epel`](#epel): Configure the proper EPEL repositories and import GPG keys
-
-#### Private Classes
-
-* `epel::params`
 
 ### Defined types
 
 #### Private Defined types
 
 * `epel::rpm_gpg_key`: Import an RPM gpg key
+
+### Data types
+
+* [`Epel::Failovermethod`](#Epel--Failovermethod): A yum repository failover method
+* [`Epel::Proxy`](#Epel--Proxy): A yum repository proxy
 
 ## Classes
 
@@ -41,6 +40,8 @@ include epel
 
 The following parameters are available in the `epel` class:
 
+* [`failovermethod`](#-epel--failovermethod)
+* [`proxy`](#-epel--proxy)
 * [`epel_managed`](#-epel--epel_managed)
 * [`epel_source_managed`](#-epel--epel_source_managed)
 * [`epel_debuginfo_managed`](#-epel--epel_debuginfo_managed)
@@ -134,6 +135,22 @@ The following parameters are available in the `epel` class:
 * [`epel_testing_debuginfo_password`](#-epel--epel_testing_debuginfo_password)
 * [`os_maj_release`](#-epel--os_maj_release)
 
+##### <a name="-epel--failovermethod"></a>`failovermethod`
+
+Data type: `Epel::Failovermethod`
+
+Default failover method for all EPEL repositories
+
+Default value: `'absent'`
+
+##### <a name="-epel--proxy"></a>`proxy`
+
+Data type: `Epel::Proxy`
+
+Default proxy for all EPEL repositories
+
+Default value: `'absent'`
+
 ##### <a name="-epel--epel_managed"></a>`epel_managed`
 
 Data type: `Boolean`
@@ -196,7 +213,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_mirrorlist`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_baseurl"></a>`epel_baseurl`
 
@@ -204,23 +221,23 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_baseurl`
+Default value: `'absent'`
 
 ##### <a name="-epel--epel_failovermethod"></a>`epel_failovermethod`
 
-Data type: `Any`
+Data type: `Epel::Failovermethod`
 
 
 
-Default value: `$epel::params::epel_failovermethod`
+Default value: `$failovermethod`
 
 ##### <a name="-epel--epel_proxy"></a>`epel_proxy`
 
-Data type: `Any`
+Data type: `Epel::Proxy`
 
 
 
-Default value: `$epel::params::epel_proxy`
+Default value: `$proxy`
 
 ##### <a name="-epel--epel_enabled"></a>`epel_enabled`
 
@@ -228,7 +245,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_enabled`
+Default value: `'1'`
 
 ##### <a name="-epel--epel_gpgcheck"></a>`epel_gpgcheck`
 
@@ -236,7 +253,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_gpgcheck`
+Default value: `'1'`
 
 ##### <a name="-epel--epel_repo_gpgcheck"></a>`epel_repo_gpgcheck`
 
@@ -244,7 +261,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_repo_gpgcheck`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_metalink"></a>`epel_metalink`
 
@@ -252,7 +269,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_metalink`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_exclude"></a>`epel_exclude`
 
@@ -308,7 +325,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_mirrorlist`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-epel${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_testing_baseurl"></a>`epel_testing_baseurl`
 
@@ -316,23 +333,23 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_baseurl`
+Default value: `'absent'`
 
 ##### <a name="-epel--epel_testing_failovermethod"></a>`epel_testing_failovermethod`
 
-Data type: `Any`
+Data type: `Epel::Failovermethod`
 
 
 
-Default value: `$epel::params::epel_testing_failovermethod`
+Default value: `$failovermethod`
 
 ##### <a name="-epel--epel_testing_proxy"></a>`epel_testing_proxy`
 
-Data type: `Any`
+Data type: `Epel::Proxy`
 
 
 
-Default value: `$epel::params::epel_testing_proxy`
+Default value: `$proxy`
 
 ##### <a name="-epel--epel_testing_enabled"></a>`epel_testing_enabled`
 
@@ -340,7 +357,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_enabled`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_testing_gpgcheck"></a>`epel_testing_gpgcheck`
 
@@ -348,7 +365,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_gpgcheck`
+Default value: `'1'`
 
 ##### <a name="-epel--epel_testing_repo_gpgcheck"></a>`epel_testing_repo_gpgcheck`
 
@@ -356,7 +373,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_repo_gpgcheck`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_testing_metalink"></a>`epel_testing_metalink`
 
@@ -364,7 +381,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_metalink`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-epel${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_testing_exclude"></a>`epel_testing_exclude`
 
@@ -420,7 +437,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_source_mirrorlist`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-source-${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_source_baseurl"></a>`epel_source_baseurl`
 
@@ -428,23 +445,23 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_source_baseurl`
+Default value: `'absent'`
 
 ##### <a name="-epel--epel_source_failovermethod"></a>`epel_source_failovermethod`
 
-Data type: `Any`
+Data type: `Epel::Failovermethod`
 
 
 
-Default value: `$epel::params::epel_source_failovermethod`
+Default value: `$failovermethod`
 
 ##### <a name="-epel--epel_source_proxy"></a>`epel_source_proxy`
 
-Data type: `Any`
+Data type: `Epel::Proxy`
 
 
 
-Default value: `$epel::params::epel_source_proxy`
+Default value: `$proxy`
 
 ##### <a name="-epel--epel_source_enabled"></a>`epel_source_enabled`
 
@@ -452,7 +469,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_source_enabled`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_source_gpgcheck"></a>`epel_source_gpgcheck`
 
@@ -460,7 +477,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_source_gpgcheck`
+Default value: `'1'`
 
 ##### <a name="-epel--epel_source_repo_gpgcheck"></a>`epel_source_repo_gpgcheck`
 
@@ -468,7 +485,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_source_repo_gpgcheck`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_source_metalink"></a>`epel_source_metalink`
 
@@ -476,7 +493,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_source_metalink`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-source-${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_source_exclude"></a>`epel_source_exclude`
 
@@ -532,7 +549,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_debuginfo_mirrorlist`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-debug-${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_debuginfo_baseurl"></a>`epel_debuginfo_baseurl`
 
@@ -540,23 +557,23 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_debuginfo_baseurl`
+Default value: `'absent'`
 
 ##### <a name="-epel--epel_debuginfo_failovermethod"></a>`epel_debuginfo_failovermethod`
 
-Data type: `Any`
+Data type: `Epel::Failovermethod`
 
 
 
-Default value: `$epel::params::epel_debuginfo_failovermethod`
+Default value: `$failovermethod`
 
 ##### <a name="-epel--epel_debuginfo_proxy"></a>`epel_debuginfo_proxy`
 
-Data type: `Any`
+Data type: `Epel::Proxy`
 
 
 
-Default value: `$epel::params::epel_debuginfo_proxy`
+Default value: `$proxy`
 
 ##### <a name="-epel--epel_debuginfo_enabled"></a>`epel_debuginfo_enabled`
 
@@ -564,7 +581,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_debuginfo_enabled`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_debuginfo_gpgcheck"></a>`epel_debuginfo_gpgcheck`
 
@@ -572,7 +589,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_debuginfo_gpgcheck`
+Default value: `'1'`
 
 ##### <a name="-epel--epel_debuginfo_repo_gpgcheck"></a>`epel_debuginfo_repo_gpgcheck`
 
@@ -580,7 +597,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_debuginfo_repo_gpgcheck`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_debuginfo_metalink"></a>`epel_debuginfo_metalink`
 
@@ -588,7 +605,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_debuginfo_metalink`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-debug-${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_debuginfo_exclude"></a>`epel_debuginfo_exclude`
 
@@ -644,7 +661,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_source_mirrorlist`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_testing_source_baseurl"></a>`epel_testing_source_baseurl`
 
@@ -652,23 +669,23 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_source_baseurl`
+Default value: `'absent'`
 
 ##### <a name="-epel--epel_testing_source_failovermethod"></a>`epel_testing_source_failovermethod`
 
-Data type: `Any`
+Data type: `Epel::Failovermethod`
 
 
 
-Default value: `$epel::params::epel_testing_source_failovermethod`
+Default value: `$failovermethod`
 
 ##### <a name="-epel--epel_testing_source_proxy"></a>`epel_testing_source_proxy`
 
-Data type: `Any`
+Data type: `Epel::Proxy`
 
 
 
-Default value: `$epel::params::epel_testing_source_proxy`
+Default value: `$proxy`
 
 ##### <a name="-epel--epel_testing_source_enabled"></a>`epel_testing_source_enabled`
 
@@ -676,7 +693,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_source_enabled`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_testing_source_gpgcheck"></a>`epel_testing_source_gpgcheck`
 
@@ -684,7 +701,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_source_gpgcheck`
+Default value: `'1'`
 
 ##### <a name="-epel--epel_testing_source_repo_gpgcheck"></a>`epel_testing_source_repo_gpgcheck`
 
@@ -692,7 +709,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_source_repo_gpgcheck`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_testing_source_metalink"></a>`epel_testing_source_metalink`
 
@@ -700,7 +717,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_source_metalink`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_testing_source_exclude"></a>`epel_testing_source_exclude`
 
@@ -756,7 +773,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_debuginfo_mirrorlist`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_testing_debuginfo_baseurl"></a>`epel_testing_debuginfo_baseurl`
 
@@ -764,23 +781,23 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_debuginfo_baseurl`
+Default value: `'absent'`
 
 ##### <a name="-epel--epel_testing_debuginfo_failovermethod"></a>`epel_testing_debuginfo_failovermethod`
 
-Data type: `Any`
+Data type: `Epel::Failovermethod`
 
 
 
-Default value: `$epel::params::epel_testing_debuginfo_failovermethod`
+Default value: `$failovermethod`
 
 ##### <a name="-epel--epel_testing_debuginfo_proxy"></a>`epel_testing_debuginfo_proxy`
 
-Data type: `Any`
+Data type: `Epel::Proxy`
 
 
 
-Default value: `$epel::params::epel_testing_debuginfo_proxy`
+Default value: `$proxy`
 
 ##### <a name="-epel--epel_testing_debuginfo_enabled"></a>`epel_testing_debuginfo_enabled`
 
@@ -788,7 +805,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_debuginfo_enabled`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_testing_debuginfo_gpgcheck"></a>`epel_testing_debuginfo_gpgcheck`
 
@@ -796,7 +813,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_debuginfo_gpgcheck`
+Default value: `'1'`
 
 ##### <a name="-epel--epel_testing_debuginfo_repo_gpgcheck"></a>`epel_testing_debuginfo_repo_gpgcheck`
 
@@ -804,7 +821,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_debuginfo_repo_gpgcheck`
+Default value: `'0'`
 
 ##### <a name="-epel--epel_testing_debuginfo_metalink"></a>`epel_testing_debuginfo_metalink`
 
@@ -812,7 +829,7 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::epel_testing_debuginfo_metalink`
+Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel${facts['os']['release']['major']}&arch=\$basearch"`
 
 ##### <a name="-epel--epel_testing_debuginfo_exclude"></a>`epel_testing_debuginfo_exclude`
 
@@ -868,5 +885,19 @@ Data type: `Any`
 
 
 
-Default value: `$epel::params::os_maj_release`
+Default value: `$facts['os']['release']['major']`
+
+## Data types
+
+### <a name="Epel--Failovermethod"></a>`Epel::Failovermethod`
+
+A yum repository failover method
+
+Alias of `Enum['absent', 'priority', 'roundrobin']`
+
+### <a name="Epel--Proxy"></a>`Epel::Proxy`
+
+A yum repository proxy
+
+Alias of `Variant[Regexp['.+'], Enum['absent']]`
 
