@@ -15,6 +15,10 @@ describe 'epel' do
       {
         'operatingsystem' => 'RedHat',
         'operatingsystemrelease' => %w[7 8 9]
+      },
+      {
+        'operatingsystem' => 'Amazon',
+        'operatingsystemrelease' => %w[2.0 2023]
       }
     ]
   }
@@ -22,10 +26,23 @@ describe 'epel' do
     context "on #{os}" do
       let(:facts) { os_facts }
 
+      expected_epel_release = if os_facts.dig(:os, 'name') == 'Amazon'
+                                case os_facts.dig(:os, 'release', 'major')
+                                when '2', '2.0'
+                                  '7'
+                                when '2023'
+                                  '9'
+                                else
+                                  os_facts[:operatingsystemmajrelease]
+                                end
+                              else
+                                os_facts[:operatingsystemmajrelease]
+                              end
+
       it { is_expected.to contain_class('epel') }
       it { is_expected.to contain_class('epel::params') }
 
-      case os_facts[:operatingsystemmajrelease]
+      case expected_epel_release
       when '7'
         it_behaves_like 'base 7'
         it_behaves_like 'gpgkey 7'

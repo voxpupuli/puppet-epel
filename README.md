@@ -70,10 +70,8 @@ included with EPEL release, this will not have them.
 
 # Testing and Compatibility
 
-* This module is tested on CentOS 7 and 8 with Puppet 6 and Puppet 7.
-* It should work on any RHEL variant such as RedHat, OracleLinux, Scientific Linux etc.
-* Amazon Linux compatability is not promised, as EPEL doesn't always work with it.
-* Support for EL5 and EL6 is deprecated. It *may* still work but we have no acceptance tests.
+* This module should work on any RHEL variant such as RedHat, OracleLinux, AmazonLinux, etc.
+* See `metadata.json` for what specfic versions are tested.
 
 ## Unit tests
 

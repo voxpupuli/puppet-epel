@@ -8,10 +8,21 @@ class epel::params {
   #   the most specific declaration of proxy.
   $proxy = 'absent'
 
-  if $facts['os']['name'] == 'Amazon' and $facts['os']['release']['major'] == '2' {
-    # Amazon Linux 2 is equivalent of Enterprise Linux 7 so we use that version for epel
-    # https://aws.amazon.com/premiumsupport/knowledge-center/ec2-enable-epel/
-    $os_maj_release = '7'
+  if $facts['os']['name'] == 'Amazon' {
+    case $facts['os']['release']['major'] {
+      '2', '2.0': {
+        # Amazon Linux 2 is roughly aligned with Enterprise Linux 7.
+        # https://aws.amazon.com/premiumsupport/knowledge-center/ec2-enable-epel/
+        $os_maj_release = '7'
+      }
+      '2023': {
+        # Amazon Linux 2023 is roughly aligned with Enterprise Linux 9.
+        $os_maj_release = '9'
+      }
+      default: {
+        $os_maj_release = $facts['os']['release']['major']
+      }
+    }
   } else {
     $os_maj_release = $facts['os']['release']['major']
   }
