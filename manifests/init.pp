@@ -307,6 +307,8 @@ class epel (
         path => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${os_maj_release}",
       }
     }
+
+    ensure_resource('package', 'gnupg2', { ensure => installed })
   } else {
     notice ("Your operating system ${facts['os']['name']} will not have the EPEL repository applied")
   }
