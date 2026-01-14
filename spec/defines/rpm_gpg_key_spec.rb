@@ -7,7 +7,7 @@ describe 'epel::rpm_gpg_key' do
     supported_os: [
       {
         'operatingsystem' => 'RedHat',
-        'operatingsystemrelease' => %w[7 8 9]
+        'operatingsystemrelease' => %w[7 8 9 10]
       }
     ]
   }

@@ -13,6 +13,19 @@ shared_examples 'epel testing' do
   end
 end
 
+shared_examples_for 'epel testing 10' do
+  include_context 'epel testing'
+
+  it do
+    expect(subject).to contain_yumrepo('epel-testing').with(
+      mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=testing-epel10&arch=$basearch',
+      gpgkey: 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-10',
+      descr: 'Extra Packages for Enterprise Linux 10 - Testing - $basearch',
+      failovermethod: 'absent'
+    )
+  end
+end
+
 shared_examples_for 'epel testing 9' do
   include_context 'epel testing'
 

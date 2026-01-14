@@ -4,6 +4,7 @@ require 'voxpupuli/acceptance/spec_helper_acceptance'
 
 configure_beaker do |host|
   host.install_package('yum-utils')
+  host.install_package('gnupg2') if fact('os.release.major').to_i >= 10
 end
 
 shared_examples 'an idempotent manifest' do
