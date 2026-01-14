@@ -51,16 +51,3 @@ shared_examples_for 'epel debuginfo 8' do
     )
   end
 end
-
-shared_examples_for 'epel debuginfo 7' do
-  include_context 'epel debuginfo'
-
-  it do
-    expect(subject).to contain_yumrepo('epel-debuginfo').with(
-      mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&arch=$basearch',
-      gpgkey: 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7',
-      descr: 'Extra Packages for Enterprise Linux 7 - $basearch - Debug',
-      failovermethod: 'priority'
-    )
-  end
-end
