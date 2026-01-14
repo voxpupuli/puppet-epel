@@ -18,22 +18,16 @@ shared_examples 'an idempotent manifest' do
 end
 
 shared_examples 'EPEL is available' do
-  command = if fact('os.release.major').to_i >= 8
-              '/usr/bin/dnf config-manager --dump epel'
-            else
-              '/usr/bin/yum-config-manager epel'
-            end
-  describe command(command) do
+  describe command('/usr/bin/dnf config-manager --dump epel') do
     its(:exit_status) { is_expected.to eq 0 }
     its(:stdout) { is_expected.to match %r{epel} }
   end
 
-  yum_command = fact('os.release.major').to_i >= 8 ? 'dnf' : 'yum'
-  describe command("#{yum_command} clean all") do
+  describe command('dnf clean all') do
     its(:exit_status) { is_expected.to eq 0 }
   end
 
-  describe command("#{yum_command} --disablerepo=\"*\" --enablerepo=\"epel\" list available") do
+  describe command('dnf --disablerepo="*" --enablerepo="epel" list available') do
     its(:exit_status) { is_expected.to eq 0 }
     its(:stdout) { is_expected.to match %r{epel-release} }
   end
