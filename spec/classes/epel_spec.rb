@@ -14,7 +14,7 @@ describe 'epel' do
     supported_os: [
       {
         'operatingsystem' => 'RedHat',
-        'operatingsystemrelease' => %w[7 8 9]
+        'operatingsystemrelease' => %w[7 8 9 10]
       }
     ]
   }
@@ -123,6 +123,46 @@ describe 'epel' do
           end
 
           it { is_expected.to contain_yumrepo('epel').with(baseurl: 'https://example.com/epel/9/x86_64') }
+          it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
+        end
+
+        context 'epel_mirrorlist => absent' do
+          let(:params) do
+            {
+              epel_mirrorlist: 'absent'
+            }
+          end
+
+          it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
+        end
+
+        context 'epel_username/password' do
+          let(:params) do
+            {
+              epel_username: 'user',
+              epel_password: 'password',
+            }
+          end
+
+          it { is_expected.to contain_yumrepo('epel').with(username: 'user') }
+          it { is_expected.to contain_yumrepo('epel').with(password: 'password') }
+        end
+      when '10'
+        it_behaves_like 'base 10'
+        it_behaves_like 'gpgkey 10'
+        it_behaves_like 'epel source 10'
+        it_behaves_like 'epel debuginfo 10'
+        it_behaves_like 'epel testing 10'
+        it_behaves_like 'epel testing source 10'
+        it_behaves_like 'epel testing debuginfo 10'
+        context 'epel_baseurl => https://example.com/epel/10/x86_64' do
+          let(:params) do
+            {
+              epel_baseurl: 'https://example.com/epel/10/x86_64'
+            }
+          end
+
+          it { is_expected.to contain_yumrepo('epel').with(baseurl: 'https://example.com/epel/10/x86_64') }
           it { is_expected.to contain_yumrepo('epel').with(mirrorlist: 'absent') }
         end
 
