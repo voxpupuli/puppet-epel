@@ -51,16 +51,3 @@ shared_examples_for 'epel testing source 8' do
     )
   end
 end
-
-shared_examples_for 'epel testing source 7' do
-  include_context 'epel testing source'
-
-  it do
-    expect(subject).to contain_yumrepo('epel-testing-source').with(
-      mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel7&arch=$basearch',
-      gpgkey: 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7',
-      descr: 'Extra Packages for Enterprise Linux 7 - Testing - $basearch - Source',
-      failovermethod: 'priority'
-    )
-  end
-end
