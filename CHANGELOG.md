@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v6.0.0](https://github.com/voxpupuli/puppet-epel/tree/v6.0.0) (2026-01-15)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v5.0.0...v6.0.0)
+
+**Breaking changes:**
+
+- Drop puppet, update openvox minimum version to 8.19 [\#165](https://github.com/voxpupuli/puppet-epel/pull/165) ([TheMeier](https://github.com/TheMeier))
+- Drop support for EL7 [\#160](https://github.com/voxpupuli/puppet-epel/pull/160) ([jhoblitt](https://github.com/jhoblitt))
+
+**Implemented enhancements:**
+
+- Support EL10 [\#173](https://github.com/voxpupuli/puppet-epel/pull/173) ([treydock](https://github.com/treydock))
+- metadata.json: Add OpenVox [\#161](https://github.com/voxpupuli/puppet-epel/pull/161) ([jstraw](https://github.com/jstraw))
+
 ## [v5.0.0](https://github.com/voxpupuli/puppet-epel/tree/v5.0.0) (2023-08-22)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v4.1.0...v5.0.0)
