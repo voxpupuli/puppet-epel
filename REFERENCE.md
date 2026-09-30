@@ -209,11 +209,9 @@ Default value: `true`
 
 ##### <a name="-epel--epel_mirrorlist"></a>`epel_mirrorlist`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-${facts['os']['release']['major']}&arch=\$basearch"`
+Mirrorlist URL of the `epel` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_baseurl"></a>`epel_baseurl`
 
@@ -265,11 +263,9 @@ Default value: `'0'`
 
 ##### <a name="-epel--epel_metalink"></a>`epel_metalink`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-${facts['os']['release']['major']}&arch=\$basearch"`
+Metalink URL of the `epel` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_exclude"></a>`epel_exclude`
 
@@ -321,11 +317,9 @@ Default value: `undef`
 
 ##### <a name="-epel--epel_testing_mirrorlist"></a>`epel_testing_mirrorlist`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-epel${facts['os']['release']['major']}&arch=\$basearch"`
+Mirrorlist URL of the `epel-testing` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_testing_baseurl"></a>`epel_testing_baseurl`
 
@@ -377,11 +371,9 @@ Default value: `'0'`
 
 ##### <a name="-epel--epel_testing_metalink"></a>`epel_testing_metalink`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-epel${facts['os']['release']['major']}&arch=\$basearch"`
+Metalink URL of the `epel-testing` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_testing_exclude"></a>`epel_testing_exclude`
 
@@ -433,11 +425,9 @@ Default value: `undef`
 
 ##### <a name="-epel--epel_source_mirrorlist"></a>`epel_source_mirrorlist`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-source-${facts['os']['release']['major']}&arch=\$basearch"`
+Mirrorlist URL of the `epel-source` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_source_baseurl"></a>`epel_source_baseurl`
 
@@ -489,11 +479,9 @@ Default value: `'0'`
 
 ##### <a name="-epel--epel_source_metalink"></a>`epel_source_metalink`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-source-${facts['os']['release']['major']}&arch=\$basearch"`
+Metalink URL of the `epel-source` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_source_exclude"></a>`epel_source_exclude`
 
@@ -545,11 +533,9 @@ Default value: `undef`
 
 ##### <a name="-epel--epel_debuginfo_mirrorlist"></a>`epel_debuginfo_mirrorlist`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-debug-${facts['os']['release']['major']}&arch=\$basearch"`
+Mirrorlist URL of the `epel-debuginfo` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_debuginfo_baseurl"></a>`epel_debuginfo_baseurl`
 
@@ -601,11 +587,9 @@ Default value: `'0'`
 
 ##### <a name="-epel--epel_debuginfo_metalink"></a>`epel_debuginfo_metalink`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=epel-debug-${facts['os']['release']['major']}&arch=\$basearch"`
+Metalink URL of the `epel-debuginfo` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_debuginfo_exclude"></a>`epel_debuginfo_exclude`
 
@@ -657,11 +641,9 @@ Default value: `undef`
 
 ##### <a name="-epel--epel_testing_source_mirrorlist"></a>`epel_testing_source_mirrorlist`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel${facts['os']['release']['major']}&arch=\$basearch"`
+Mirrorlist URL of the `epel-testing-source` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_testing_source_baseurl"></a>`epel_testing_source_baseurl`
 
@@ -713,11 +695,9 @@ Default value: `'0'`
 
 ##### <a name="-epel--epel_testing_source_metalink"></a>`epel_testing_source_metalink`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel${facts['os']['release']['major']}&arch=\$basearch"`
+Metalink URL of the `epel-testing-source` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_testing_source_exclude"></a>`epel_testing_source_exclude`
 
@@ -769,11 +749,9 @@ Default value: `undef`
 
 ##### <a name="-epel--epel_testing_debuginfo_mirrorlist"></a>`epel_testing_debuginfo_mirrorlist`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel${facts['os']['release']['major']}&arch=\$basearch"`
+Mirrorlist URL of the `epel-testing-debuginfo` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_testing_debuginfo_baseurl"></a>`epel_testing_debuginfo_baseurl`
 
@@ -825,11 +803,9 @@ Default value: `'0'`
 
 ##### <a name="-epel--epel_testing_debuginfo_metalink"></a>`epel_testing_debuginfo_metalink`
 
-Data type: `Any`
+Data type: `String[1]`
 
-
-
-Default value: `"https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel${facts['os']['release']['major']}&arch=\$basearch"`
+Metalink URL of the `epel-testing-debuginfo` repository. Defaults (from module hiera data) to the Fedora metalink for the OS major release; on EL10 the per-minor-release metalink is used via dnf's `$releasever_minor`.
 
 ##### <a name="-epel--epel_testing_debuginfo_exclude"></a>`epel_testing_debuginfo_exclude`
 

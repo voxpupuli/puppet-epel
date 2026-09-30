@@ -36,6 +36,16 @@ http proxy, or disable gpg checking.
 
 A list of all parameters is available in [REFERENCE.md](REFERENCE.md).
 
+## EL10 and minor releases
+
+Starting with EL10, EPEL publishes a separate repository per minor release
+(`epel-10.0`, `epel-10.1`, ...). On EL10 the module therefore points the
+metalink at `epel-10.$releasever_minor`, using the `$releasever_minor` variable
+that dnf derives from the distribution, so hosts automatically follow their own
+minor release. The default URLs live in the module's hiera data
+(`data/common.yaml` and `data/os/RedHat/10.yaml`) and can be overridden per
+repository with the `*_mirrorlist` / `*_metalink` parameters.
+
 You can also use a puppet one-liner to get epel onto a system.
 
     puppet apply -e 'include epel'

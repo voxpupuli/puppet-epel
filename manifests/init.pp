@@ -18,22 +18,58 @@
 #   Determines if the `epel-testing-debuginfo` repository is managed.
 # @param epel_gpg_managed
 #   Detemines if the module manages the rpm-gpg key for EPEL.
+# @param epel_mirrorlist
+#   Mirrorlist URL of the main EPEL repository. Defaults (from module hiera
+#   data) to the Fedora metalink for the OS major release; on EL10 the
+#   per-minor-release metalink is used via dnf's `$releasever_minor`.
+# @param epel_metalink
+#   Metalink URL of the main EPEL repository. See `epel_mirrorlist`.
+# @param epel_testing_mirrorlist
+#   Mirrorlist URL of the `epel-testing` repository. See `epel_mirrorlist`.
+# @param epel_testing_metalink
+#   Metalink URL of the `epel-testing` repository. See `epel_mirrorlist`.
+# @param epel_source_mirrorlist
+#   Mirrorlist URL of the `epel-source` repository. See `epel_mirrorlist`.
+# @param epel_source_metalink
+#   Metalink URL of the `epel-source` repository. See `epel_mirrorlist`.
+# @param epel_debuginfo_mirrorlist
+#   Mirrorlist URL of the `epel-debuginfo` repository. See `epel_mirrorlist`.
+# @param epel_debuginfo_metalink
+#   Metalink URL of the `epel-debuginfo` repository. See `epel_mirrorlist`.
+# @param epel_testing_source_mirrorlist
+#   Mirrorlist URL of the `epel-testing-source` repository. See `epel_mirrorlist`.
+# @param epel_testing_source_metalink
+#   Metalink URL of the `epel-testing-source` repository. See `epel_mirrorlist`.
+# @param epel_testing_debuginfo_mirrorlist
+#   Mirrorlist URL of the `epel-testing-debuginfo` repository. See `epel_mirrorlist`.
+# @param epel_testing_debuginfo_metalink
+#   Metalink URL of the `epel-testing-debuginfo` repository. See `epel_mirrorlist`.
 #
 # @example Basic Usage
 #   include epel
 #
 # @see https://fedoraproject.org/wiki/EPEL
 class epel (
+  String[1] $epel_mirrorlist,
+  String[1] $epel_metalink,
+  String[1] $epel_testing_mirrorlist,
+  String[1] $epel_testing_metalink,
+  String[1] $epel_source_mirrorlist,
+  String[1] $epel_source_metalink,
+  String[1] $epel_debuginfo_mirrorlist,
+  String[1] $epel_debuginfo_metalink,
+  String[1] $epel_testing_source_mirrorlist,
+  String[1] $epel_testing_source_metalink,
+  String[1] $epel_testing_debuginfo_mirrorlist,
+  String[1] $epel_testing_debuginfo_metalink,
   Epel::Failovermethod $failovermethod                 = 'absent',
   Epel::Proxy $proxy                                   = 'absent',
-  $epel_mirrorlist                                     = "https://mirrors.fedoraproject.org/metalink?repo=epel-${facts['os']['release']['major']}&arch=\$basearch",
   $epel_baseurl                                        = 'absent',
   Epel::Failovermethod $epel_failovermethod            = $failovermethod,
   Epel::Proxy $epel_proxy                              = $proxy,
   $epel_enabled                                        = '1',
   $epel_gpgcheck                                       = '1',
   $epel_repo_gpgcheck                                  = '0',
-  $epel_metalink                                       = "https://mirrors.fedoraproject.org/metalink?repo=epel-${facts['os']['release']['major']}&arch=\$basearch",
   Boolean $epel_managed                                = true,
   $epel_exclude                                        = undef,
   $epel_includepkgs                                    = undef,
@@ -41,14 +77,12 @@ class epel (
   $epel_sslclientcert                                  = undef,
   Optional[String[1]] $epel_username                   = undef,
   Optional[String[1]] $epel_password                   = undef,
-  $epel_testing_mirrorlist                             = "https://mirrors.fedoraproject.org/metalink?repo=testing-epel${facts['os']['release']['major']}&arch=\$basearch",
   $epel_testing_baseurl                                = 'absent',
   Epel::Failovermethod $epel_testing_failovermethod    = $failovermethod,
   Epel::Proxy $epel_testing_proxy                      = $proxy,
   $epel_testing_enabled                                = '0',
   $epel_testing_gpgcheck                               = '1',
   $epel_testing_repo_gpgcheck                          = '0',
-  $epel_testing_metalink                               = "https://mirrors.fedoraproject.org/metalink?repo=testing-epel${facts['os']['release']['major']}&arch=\$basearch",
   Boolean $epel_testing_managed                        = true,
   $epel_testing_exclude                                = undef,
   $epel_testing_includepkgs                            = undef,
@@ -56,14 +90,12 @@ class epel (
   $epel_testing_sslclientcert                          = undef,
   Optional[String[1]] $epel_testing_username           = undef,
   Optional[String[1]] $epel_testing_password           = undef,
-  $epel_source_mirrorlist                              = "https://mirrors.fedoraproject.org/metalink?repo=epel-source-${facts['os']['release']['major']}&arch=\$basearch",
   $epel_source_baseurl                                 = 'absent',
   Epel::Failovermethod $epel_source_failovermethod     = $failovermethod,
   Epel::Proxy $epel_source_proxy                       = $proxy,
   $epel_source_enabled                                 = '0',
   $epel_source_gpgcheck                                = '1',
   $epel_source_repo_gpgcheck                           = '0',
-  $epel_source_metalink                                = "https://mirrors.fedoraproject.org/metalink?repo=epel-source-${facts['os']['release']['major']}&arch=\$basearch",
   Boolean $epel_source_managed                         = true,
   $epel_source_exclude                                 = undef,
   $epel_source_includepkgs                             = undef,
@@ -71,14 +103,12 @@ class epel (
   $epel_source_sslclientcert                           = undef,
   Optional[String[1]] $epel_source_username            = undef,
   Optional[String[1]] $epel_source_password            = undef,
-  $epel_debuginfo_mirrorlist                           = "https://mirrors.fedoraproject.org/metalink?repo=epel-debug-${facts['os']['release']['major']}&arch=\$basearch",
   $epel_debuginfo_baseurl                              = 'absent',
   Epel::Failovermethod $epel_debuginfo_failovermethod  = $failovermethod,
   Epel::Proxy $epel_debuginfo_proxy                    = $proxy,
   $epel_debuginfo_enabled                              = '0',
   $epel_debuginfo_gpgcheck                             = '1',
   $epel_debuginfo_repo_gpgcheck                        = '0',
-  $epel_debuginfo_metalink                             = "https://mirrors.fedoraproject.org/metalink?repo=epel-debug-${facts['os']['release']['major']}&arch=\$basearch",
   Boolean $epel_debuginfo_managed                      = true,
   $epel_debuginfo_exclude                              = undef,
   $epel_debuginfo_includepkgs                          = undef,
@@ -86,14 +116,12 @@ class epel (
   $epel_debuginfo_sslclientcert                        = undef,
   Optional[String[1]] $epel_debuginfo_username         = undef,
   Optional[String[1]] $epel_debuginfo_password         = undef,
-  $epel_testing_source_mirrorlist                      = "https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel${facts['os']['release']['major']}&arch=\$basearch",
   $epel_testing_source_baseurl                         = 'absent',
   Epel::Failovermethod $epel_testing_source_failovermethod = $failovermethod,
   Epel::Proxy $epel_testing_source_proxy               = $proxy,
   $epel_testing_source_enabled                         = '0',
   $epel_testing_source_gpgcheck                        = '1',
   $epel_testing_source_repo_gpgcheck                   = '0',
-  $epel_testing_source_metalink                        = "https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel${facts['os']['release']['major']}&arch=\$basearch",
   Boolean $epel_testing_source_managed                 = true,
   $epel_testing_source_exclude                         = undef,
   $epel_testing_source_includepkgs                     = undef,
@@ -101,14 +129,12 @@ class epel (
   $epel_testing_source_sslclientcert                   = undef,
   Optional[String[1]] $epel_testing_source_username    = undef,
   Optional[String[1]] $epel_testing_source_password    = undef,
-  $epel_testing_debuginfo_mirrorlist                   = "https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel${facts['os']['release']['major']}&arch=\$basearch",
   $epel_testing_debuginfo_baseurl                      = 'absent',
   Epel::Failovermethod $epel_testing_debuginfo_failovermethod = $failovermethod,
   Epel::Proxy $epel_testing_debuginfo_proxy            = $proxy,
   $epel_testing_debuginfo_enabled                      = '0',
   $epel_testing_debuginfo_gpgcheck                     = '1',
   $epel_testing_debuginfo_repo_gpgcheck                = '0',
-  $epel_testing_debuginfo_metalink                     = "https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel${facts['os']['release']['major']}&arch=\$basearch",
   Boolean $epel_testing_debuginfo_managed              = true,
   $epel_testing_debuginfo_exclude                      = undef,
   $epel_testing_debuginfo_includepkgs                  = undef,
