@@ -39,6 +39,13 @@
         "9",
         "10"
       ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "9",
+        "10"
+      ]
     }
   ],
   "requirements": [

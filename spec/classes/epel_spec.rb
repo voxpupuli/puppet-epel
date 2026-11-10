@@ -16,6 +16,10 @@ describe 'epel' do
         'operatingsystem' => 'RedHat',
         'operatingsystemrelease' => %w[8 9 10],
       },
+      {
+        'operatingsystem' => 'CentOS',
+        'operatingsystemrelease' => %w[9 10],
+      },
     ],
   }
   on_supported_os(test_on).each do |os, os_facts|
@@ -106,6 +110,9 @@ describe 'epel' do
           it { is_expected.to contain_yumrepo('epel').with(password: 'password') }
         end
       when '10'
+        # CentOS Stream 10 uses the EPEL 10 Stream repositories (epel-10s)
+        let(:epel10_release) { (os_facts[:os]['name'] == 'CentOS') ? '10s' : "10.#{os_facts[:os]['release']['minor']}" }
+
         it_behaves_like 'base 10'
         it_behaves_like 'gpgkey 10'
         it_behaves_like 'epel source 10'

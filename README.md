@@ -44,9 +44,11 @@ metalink at `epel-10.<minor>`, taking the minor release from the
 `os.release.minor` fact, so hosts follow their own minor release on the next
 Puppet run after an upgrade. The fact is used instead of dnf's
 `$releasever_minor` variable because not every EL10 derivative (for example
-Oracle Linux) defines that variable. The default URLs live in the module's hiera data
-(`data/common.yaml` and `data/os/RedHat/10.yaml`) and can be overridden per
-repository with the `*_mirrorlist` / `*_metalink` parameters.
+Oracle Linux) defines that variable. CentOS Stream 10 uses the EPEL 10 Stream
+repositories (`epel-10s`, ...), as Fedora's `epel-release` package does.
+The default URLs live in the module's hiera data (`data/common.yaml`,
+`data/os/RedHat/10.yaml` and `data/os/RedHat/CentOS/10.yaml`) and can be
+overridden per repository with the `*_mirrorlist` / `*_metalink` parameters.
 
 You can also use a puppet one-liner to get epel onto a system.
 
