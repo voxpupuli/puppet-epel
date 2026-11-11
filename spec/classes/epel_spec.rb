@@ -110,9 +110,7 @@ describe 'epel' do
           it { is_expected.to contain_yumrepo('epel').with(password: 'password') }
         end
       when '10'
-        # CentOS Stream 10 uses the EPEL 10 Stream repositories (epel-10s), the
-        # other EL10 releases the repositories named after the major release
-        let(:epel10_release) { (os_facts[:os]['name'] == 'CentOS') ? '10s' : '10' }
+        let(:epel10_release) { (os_facts[:os]['name'] == 'CentOS') ? '10s' : "10.${releasever_minor:-#{os_facts[:os]['release']['minor']}}" }
 
         it_behaves_like 'base 10'
         it_behaves_like 'gpgkey 10'
