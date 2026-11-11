@@ -21,4 +21,10 @@ shared_examples 'EPEL is available' do
     its(:exit_status) { is_expected.to eq 0 }
     its(:stdout) { is_expected.to match %r{epel-release} }
   end
+
+  # certbot's dependencies are built against the base OS, so this fails if EPEL serves a mismatched branch.
+  describe command('dnf -y install --downloadonly certbot') do
+    its(:exit_status) { is_expected.to eq 0 }
+    its(:stdout) { is_expected.to match %r{certbot} }
+  end
 end

@@ -20,8 +20,8 @@
 #   Detemines if the module manages the rpm-gpg key for EPEL.
 # @param epel_mirrorlist
 #   Mirrorlist URL of the main EPEL repository. Defaults (from module hiera
-#   data) to the Fedora metalink for the OS major release (on CentOS Stream
-#   10, the EPEL 10 Stream repository `epel-10s`).
+#   data) to the Fedora metalink for the OS major release; on EL10 the
+#   host's minor release branch (on CentOS Stream 10, `epel-10s`).
 # @param epel_metalink
 #   Metalink URL of the main EPEL repository. See `epel_mirrorlist`.
 # @param epel_testing_mirrorlist

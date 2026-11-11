@@ -39,15 +39,17 @@ A list of all parameters is available in [REFERENCE.md](REFERENCE.md).
 ## EL10 and minor releases
 
 Starting with EL10, EPEL publishes a separate repository per minor release
-(`epel-10.0`, `epel-10.1`, ...). Like Fedora's `epel-release` package, the
-module uses the repositories named after the major release (`epel-10`, ...),
-which always point to the EPEL branch matching the latest RHEL minor release.
-CentOS Stream 10 uses the EPEL 10 Stream repositories (`epel-10s`, ...).
+(`epel-10.0`, `epel-10.1`, ...). On EL10 the module pins the metalink to
+`epel-10.${releasever_minor}`, which dnf resolves on every transaction, so a
+minor upgrade switches EPEL branch together with the base OS. Where dnf does
+not define `$releasever_minor` (for example Oracle Linux), the
+`os.release.minor` fact is used instead. The rolling `epel-10` repository is
+not used: it tracks the latest RHEL minor release and breaks derivatives that
+have not shipped it yet. CentOS Stream 10 uses the EPEL 10 Stream repositories
+(`epel-10s`, ...), as Fedora's `epel-release` package does.
 The default URLs live in the module's hiera data (`data/common.yaml`,
 `data/os/RedHat/10.yaml` and `data/os/RedHat/CentOS/10.yaml`) and can be
-overridden per repository with the `*_mirrorlist` / `*_metalink` parameters,
-for example to pin hosts that intentionally stay on a minor release (EUS) to
-`epel-10.<minor>`.
+overridden per repository with the `*_mirrorlist` / `*_metalink` parameters.
 
 You can also use a puppet one-liner to get epel onto a system.
 
