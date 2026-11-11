@@ -1,6 +1,6 @@
 {
   "name": "puppet-epel",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "author": "Vox Pupuli",
   "summary": "Setup the EPEL package repo",
   "license": "Apache-2.0",

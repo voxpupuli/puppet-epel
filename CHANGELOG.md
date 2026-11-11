@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v6.1.2](https://github.com/voxpupuli/puppet-epel/tree/v6.1.2) (2026-11-11)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v6.1.1...v6.1.2)
+
+**Fixed bugs:**
+
+- Pin EPEL 10 to the host's minor release [\#194](https://github.com/voxpupuli/puppet-epel/pull/194) ([vchepkov](https://github.com/vchepkov))
+
 ## [v6.1.1](https://github.com/voxpupuli/puppet-epel/tree/v6.1.1) (2026-11-11)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-epel/compare/v6.1.0...v6.1.1)
