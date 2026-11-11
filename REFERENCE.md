@@ -212,8 +212,8 @@ Default value: `true`
 Data type: `String[1]`
 
 Mirrorlist URL of the main EPEL repository. Defaults (from module hiera
-data) to the Fedora metalink for the OS major release; on EL10 the
-per-minor-release metalink is selected from the `os.release.minor` fact.
+data) to the Fedora metalink for the OS major release (on CentOS Stream
+10, the EPEL 10 Stream repository `epel-10s`).
 
 Default value: `'https://mirrors.fedoraproject.org/metalink?repo=epel-%{facts.os.release.major}&arch=$basearch'`
 

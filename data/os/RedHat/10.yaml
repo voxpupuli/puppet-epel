@@ -1,20 +1,22 @@
 ---
 # EPEL 10 is published per minor release (epel-10.0, epel-10.1, ...) and the
-# testing/debug/source repositories switched to the 'epel-<flavour>-<release>'
-# naming. The minor release is taken from the os.release.minor fact rather
-# than from dnf's $releasever_minor variable, because not every EL10
-# derivative (e.g. Oracle Linux) provides system-release(releasever_minor),
-# in which case dnf expands the variable to an empty string.
-# Source repositories use arch=source, as in the epel-release package.
-epel::epel_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-%{facts.os.release.major}.%{facts.os.release.minor}&arch=$basearch'
-epel::epel_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-%{facts.os.release.major}.%{facts.os.release.minor}&arch=$basearch'
-epel::epel_testing_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-%{facts.os.release.major}.%{facts.os.release.minor}&arch=$basearch'
-epel::epel_testing_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-%{facts.os.release.major}.%{facts.os.release.minor}&arch=$basearch'
-epel::epel_source_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-source-%{facts.os.release.major}.%{facts.os.release.minor}&arch=source'
-epel::epel_source_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-source-%{facts.os.release.major}.%{facts.os.release.minor}&arch=source'
-epel::epel_debuginfo_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-debug-%{facts.os.release.major}.%{facts.os.release.minor}&arch=$basearch'
-epel::epel_debuginfo_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-debug-%{facts.os.release.major}.%{facts.os.release.minor}&arch=$basearch'
-epel::epel_testing_source_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-source-%{facts.os.release.major}.%{facts.os.release.minor}&arch=source'
-epel::epel_testing_source_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-source-%{facts.os.release.major}.%{facts.os.release.minor}&arch=source'
-epel::epel_testing_debuginfo_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-debug-%{facts.os.release.major}.%{facts.os.release.minor}&arch=$basearch'
-epel::epel_testing_debuginfo_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-debug-%{facts.os.release.major}.%{facts.os.release.minor}&arch=$basearch'
+# testing/debug/source repositories use the 'epel-<flavour>-<release>'
+# naming. Like Fedora's epel-release package, use the repositories named after
+# the major release (epel-10, epel-testing-10, ...), which always point to the
+# EPEL branch of the latest RHEL minor release. Pinning the minor release from
+# the os.release.minor fact breaks minor upgrades: the fact is only updated on
+# the Puppet run after the upgrade, so during the upgrade dnf still uses the
+# previous, frozen, EPEL branch whose packages can conflict with the new base
+# packages. Source repositories use arch=source, as in epel-release.
+epel::epel_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-%{facts.os.release.major}&arch=$basearch'
+epel::epel_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-%{facts.os.release.major}&arch=$basearch'
+epel::epel_testing_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-%{facts.os.release.major}&arch=$basearch'
+epel::epel_testing_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-%{facts.os.release.major}&arch=$basearch'
+epel::epel_source_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-source-%{facts.os.release.major}&arch=source'
+epel::epel_source_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-source-%{facts.os.release.major}&arch=source'
+epel::epel_debuginfo_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-debug-%{facts.os.release.major}&arch=$basearch'
+epel::epel_debuginfo_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-debug-%{facts.os.release.major}&arch=$basearch'
+epel::epel_testing_source_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-source-%{facts.os.release.major}&arch=source'
+epel::epel_testing_source_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-source-%{facts.os.release.major}&arch=source'
+epel::epel_testing_debuginfo_mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-debug-%{facts.os.release.major}&arch=$basearch'
+epel::epel_testing_debuginfo_metalink: 'https://mirrors.fedoraproject.org/metalink?repo=epel-testing-debug-%{facts.os.release.major}&arch=$basearch'
